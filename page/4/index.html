@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
@@ -9,18 +18,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+
 
 
 
@@ -29,16 +29,7 @@
     
     
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2">
 
 
 
@@ -53,52 +44,66 @@
 
 
 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ttt.ico?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ttt.ico?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ttt.ico?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'TBI6JFVCNE',
+      apiKey: '145eaebb3a26faa57c63d57286ce1c74',
+      indexName: 'qindex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
 
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/ttt.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/ttt.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/ttt.ico?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="wave's blog" type="application/atom+xml">
-
-
-
-
-
-
-<meta name="description" content="In doing we learn">
+  <meta name="description" content="In doing we learn">
 <meta property="og:type" content="website">
 <meta property="og:title" content="wave&#39;s blog">
 <meta property="og:url" content="http://imbotao.top/page/4/index.html">
@@ -111,39 +116,23 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: 'TBI6JFVCNE',
-      apiKey: '145eaebb3a26faa57c63d57286ce1c74',
-      indexName: 'qindex',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+  <link rel="alternate" href="/atom.xml" title="wave's blog" type="application/atom+xml">
 
 
 
+  
+  
   <link rel="canonical" href="http://imbotao.top/page/4/">
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>wave's blog - Less is More</title>
+  <title>wave's blog – Less is More</title>
   
 
 
@@ -152,6 +141,35 @@
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
@@ -165,11 +183,10 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
-	<a target="_blank" href="https://github.com/wave-gbt">
-	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -179,13 +196,16 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Less is More</p>
+        <h1 class="site-subtitle" itemprop="description">Less is More</h1>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -193,76 +213,111 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-书单">
-          <a href="/books/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
-            
-            书单
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-books">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>books</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -277,7 +332,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -291,12 +346,30 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/wave-gbt" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -309,6 +382,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -318,7 +393,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -331,33 +406,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js-execute-process.html" itemprop="url">这一次，彻底弄懂 JavaScript 执行机制</a></h1>
+                
+                <a href="/js-execute-process.html" class="post-title-link" itemprop="url">这一次，彻底弄懂 JavaScript 执行机制</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T10:44:20+08:00">
-                2018-01-08
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-08 10:44:20" itemprop="dateCreated datePublished" datetime="2018-01-08T10:44:20+08:00">2018-01-08</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -394,23 +496,19 @@
         
       
     </div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -442,6 +540,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -451,7 +551,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -464,33 +564,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/spring-transaction.html" itemprop="url">Spring 事务管理</a></h1>
+                
+                <a href="/spring-transaction.html" class="post-title-link" itemprop="url">Spring 事务管理</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T10:01:51+08:00">
-                2018-01-08
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-08 10:01:51" itemprop="dateCreated datePublished" datetime="2018-01-08T10:01:51+08:00">2018-01-08</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -524,32 +651,30 @@
 <li>隔离性：隔离性指多个用户并发访问数据库时，一个用户的事务不能被其他用户的事务所干扰，多个并发事务之间数据要互相隔离。</li>
 <li>持久性：是指一个事务一旦被提交，它对数据库中数据的改变就是永久性的，即使数据库发送故障也不应该对其有任何影响。
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/spring-transaction.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/spring-transaction.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </li></ol></div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -581,6 +706,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -590,7 +717,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -603,33 +730,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python-data-collection.html" itemprop="url">Python 遇见数据采集</a></h1>
+                
+                <a href="/python-data-collection.html" class="post-title-link" itemprop="url">Python 遇见数据采集</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T14:21:45+08:00">
-                2018-01-04
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-04 14:21:45" itemprop="dateCreated datePublished" datetime="2018-01-04T14:21:45+08:00">2018-01-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -661,32 +815,30 @@
 </li>
 </ul>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python-data-collection.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python-data-collection.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -718,6 +870,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -727,7 +881,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -740,33 +894,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python-operations-MySQL-Database.html" itemprop="url">Python 操作 MySQL 数据库</a></h1>
+                
+                <a href="/python-operations-MySQL-Database.html" class="post-title-link" itemprop="url">Python 操作 MySQL 数据库</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T09:54:29+08:00">
-                2018-01-04
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-01-04 09:54:29" itemprop="dateCreated datePublished" datetime="2018-01-04T09:54:29+08:00">2018-01-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -797,32 +978,30 @@
 <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><h3 id="Python-DB-API"><a href="#Python-DB-API" class="headerlink" title="Python DB API"></a>Python DB API</h3><ul>
 <li>是 Python 访问数据库的统一接口规范。<a href="https://www.python.org/dev/peps/pep-0249" target="_blank" rel="noopener">官方接口说明</a>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python-operations-MySQL-Database.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python-operations-MySQL-Database.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </li></ul></div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -854,6 +1033,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -863,7 +1044,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -876,33 +1057,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/es-introductory-learning.html" itemprop="url">ElasticSearch入门</a></h1>
+                
+                <a href="/es-introductory-learning.html" class="post-title-link" itemprop="url">ElasticSearch入门</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T19:19:50+08:00">
-                2017-12-04
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-12-04 19:19:50" itemprop="dateCreated datePublished" datetime="2017-12-04T19:19:50+08:00">2017-12-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -934,32 +1142,30 @@
 <li>采用java编写，提供简单易用的Restful API</li>
 <li>轻松的横向扩展，可支持PB级的结构化或非结构化数据处理
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/es-introductory-learning.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/es-introductory-learning.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </li></ol></div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -991,6 +1197,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -1000,7 +1208,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -1013,33 +1221,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css-advanced.html" itemprop="url">CSS 进阶篇[转]</a></h1>
+                
+                <a href="/css-advanced.html" class="post-title-link" itemprop="url">CSS 进阶篇[转]</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T15:32:37+08:00">
-                2017-12-04
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-12-04 15:32:37" itemprop="dateCreated datePublished" datetime="2017-12-04T15:32:37+08:00">2017-12-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1068,32 +1303,30 @@
         
           <h1 id="一、CSS2-高阶知识（常用）"><a href="#一、CSS2-高阶知识（常用）" class="headerlink" title="一、CSS2 高阶知识（常用）"></a>一、CSS2 高阶知识（常用）</h1><h2 id="1-css-优先权"><a href="#1-css-优先权" class="headerlink" title="1. css 优先权"></a>1. css 优先权</h2><p>优先权（从低到高）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">浏览器缺省设置</span><br><span class="line">外部样式表</span><br><span class="line">内部样式表（位于 &lt;head&gt; 标签内部）</span><br><span class="line">内联样式（在 HTML 元素内部）</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/css-advanced.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/css-advanced.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -1125,6 +1358,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -1134,7 +1369,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -1147,33 +1382,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/oracle-trigger.html" itemprop="url">Oracle 触发器</a></h1>
+                
+                <a href="/oracle-trigger.html" class="post-title-link" itemprop="url">Oracle 触发器</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T10:40:55+08:00">
-                2017-12-04
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-12-04 10:40:55" itemprop="dateCreated datePublished" datetime="2017-12-04T10:40:55+08:00">2017-12-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1202,32 +1464,30 @@
         
           <h2 id="触发器相关概念及语法"><a href="#触发器相关概念及语法" class="headerlink" title="触发器相关概念及语法"></a>触发器相关概念及语法</h2><h3 id="触发器概述"><a href="#触发器概述" class="headerlink" title="触发器概述"></a>触发器概述</h3><h4 id="什么是触发器"><a href="#什么是触发器" class="headerlink" title="什么是触发器"></a>什么是触发器</h4><p>　　触发器是一种特殊的存储过程，和存储过程和存储函数一样是一个pl/sql程序块，触发器是不能接受参数，不能显示调用，只是随着事件触发隐式运行的存储过程程序块。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/oracle-trigger.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/oracle-trigger.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </p></div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -1259,6 +1519,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -1268,7 +1530,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -1281,33 +1543,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/oracle-procedure-function.html" itemprop="url">Oracle存储过程和自定义函数</a></h1>
+                
+                <a href="/oracle-procedure-function.html" class="post-title-link" itemprop="url">Oracle存储过程和自定义函数</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:27:31+08:00">
-                2017-12-02
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-12-02 15:27:31" itemprop="dateCreated datePublished" datetime="2017-12-02T15:27:31+08:00">2017-12-02</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1336,32 +1625,30 @@
         
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>　　存储过程和存储函数是指存储在数据库中供所有用户程序调用的子程序叫存储过程、存储函数。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/oracle-procedure-function.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/oracle-procedure-function.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </p></div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -1393,6 +1680,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -1402,7 +1691,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -1415,33 +1704,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-reflect.html" itemprop="url">Java 反射</a></h1>
+                
+                <a href="/java-reflect.html" class="post-title-link" itemprop="url">Java 反射</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T11:07:44+08:00">
-                2017-11-08
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-08 11:07:44" itemprop="dateCreated datePublished" datetime="2017-11-08T11:07:44+08:00">2017-11-08</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1470,32 +1786,30 @@
         
           <h3 id="Class-类的使用"><a href="#Class-类的使用" class="headerlink" title="Class 类的使用"></a>Class 类的使用</h3><h4 id="在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><a href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型" class="headerlink" title="在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)"></a>在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</h4><p>　　类是对象，类是java.lang.Class类的实例对象<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/java-reflect.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/java-reflect.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </p></div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -1527,6 +1841,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
@@ -1536,7 +1852,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="In doing we learn">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -1549,33 +1865,60 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/freemark-analysis-json-string.html" itemprop="url">FreeMarker解析json数据</a></h1>
+                
+                <a href="/freemark-analysis-json-string.html" class="post-title-link" itemprop="url">FreeMarker解析json数据</a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T16:22:06+08:00">
-                2017-11-07
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2017-11-07 16:22:06" itemprop="dateCreated datePublished" datetime="2017-11-07T16:22:06+08:00">2017-11-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
+              
             
           </span>
 
           
 
           
+            
             
           
 
@@ -1604,32 +1947,30 @@
         
           <p>模拟后台传过来的 json 字符串<code>text</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;#assign text&gt;</span><br><span class="line">&#123;&quot;res&quot;:&quot;0&quot;,&quot;msg&quot;:&quot;OK&quot;,&quot;userlist&quot;:[&#123;&quot;id&quot;:&quot;3&quot;,&quot;name&quot;:&quot;cc&quot;,&quot;sex&quot;:&quot;女&quot;,&quot;age&quot;:&quot;20&quot;&#125;]&#125;</span><br><span class="line">&lt;/#assign&gt;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/freemark-analysis-json-string.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/freemark-analysis-json-string.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
 
     
 
     
+    
+    
 
+    
 
-
-    <div>
-        
-    </div>
+    
+      
+    
+    
 
     
 
@@ -1657,15 +1998,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1681,50 +2019,131 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="wave">
             
               <p class="site-author-name" itemprop="name">wave</p>
-              <p class="site-description motion-element" itemprop="description">In doing we learn</p>
+              <div class="site-description motion-element" itemprop="description">In doing we learn</div>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
+          
+            <nav class="site-state motion-element">
               
-                <a href="/archives/">
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">95</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">95</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
-
-            
               
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
 
-          </nav>
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -1735,43 +2154,59 @@
             </div>
           
 
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/wave-gbt" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://leetcode.com/wave_t" target="_blank" title="LeetCode">
-                    
-                      <i class="fa fa-fw fa-code"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weibo.com/wave628" target="_blank" title="WeiBo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/botaogou" target="_blank" title="Twitter">
-                    
-                      <i class="fa fa-fw fa-twitter"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:botaogou@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i></a>
-                </span>
-              
-            
-          </div>
+          
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/wave-gbt" title="GitHub &rarr; https://github.com/wave-gbt" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://leetcode.com/wave_t" title="LeetCode &rarr; https://leetcode.com/wave_t" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/wave628" title="WeiBo &rarr; https://weibo.com/wave628" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/botaogou" title="Twitter &rarr; https://twitter.com/botaogou" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:botaogou@gmail.com" title="E-Mail &rarr; mailto:botaogou@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
           
 
           
@@ -1779,20 +2214,16 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-block">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-link"></i>
-                推荐阅读
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://zyf.im" title="Yifans_Z" target="_blank">Yifans_Z</a>
+                    <a href="http://zyf.im" title="http://zyf.im" rel="noopener" target="_blank">Yifans_Z</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://dangluren.top" title="挡路人" target="_blank">挡路人</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://read.douban.com/author/63711069" title="阿凋-豆瓣作者" target="_blank">阿凋-豆瓣作者</a>
+                    <a href="http://dangluren.top" title="http://dangluren.top" rel="noopener" target="_blank">挡路人</a>
                   </li>
                 
               </ul>
@@ -1800,9 +2231,12 @@
           
 
           
+            
+          
+          
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1810,6 +2244,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -1818,29 +2253,32 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">wave</span>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
-  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
-  </div>
+
+  
+
   
 </div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-
-  
-</div>
 
 
 
@@ -1862,11 +2300,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1880,107 +2321,16 @@
 
 
 
-  
-
-
-  
-
-
-
-
-
-
 
 
 
 
 
   
+    
+    
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -1994,7 +2344,61 @@
 
   
 
-  <script type="text/javascript">
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2043,6 +2447,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2076,8 +2482,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2246,9 +2653,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2320,55 +2727,38 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
 
-
-  
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
   
 
   
 
-<script type="text/javascript" src="/js/src/love.js"></script>
-undefined
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
