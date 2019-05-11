@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>生日快乐-憨憨</title>
+    <link rel="icon" href="./jscss/ttt.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./jscss/ttt.ico" type="image/x-icon">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="./jscss/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="./jscss/jquery.js"></script>
+    <script type="text/javascript" src="./jscss/garden.js"></script>
+    <script type="text/javascript" src="./jscss/functions.js"></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <div id="content" style="width: 1110px; height: 625px; margin-top: 52px; margin-left: 245px;">
+            <div id="code" style="margin-top: 112.5px;">
+                <span class="comments">/**</span><br>
+                <span class="space"><span class="comments">*因为我是一个程序员,</span><br>
+                <span class="space"><span class="comments">*所以我写一些代码来显示我对你的爱。</span><br>
+                <span class="space"><span class="comments">*/</span><br>
+                Boy i = <span class="keyword">new</span> Boy(<span class="string">"涛涛"</span>);<br>
+                Girl u = <span class="keyword">new</span> Girl(<span class="string">"憨憨"</span>);<br>
+                <span class="comments">// 我们的故事开始在何老师的英语群里。 </span><br>
+                i.find(u);<br>
+                <span class="comments">// 但是......，那个时候我只是一个会修电脑的学长。</span><br>
+                u.sayThanks(i);<br>
+				u.giveCola(i);<br>
+                <span class="comments">// 没有原因。</span><br>
+                <span class="keyword">String</span> reason=i.ask(u);<br>
+                <span class="comments">// 我们并没有足够的了解对方。</span><br>
+                i.startCodeWarWith(u);<br>
+                <span class="comments">// 我们的专业天差地别，关系发展毫无前途。</span><br>
+                <span class="comments">// And take care of u and our love.</span><br>
+                i.takeCareOf(u);<br>
+				<span class="comments">// 我们一起去了秦皇岛看海，并吃了好多的虾爬子和螃蟹</span><br>
+                <span class="comments">// 岁月艰难，谢谢你一直都在</span><br>
+				<span class="keyword">boolean</span> isHappy = <span class="keyword">false</span>;<br>
+                <span class="keyword">while</span> (isHappy) {<br>
+                <span class="placeholder">i.takeCareOf(u);<br>
+				<span class="placeholder">i.comfort(u);<br>
+                <span class="placeholder"><span class="comments">// 这是最重要的决定</span><br>
+                <span class="placeholder"><span class="comments">// 跌跌撞撞的生活，我们需要忘记不愉快的事情</span><br>
+                <span class="placeholder">isHappy = u.thinkOver();<br>
+                }<br>
+                <span class="comments">// 我们越来越有默契，相互关心，生活会慢慢好起来的。</span><br>
+                u.takeCareOf(i);<br>
+                i.liveHappilyWith(u);<br>
+            </span></span></span></span></span></span></span>_</span></div>
+            <div id="loveHeart">
+                <canvas id="garden" width="670" height="625"></canvas>
+                <div id="words" style="position: absolute; top: 257px; left: 765px;">
+                    <div id="messages" style="display: block;">
+                        憨憨，生日快乐
+                    </div>
+                    <div id="loveu" style="display: block;">
+                        等我代码练成，娶你可好<br>
+                        <div class="signature">- 11.09</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                adjustWordsPosition();
+                startHeartAnimation();
+            }, 10000);
+            
+            $("#accept").click(function(){
+                $(this).hide();
+                $("#elapseClock").show();
+                var together = new Date();
+                timeElapse(together);
+                setInterval(function () {
+                    timeElapse(together);
+                }, 500);
+            })
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+	<!-- JiaThis Button BEGIN -->
+	<script type="text/javascript">
+	var jiathis_config = {data_track_clickback:'true'};
+	</script>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r4.gif&amp;uid=2148598" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2080139&auto=1&height=66"></iframe>
+	<!-- UY BEGIN -->
+		<div id="uyan_frame"></div>
+		<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148598"></script>
+	<!-- UY END -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

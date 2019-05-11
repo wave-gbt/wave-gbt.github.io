@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wave's blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)　　类是对象，类是java.lang.Class类的实例对象">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 反射">
+<meta property="og:url" content="http://imbotao.top/java-reflect.html">
+<meta property="og:site_name" content="wave&#39;s blog">
+<meta property="og:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)　　类是对象，类是java.lang.Class类的实例对象">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T03:32:28.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 反射">
+<meta name="twitter:description" content="Class 类的使用在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)　　类是对象，类是java.lang.Class类的实例对象">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TBI6JFVCNE',
+      apiKey: '145eaebb3a26faa57c63d57286ce1c74',
+      indexName: 'qindex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imbotao.top/java-reflect.html">
+
+
+
+
+
+  <title>Java 反射 | wave's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wave-gbt">
+	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wave's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Less is More</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-书单">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            书单
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/java-reflect.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 反射</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T11:07:44+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Class-类的使用"><a href="#Class-类的使用" class="headerlink" title="Class 类的使用"></a>Class 类的使用</h3><h4 id="在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><a href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型" class="headerlink" title="在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)"></a>在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</h4><p>　　类是对象，类是java.lang.Class类的实例对象<br><a id="more"></a></p>
+<h4 id="这个对象的表示方式有三种："><a href="#这个对象的表示方式有三种：" class="headerlink" title="这个对象的表示方式有三种："></a>这个对象的表示方式有三种：</h4><ol>
+<li><p>第一种表示方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class c1 = Foo.class; //任何一个类都有一个隐含的静态成员变量class</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二种表示方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class c2 = foo1.getClass //已知该类的对象，通过getClass方法得到这个实例类的class(类类型)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三种表达方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class c3 = Class.forName(&quot;imooc.reflect.Foo&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>三种方式创建的类类型都相等，都是Foo的类类型</p>
+<h4 id="可以通过类类型创建该类的类对象"><a href="#可以通过类类型创建该类的类对象" class="headerlink" title="可以通过类类型创建该类的类对象"></a>可以通过类类型创建该类的类对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo foo=(Foo)c1.newInstance();</span><br></pre></td></tr></table></figure>
+<p>前提是需要有无参数的构造方法，它要调用</p>
+<h3 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(&quot;类的全称&quot;)：</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不仅表示了类的类类型，还代表了动态加载类</li>
+<li>请区分编译、运行</li>
+<li>编译时刻加载类是静态加载类、运行时刻加载类是动态加载类</li>
+</ul>
+<p>用new创建对象，属于静态加载类，在编译时刻就需要加载所有的可能使用到的类，只要有一个类缺失或者类中某个成员缺失，就会报错（不管实际上有没有用到这个类），导致整个程序都无法运行。</p>
+<p>于是我们希望：要用哪个类的时候再加载这个类，不用就不加载。通过动态加载类可以解决上述问题。<br>本例中举了Word类、Excel类加载的例子，现在做动态加载：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class c = Class.forName(args[0]);</span><br><span class="line">//通过类类型，创建该类对象，这里就产生一个问题：是生成Word呢还是生成Excel?老师的解决思路是：只创建一个新类OfficeAble，作为接口，令Word类、Excel类都实现这个接口就可以了：</span><br><span class="line">OfficeAble oa = (OfficeAble)c.newInstance();</span><br><span class="line">oa.start();</span><br><span class="line"></span><br><span class="line">class Word implements OfficeAble</span><br><span class="line">&#123;</span><br><span class="line">	public void start()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>代码设计思路</strong>：功能性的类最好使用动态加载。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c = Class.forname(参数);//动态加载类返回该类的类类型。</span><br><span class="line">接口 x = (接口)c.newInstance();通过转换为接口的类型，用来实现方法。</span><br></pre></td></tr></table></figure></p>
+<h3 id="获取方法信息"><a href="#获取方法信息" class="headerlink" title="获取方法信息"></a>获取方法信息</h3><p>基本数据类型，void关键字都存在类类型</p>
+<ul>
+<li>class.getMethods()方法获取是该类的所有public方法，包括从父类继承的方法；</li>
+<li>class.getDeclareMethods()方法获取该类自行声明的所有方法，不论访问权限；</li>
+<li>method.getName()获取方法名</li>
+<li>method.getReturnType()获取方法的返回值</li>
+<li>method.getParameterTypes()，获取方法的参数类型的类类型数组class[]</li>
+</ul>
+<p><strong>获取方法信息：</strong></p>
+<ol>
+<li>基本的数据类型，void关键字等都存在类类型<br>Class c = 基类.class （int,String,double,void等）</li>
+<li>Class类的基本API操作</li>
+</ol>
+<ul>
+<li>c.getName()可以获取类的名称</li>
+<li>c.getSimpleName();//不包含包名的类的名称</li>
+<li>c.getMethods()获取类的【public方法】集合，【包括继承来的】<br><strong>注意【所有方法都是Method类的对象】</strong></li>
+<li>c.getDeclaredMethods()获取的是所有该类【自己声明】的方法，【不问访问权限】</li>
+</ul>
+<ol>
+<li>Method类提供了一些操作方法的方法</li>
+</ol>
+<ul>
+<li>.getReturnType()得到该方法的返回值类型的类类型（class），如int.class String.class</li>
+<li>.getName()得到方法的名称</li>
+<li>.getParameterTypes()获得参数列表类型的类类型，如参数为(int,int)则得到</li>
+</ul>
+<p><strong>实例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class c1 = int.class; int的类类型</span><br><span class="line">Class c2 = String.class; String类的类类型 String类字节码</span><br><span class="line">Class c3 = double.class; double这个数据类类型的字节码表示方式</span><br><span class="line">Class c4 = Double.class; Double这个类的类类型字节码表示方式</span><br><span class="line">Class c5 = void.class; 表达了void这个类的类类型</span><br><span class="line">getName为这个类的类类型的具体名称 </span><br><span class="line">c1.getName ---&gt; int</span><br><span class="line">c2.getName ---&gt; java.lang.String 类的全称</span><br><span class="line">c2.getSimpleName ---&gt; String 不包含包名的类的名称</span><br></pre></td></tr></table></figure></p>
+<h3 id="获取成员变量构造函数信息"><a href="#获取成员变量构造函数信息" class="headerlink" title="获取成员变量构造函数信息"></a>获取成员变量构造函数信息</h3><h4 id="Java反射机制－获取成员变量-amp-构造函数"><a href="#Java反射机制－获取成员变量-amp-构造函数" class="headerlink" title="Java反射机制－获取成员变量&amp;构造函数"></a>Java反射机制－获取成员变量&amp;构造函数</h4><ol>
+<li>成员变量是java.lang.reflect.Field的对象</li>
+</ol>
+<ul>
+<li>Field类封装了关于成员变量的操作</li>
+<li>Field[] fs = c.getFields()方法获取所有public的成员变量Field[]信息</li>
+<li>c.getDeclaredFields获取的是该类自己声明的成员变量信息</li>
+<li>field.getType()获得成员类型的类类型</li>
+<li>field.getName()获得成员的名称</li>
+</ul>
+<ol>
+<li>构造函数是java.lang.Constructor类的对象</li>
+</ol>
+<ul>
+<li>通过Class.getConstructor()获得Constructor[]所有公有构造方法信息</li>
+<li>建议getDeclaredConstructors()获取自己声明的构造方法</li>
+<li>Constructor.getName():String</li>
+<li>Constructor.getParameterTypes():Class[]</li>
+</ul>
+<p><strong>成员变量也是对象，是java.lang.reflect.Field的对象</strong></p>
+<h4 id="反射——获取成员变量的信息"><a href="#反射——获取成员变量的信息" class="headerlink" title="反射——获取成员变量的信息"></a>反射——获取成员变量的信息</h4><ol>
+<li>Class c = obj.getClass();<br>Field[] fs = c.getFields();</li>
+<li>获取成员变量： 获取成员变量的类型的类类型<code>Class fieldType = field.getType();</code>　<br>//获取成员变量的类型的名字fieldType.getName();　<br>//获取成员变量的名称getName()</li>
+</ol>
+<h4 id="反射——获取构造函数的信息"><a href="#反射——获取构造函数的信息" class="headerlink" title="反射——获取构造函数的信息"></a>反射——获取构造函数的信息</h4><ol>
+<li>Class c = obj.getClass(）;<br>Constructor[] cs = c.getConstructors(); </li>
+<li>获取构造函数的参数列表，得到的是参数列表的类型的类类型<br><code>Class[] paramTypes =constructor.getParammeterTypes();</code>　<br>//获取参数类型的名称paramTypes.getName();<h3 id="方法反射的基本操作"><a href="#方法反射的基本操作" class="headerlink" title="方法反射的基本操作"></a>方法反射的基本操作</h3><h4 id="获取A类中的print-int-int-方法："><a href="#获取A类中的print-int-int-方法：" class="headerlink" title="获取A类中的print(int,int)方法："></a>获取A类中的print(int,int)方法：</h4></li>
+<li>要获取一个方法就是获取类的信息，获取类的信息首先要获取类的类类型<br>A a1=new A();  Class c= a1.getClass();</li>
+<li>获取方法 由名称和参数列表来决定,<code>getMethod获取的是public方法</code>，<code>getDelcaredMethod获取自己声明的方法</code><br><code>Method m =c.getMethod(methodName,paramtypes);</code>　<br>//paramtypes可以用数组的形式  表示new Class[]{int.class,int.class}，也可以直接列举类类型<h4 id="方法的反射操作："><a href="#方法的反射操作：" class="headerlink" title="方法的反射操作："></a>方法的反射操作：</h4>是用m对象来进行方法调用，和a1.print(10,20)调用的方法相同 <code>m.invoke（a1，new Object[]｛10,20｝）
+Object o=m.invoke(对象名,参数);</code><br>//方法如果没有返回值返回null，如果有返回值返回具体值，参数可用数组的方式表示，也可以直接列举，没有参数就不写<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public Class A&#123;</span><br><span class="line">	 public void print()&#123;&#125;;</span><br><span class="line">	 public void Print(Sting a,String b)&#123;&#125;</span><br><span class="line">	 public void Print(int a,int b)&#123;&#125;;</span><br><span class="line">&#125; </span><br><span class="line">public Class B&#123;</span><br><span class="line">	 public static void main(String[] args)&#123;</span><br><span class="line">	  A a1 = new A();  Class c= a1.getclass;</span><br><span class="line">	  Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);</span><br><span class="line">	  Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="通过反射了解集合泛型的本质"><a href="#通过反射了解集合泛型的本质" class="headerlink" title="通过反射了解集合泛型的本质"></a>通过反射了解集合泛型的本质</h3><ol>
+<li>反射的操作都是编译之后的操作</li>
+<li>集合的泛型只为了防止错误输入，编译阶段有效，绕过编译，使用反射是不会控制集合中的数据类型的。</li>
+<li>反射操作类方法：通过对象的类类型得到方法的对象Method，通过方法对象的invoke方法操作对象，调用对象的方法。<br><strong>实例</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class c1=对象a.getClass()</span><br><span class="line">Method m = c1.getMethod(方法名，参数列表)</span><br><span class="line">Object o =m.invoke(对象a，参数列表，可以一一列举，也可以用数组)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>Reference:<br> <a href="http://www.imooc.com/learn/199" target="_blank" rel="noopener">IMOOC-反射——Java高级开发必须懂的</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果觉得我的文章对你有帮助，请随意打赏</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="wave 微信支付">
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+
+    <div>
+        
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/java-reflect.html">Java 反射</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 wave 的个人博客">wave</a></p>
+  <p><span>原始链接:</span><a href="/java-reflect.html" title="Java 反射">http://imbotao.top/java-reflect.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://imbotao.top/java-reflect.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));
+</script>
+
+
+        
+    </div>
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/freemark-analysis-json-string.html" rel="next" title="FreeMarker解析json数据">
+                <i class="fa fa-chevron-left"></i> FreeMarker解析json数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/oracle-procedure-function.html" rel="prev" title="Oracle存储过程和自定义函数">
+                Oracle存储过程和自定义函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block !important;">
+      
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="wave">
+            
+              <p class="site-author-name" itemprop="name">wave</p>
+              <p class="site-description motion-element" itemprop="description">In doing we learn</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wave-gbt" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://leetcode.com/wave_t" target="_blank" title="LeetCode">
+                    
+                      <i class="fa fa-fw fa-code"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/wave628" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/botaogou" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:botaogou@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zyf.im" title="Yifans_Z" target="_blank">Yifans_Z</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://dangluren.top" title="挡路人" target="_blank">挡路人</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/author/63711069" title="阿凋-豆瓣作者" target="_blank">阿凋-豆瓣作者</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-类的使用"><span class="nav-number">1.</span> <span class="nav-text">Class 类的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在面向对象的世界里，万事万物皆对象。-静态成员、普通数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">在面向对象的世界里，万事万物皆对象。(静态成员、普通数据类型)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这个对象的表示方式有三种："><span class="nav-number">1.2.</span> <span class="nav-text">这个对象的表示方式有三种：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以通过类类型创建该类的类对象"><span class="nav-number">1.3.</span> <span class="nav-text">可以通过类类型创建该类的类对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态加载类"><span class="nav-number">2.</span> <span class="nav-text">动态加载类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取方法信息"><span class="nav-number">3.</span> <span class="nav-text">获取方法信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取成员变量构造函数信息"><span class="nav-number">4.</span> <span class="nav-text">获取成员变量构造函数信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java反射机制－获取成员变量-amp-构造函数"><span class="nav-number">4.1.</span> <span class="nav-text">Java反射机制－获取成员变量&amp;构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射——获取成员变量的信息"><span class="nav-number">4.2.</span> <span class="nav-text">反射——获取成员变量的信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射——获取构造函数的信息"><span class="nav-number">4.3.</span> <span class="nav-text">反射——获取构造函数的信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法反射的基本操作"><span class="nav-number">5.</span> <span class="nav-text">方法反射的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取A类中的print-int-int-方法："><span class="nav-number">5.1.</span> <span class="nav-text">获取A类中的print(int,int)方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法的反射操作："><span class="nav-number">5.2.</span> <span class="nav-text">方法的反射操作：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射了解集合泛型的本质"><span class="nav-number">6.</span> <span class="nav-text">通过反射了解集合泛型的本质</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wave</span>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+  </div>
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'kMCc4jOdwVpswXPbiIy1fnT0-gzGzoHsz',
+        app_key: 'uCQhW6LoLa9PraLKDtMC6lnT',
+        placeholder: 'ヾﾉ≧∀≦)o快来评论一下吧~'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+undefined
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

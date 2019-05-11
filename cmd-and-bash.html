@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="shell,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wave's blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="不论是 bash 还是 cmd ，我们也通常称它们为“命令行工具”或者是“命令行界面(CLI)”。最后，为什么我们要学习它们？因为学习它们，cmd 可以让我们可以在 windows 或者 bash linux 等简单使用场景中，脱离对鼠标与用户界面的依赖，从而提高编码效率。">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cmd 与 bash 基础命令入门">
+<meta property="og:url" content="http://imbotao.top/cmd-and-bash.html">
+<meta property="og:site_name" content="wave&#39;s blog">
+<meta property="og:description" content="不论是 bash 还是 cmd ，我们也通常称它们为“命令行工具”或者是“命令行界面(CLI)”。最后，为什么我们要学习它们？因为学习它们，cmd 可以让我们可以在 windows 或者 bash linux 等简单使用场景中，脱离对鼠标与用户界面的依赖，从而提高编码效率。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T03:32:28.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cmd 与 bash 基础命令入门">
+<meta name="twitter:description" content="不论是 bash 还是 cmd ，我们也通常称它们为“命令行工具”或者是“命令行界面(CLI)”。最后，为什么我们要学习它们？因为学习它们，cmd 可以让我们可以在 windows 或者 bash linux 等简单使用场景中，脱离对鼠标与用户界面的依赖，从而提高编码效率。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TBI6JFVCNE',
+      apiKey: '145eaebb3a26faa57c63d57286ce1c74',
+      indexName: 'qindex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imbotao.top/cmd-and-bash.html">
+
+
+
+
+
+  <title>cmd 与 bash 基础命令入门 | wave's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wave-gbt">
+	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wave's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Less is More</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-书单">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            书单
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/cmd-and-bash.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">cmd 与 bash 基础命令入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-18T11:21:56+08:00">
+                2018-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不论是 bash 还是 cmd ，我们也通常称它们为“命令行工具”或者是“命令行界面(CLI)”。<br>最后，为什么我们要学习它们？因为学习它们，<code>cmd</code> 可以让我们可以在 windows 或者 <code>bash</code> linux 等简单使用场景中，脱离对鼠标与用户界面的依赖，从而提高编码效率。<br><a id="more"></a></p>
+<h2 id="CMD-基础命令"><a href="#CMD-基础命令" class="headerlink" title="CMD 基础命令"></a>CMD 基础命令</h2><h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h4><p>cd ：进入指定的目录或者是显示当前的目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd                 #显示当前的路径</span><br><span class="line">cd dir/sub-dir     #进入到dir中的sub-dir目录。</span><br><span class="line">d:                 #直接进入d盘</span><br></pre></td></tr></table></figure></p>
+<h4 id="列出文件与子目录"><a href="#列出文件与子目录" class="headerlink" title="列出文件与子目录"></a>列出文件与子目录</h4><p>dir ：列出当前目录中的文件以及子目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir</span><br></pre></td></tr></table></figure></p>
+<p><code>dir</code> 除了能默认显示当前目录的文件以及子目录，还可以显示指定目录下的文件以及子目录，同时也会统计目录下的文件以及目录的数量。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir d:\fornt    #显示D盘font目录中的资源</span><br></pre></td></tr></table></figure></p>
+<p><code>dir</code> 默认不显示一些特殊属性的文件(例如被隐藏了的文件)，如果想显示所有文件,可以使用 <code>/a</code> 参数。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir /a</span><br></pre></td></tr></table></figure></p>
+<p>如果只是想显示具有特定属性的文件，可以为 <code>/a</code> 参数附加对应的属性。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dir /a [d|r|h|s] #显示具有指定属性的文件</span><br><span class="line">dir /ad          #只显示目录</span><br><span class="line">dir /ar          #只显示只读文件</span><br><span class="line">dir /ah          #只显示隐藏文件</span><br><span class="line">dir /as          #只显示系统文件</span><br></pre></td></tr></table></figure></p>
+<p><code>dir</code> 还有一个 <code>/o</code> 的参数也会比较常用，使用它可以分类显示文件以及目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dir /o [n | s | e | d]</span><br><span class="line">dir /on   #按名称(字母)显示</span><br><span class="line">dir /os   #按大小(从小到大)</span><br><span class="line">dir /oe   #按扩展名(字母顺序)</span><br><span class="line">dir /od   #按日期/时间(从先到后)</span><br></pre></td></tr></table></figure></p>
+<h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><p>mkdir | md ：新建目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir dir               # 新建一个dir目录</span><br><span class="line">mkdir dir1\dir2\dir3    # 连续新建三个目录。</span><br></pre></td></tr></table></figure></p>
+<h4 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h4><p>rmdir | rd ：删除指定目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">md dirname</span><br><span class="line">rd dirname</span><br><span class="line">md dir1\dir2\dir3</span><br><span class="line">rd dir1\dir2\</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：如果目录中含有其它目录或者是文件，单纯使用 <code>rd</code> 将无法删除，必须要结合一些特殊的参数，例如 <code>/s</code> 强制删除 <code>/q</code> 安静模式（不会询问）。</p>
+<h4 id="复制目录"><a href="#复制目录" class="headerlink" title="复制目录"></a>复制目录</h4><p>xcopy ：将目录复制到指定的位置。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcopy dir e:dir1 #将dir目录复制到 E盘，并重命名为dir1。</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>：使用这种方式复制目录，只能将目录以及目录中的文件复制到新的位置，但是并不能将目录中的子目录以及子目录中的所有文件也复制过去。<br>但可以通过附加一个参数 <code>/e</code> 从而实现将整个目录（所有的子目录以及文件）都复制到新的位置中。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcopy dir e:dir1 /e</span><br></pre></td></tr></table></figure></p>
+<h4 id="移动目录"><a href="#移动目录" class="headerlink" title="移动目录"></a>移动目录</h4><p>move ：将指定的目录移动到新的目录中<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">move C:\Users\gt\Desktop\test distDir #将指定的目录移动到新的目录中</span><br><span class="line">move dir1 dir2                        #将dir1目录移动到dir2目录中</span><br></pre></td></tr></table></figure></p>
+<h4 id="重命名目录"><a href="#重命名目录" class="headerlink" title="重命名目录"></a>重命名目录</h4><p>rename | ren ：重命名文件或目录名。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ren dirName newDirName</span><br></pre></td></tr></table></figure></p>
+<h4 id="显示树形目录"><a href="#显示树形目录" class="headerlink" title="显示树形目录"></a>显示树形目录</h4><p>tree ： 显示目录的树形图。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tree                          #当前目录的树形图</span><br><span class="line">tree C:\Users\gt\Desktop\     #指定目录的树形图</span><br></pre></td></tr></table></figure></p>
+<p>PS：感觉此命令在我们写项目文档时很有用，使用它可以帮我们生成项目目录的树形结构。</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h4><p>notepad : 打开window的记事本程序新建文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">notepad filename.ext</span><br><span class="line">notepad 1.txt</span><br><span class="line">notepad index.js</span><br></pre></td></tr></table></figure></p>
+<p>notepad 是调用window中的记事本程序来新建文件。</p>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>del ：删除指定的文件或者是清空指定目录中的文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">del filename #删除指定的文件</span><br><span class="line">del file1 file2 .. #删除多个文件</span><br><span class="line">del dir #清空指定目录下的所有文件</span><br><span class="line">del dir1 dir2 dir3 .. #清空多个目录下的文件。</span><br></pre></td></tr></table></figure></p>
+<p>当使用 del 清空指定目录下的所有文件时，默认会有一个询问，如果想忽略询问，只需要加一个参数/q即可。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del dir /q</span><br></pre></td></tr></table></figure></p>
+<p>出此之外，使用 del 还可以删除特定属性的文件<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">del /AR #可以删除只读文件</span><br><span class="line">del /AH #可以删除隐藏文件</span><br><span class="line">del /AS #可以删除系统文件</span><br></pre></td></tr></table></figure></p>
+<p>最后，del 还可以结合通配符来删除匹配到文件。</p>
+<h4 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h4><p>copy ：复制一个或者是多个文件<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">copy file.txt file<span class="emphasis">_copy.txt    #在当前目录由file.txt 复制为一个名为file_</span>copy.txt的新文件。</span><br><span class="line">copy C:\Users\Admin\Desktop\index.js index<span class="emphasis">_copy.js #将桌面上的index.js文件复制到当前目录，并命名为index_</span>copy.js</span><br><span class="line">copy file1 dir\file2 #相对目录进行复制。</span><br><span class="line">copy file1+file2 dir\file3 #将当前目录的file1与file2文件复制到dir目录中并合成一个新的file3文件。</span><br><span class="line">copy C:\Users\Admin\Desktop\ #将桌面上的所有文件复制到当前目录。</span><br></pre></td></tr></table></figure></p>
+<p><code>copy</code> 命令还具有两个不是太常用的参数：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">copy file /A #复制一个ASCII文件。</span><br><span class="line">copy file /B #复制一个二进制文件。</span><br></pre></td></tr></table></figure></p>
+<p><code>copy</code> 命令只能复制指定目录中的文件，而不能复制指定目录中的子目录和文件。<br>如果想复制目标目录下的所有文件和文件夹，可以使用 <code>xcopy</code> 命令，它相当于 <code>copy</code> 命令的扩展版。</p>
+<h4 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h4><p>move ：将指定的文件移动到新的位置。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">move file.txt dir/file.txt    #将指定的文件移动到指定的目录中。</span><br><span class="line">move file.txt dir/newfile.txt #移动的同时，重新命名。</span><br></pre></td></tr></table></figure></p>
+<h4 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h4><p>ren ：重命名文件<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ren oldfilename newfilename</span><br></pre></td></tr></table></figure></p>
+<h4 id="文件内容比较"><a href="#文件内容比较" class="headerlink" title="文件内容比较"></a>文件内容比较</h4><p>fc ：在指定的文件集中比较文件的内容<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fc file1 file2 file3</span><br></pre></td></tr></table></figure></p>
+<h4 id="打印文件"><a href="#打印文件" class="headerlink" title="打印文件"></a>打印文件</h4><p>type ：在命令行工具中打印文件内容。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type file      #打印文件file的内容。</span><br><span class="line">type dir\file  #打印指定目录中file文件的内容。</span><br></pre></td></tr></table></figure></p>
+<p><code>type</code> 命令还可以结合通配符一起使用，打印多个文件的内容。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type dir\*     #打印指定目录dir中所有文件的内容。</span><br></pre></td></tr></table></figure></p>
+<h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h4><p>我们知道 <code>dir</code> 是用于列出指定目录中所有的文件或子目录，实际上 <code>dir</code> 后面还可以跟上文件名目录名或者是通配符来设置只列出匹配到的文件以及目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dir index.js    #列出该目录下的index.js</span><br><span class="line">dir *.js        #列出该目录下扩展名为js的所有文件。</span><br><span class="line">dir *           #列出所有文件</span><br></pre></td></tr></table></figure></p>
+<p>与查找文件相同，<code>dir</code> 也可以查找指定的目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir dirname</span><br></pre></td></tr></table></figure></p>
+<h4 id="根据内容查找文件"><a href="#根据内容查找文件" class="headerlink" title="根据内容查找文件"></a>根据内容查找文件</h4><p>find ：根据文件内容查找文件，不确定文件名称或者是扩展名时可结合通配符使用。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find "function handle" index.js #确定文件查找</span><br><span class="line">find "function handle" *.js     #根据文件名模糊查找</span><br><span class="line">find "function handle" ?.js     #查找文件名只有一个字符的js文件。</span><br><span class="line">find "function handle" /*       #查找所有文件</span><br></pre></td></tr></table></figure></p>
+<p><code>find</code> 命令还具有一些其它有用的参数：<code>/i</code> 忽略大小写 , <code>/v</code> 只显示匹配到的文件，<code>/n</code> 显示行号。</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>注意，如果想在window中设置永久的环境变量，只能通过 “我的电脑” - “属性” - “高级” - “环境变量”。<br>使用命令行来设置环境变量只对当前窗口有效，窗口关闭时，将会自动失效。</p>
+<h4 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h4><p>set : 通过set命令我们即可以查看指定的环境变量，也可以设置一个新的环境变量。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set               #查看当前的所有环境变量</span><br><span class="line">set PATH          #查看环境变量PATH的值。</span><br><span class="line">set key = value   #设置一个新的环境变量并赋值。</span><br><span class="line">set key = value2  #重新对指定的环境变量赋值。</span><br></pre></td></tr></table></figure></p>
+<p>path这个环境变量是用于设置可执行文件（程序）的搜索路径，是非常常用的一个环境变量。</p>
+<h4 id="使用环境变量"><a href="#使用环境变量" class="headerlink" title="使用环境变量"></a>使用环境变量</h4><p>在CMD中，如果想引用某个环境变量，则使用 <code>%env%</code> 的格式。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo %PATH%</span><br><span class="line"></span><br><span class="line">set name=usrname</span><br><span class="line">echo %name%</span><br></pre></td></tr></table></figure></p>
+<h3 id="辅助命令"><a href="#辅助命令" class="headerlink" title="辅助命令"></a>辅助命令</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cls        #清除屏幕。</span><br><span class="line">cmd        #进入MS-DOS</span><br><span class="line">echo       #显示消息，或将命令回显打开或关闭。</span><br><span class="line">exit       #退出 CMD.EXE 程序(命令解释程序)。</span><br><span class="line">start      #启动单独的窗口以运行指定的程序或命令。</span><br><span class="line">calc       #启动计算器</span><br><span class="line">explorer   #打开资源管理器</span><br><span class="line">notepad    #打开记事本</span><br><span class="line">dxdiag     #检查DirectX信息</span><br><span class="line">regedt32   #注册表编辑器</span><br><span class="line">Msconfig   #系统配置实用程序</span><br><span class="line">taskmgr    #打开任务管理器</span><br><span class="line">help       #查看MS-DOS命令帮助。</span><br><span class="line">command /? #查看指定命令详细帮助文档。</span><br><span class="line">wmic       #进入wmic（Windows Management Instrumentation），它是windows管理工具命令行版，使用wmic我们可以对整个系统进行管理，例如远程连接、硬件管理、进程管理、账号管理、服务管理、目录管理、共享管理等等，可说它是一个增强版的CMD。</span><br></pre></td></tr></table></figure>
+<h2 id="BASH-基本命令"><a href="#BASH-基本命令" class="headerlink" title="BASH 基本命令"></a>BASH 基本命令</h2><h3 id="目录操作-1"><a href="#目录操作-1" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="切换目录-1"><a href="#切换目录-1" class="headerlink" title="切换目录"></a>切换目录</h4><p>cd ：进入指定的目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd   #进入个人目录</span><br><span class="line">cd / #进入根目录</span><br><span class="line">cd - #返回上次的目录</span><br></pre></td></tr></table></figure></p>
+<p>如果不确定自己当前的目录位置，可以结合 <code>pwd</code> 命令，便会在命令行中打印出当前目录路径。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure></p>
+<h4 id="列出文件与子目录-1"><a href="#列出文件与子目录-1" class="headerlink" title="列出文件与子目录"></a>列出文件与子目录</h4><p>ls ：列出当前目录中的文件以及子目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line"><span class="code">``` </span></span><br><span class="line"><span class="code">`ls` 除了能默认显示当前目录的资源以及子目录，还可以显示指定目录下的文件以及子目录</span></span><br><span class="line"><span class="code">```markdown</span></span><br><span class="line"><span class="code">ls ../   #列出上级目录下的资源和子目录</span></span><br><span class="line"><span class="code">ls /     #列出根目录下的资源和子目录。</span></span><br><span class="line"><span class="code">ls /home #列出home目录下的资源和子目录。</span></span><br></pre></td></tr></table></figure></p>
+<p><code>ls</code> 默认不显示具有特殊属性的文件(例如被隐藏了的文件)，如果想显示所有文件,可以使用 <code>-a</code> 参数<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -a</span><br></pre></td></tr></table></figure></p>
+<p>如果要查看资源或目录更详细的信息，可以附加 <code>-l</code> 属性<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure></p>
+<h4 id="创建目录-1"><a href="#创建目录-1" class="headerlink" title="创建目录"></a>创建目录</h4><p>mkdir ：创建目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir dir                 #创建一个目录dir</span><br><span class="line">mkdir dir1 dir2 dir3..    #同时创建多个同级目录</span><br></pre></td></tr></table></figure></p>
+<p>如果想创建一个目录树，可以附加一个 -p 参数。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p a/b/c/d</span><br></pre></td></tr></table></figure></p>
+<h4 id="删除目录-1"><a href="#删除目录-1" class="headerlink" title="删除目录"></a>删除目录</h4><p>rmdir ：删除空目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ：强制删除目录(包括非空目录)。</span><br><span class="line">rmdir emptyDir #删除一个空目录</span><br></pre></td></tr></table></figure></p>
+<p>如果想删除一个非空目录，则需要使用 rm 命令，并使用 -rf 参数。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf dir                  #删除一个非空目录。</span><br><span class="line">rm -rf dir1 dir2 dir3       #同时删除多个非空目录。</span><br><span class="line">rm -rf pattern              #删除按照特定模式匹配到的目录。</span><br></pre></td></tr></table></figure></p>
+<h4 id="复制目录-1"><a href="#复制目录-1" class="headerlink" title="复制目录"></a>复制目录</h4><p>cp -a ：复制目录到指定的位置。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -a dir ../dir  #将当期目录复制一份到上级目录中。</span><br><span class="line">cp -a dir dir2    #复制目录并重命名。</span><br></pre></td></tr></table></figure></p>
+<h4 id="移动目录-1"><a href="#移动目录-1" class="headerlink" title="移动目录"></a>移动目录</h4><p>mv ：移动目录到指定位置。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv file file2                         #同级移动，相当于重命名目录file为file2</span><br><span class="line">mv file ../file2                      #将目录移动到上级目录中并重命名。</span><br><span class="line">sudo mv /home/user/file /home/        #将指定位置的目录移动到指定位置中。</span><br></pre></td></tr></table></figure></p>
+<p>另外，<code>mv</code> 也可以结合通配符进行使用。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv * ../   #将所有的目录与文件都复制到上级目录中。</span><br></pre></td></tr></table></figure></p>
+<h4 id="重命名目录-1"><a href="#重命名目录-1" class="headerlink" title="重命名目录"></a>重命名目录</h4><p>利用 <code>mv</code> 命令同级移动功能，并结合重命名的特点，就可以做到目录的重命名。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv file newfile2              #同级移动，相当于重命名目录file为newfile2</span><br></pre></td></tr></table></figure></p>
+<h4 id="显示树形目录-1"><a href="#显示树形目录-1" class="headerlink" title="显示树形目录"></a>显示树形目录</h4><p>tree ：显示目录的树形图。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tree       #当前目录的树形图</span><br><span class="line">tree /     #根目录下的树形图</span><br></pre></td></tr></table></figure></p>
+<p>PS：感觉此命令在我们写项目文档时很有用，使用它可以帮我们生成项目目录的树形图。</p>
+<h4 id="常用目录说明"><a href="#常用目录说明" class="headerlink" title="常用目录说明"></a>常用目录说明</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/     #根目录</span><br><span class="line">/bin  #命令保存目录</span><br><span class="line">/boot #启动目录</span><br><span class="line">/dev  #设备文件命令</span><br><span class="line">/etc  #配置文件保存目录</span><br><span class="line">/home #家目录</span><br><span class="line">/lib  #系统库保存命令</span><br><span class="line">/mnt  #系统挂载目录</span><br></pre></td></tr></table></figure>
+<h3 id="文件操作-1"><a href="#文件操作-1" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="新建文件-1"><a href="#新建文件-1" class="headerlink" title="新建文件"></a>新建文件</h4><p>touch ：新建文件<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touch filename             #新建一个文件。</span><br><span class="line">touch file1 file2 file3... #同时新建多个文件。</span><br><span class="line">touch dir/file             #在指定的位置中新建一个文件。</span><br></pre></td></tr></table></figure></p>
+<p>如果终端已经附加了 <code>vi</code> 编辑器，也可以使用 <code>vi filename</code> 的形式来创建文件，与 <code>cmd</code> 中的 <code>notepad</code> 命令功能类似。</p>
+<h4 id="删除文件-1"><a href="#删除文件-1" class="headerlink" title="删除文件"></a>删除文件</h4><p>rm ：删除文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm file      #删除文件</span><br><span class="line">rm dir/file  #删除指定目录中的文件</span><br><span class="line">rm dir/*     #删除指定目录中的所有文件。</span><br></pre></td></tr></table></figure></p>
+<h4 id="复制文件-1"><a href="#复制文件-1" class="headerlink" title="复制文件"></a>复制文件</h4><p>cp ：复制文件到指定的位置<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp file file1    #将文件复制一份并重新命名。</span><br><span class="line">cp file ../      #将文件复制一份到上级目录中。</span><br><span class="line">sudo cp file /   #将文件复制到根目录中。</span><br></pre></td></tr></table></figure></p>
+<p><code>cp</code> 还可以结合通配符一起使用，将匹配到的文件复制到指定的位置中。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp dir/*  ./  #指定目录中的所有文件复制到当前目录中。</span><br></pre></td></tr></table></figure></p>
+<h4 id="移动文件-1"><a href="#移动文件-1" class="headerlink" title="移动文件"></a>移动文件</h4><p>mv ：移动文件到指定的位置<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv file ../       #将文件移动到上级目录中。</span><br><span class="line">mv ../file ./     #将上级的文件移动到当前目录中。</span><br><span class="line">sudo mv file /    #将文件移动到根目录中。</span><br></pre></td></tr></table></figure></p>
+<p>mv 不仅可以移动文件，还可以在移动后重命名文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv filename1 ../filename2</span><br></pre></td></tr></table></figure></p>
+<p>mv还可以结合通配符使用。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv na?.txt ../nbc.txt</span><br></pre></td></tr></table></figure></p>
+<h4 id="重命名文件-1"><a href="#重命名文件-1" class="headerlink" title="重命名文件"></a>重命名文件</h4><p>利用 mv 命令同级移动的功能再结合其可以重命名的特点，从而实现文件的重命名。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv file file2           #同级移动，相当于重命名文件file为file2</span><br></pre></td></tr></table></figure></p>
+<h4 id="文件内容比较-1"><a href="#文件内容比较-1" class="headerlink" title="文件内容比较"></a>文件内容比较</h4><p>diff ：比较多个文件内容的不同<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff file1 file2 ...</span><br></pre></td></tr></table></figure></p>
+<h4 id="打印文件-1"><a href="#打印文件-1" class="headerlink" title="打印文件"></a>打印文件</h4><p>cat ：在命令行工具中打印文件的内容<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat filename    #打印指定文件的内容</span><br><span class="line">cat file1 file2 #同时打印多个文件的内容</span><br></pre></td></tr></table></figure></p>
+<p><code>cat</code> 命令除了能打印文件的内容，还可以合并多个文件的内容保存到一个新的文件中。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file1 file2 &gt; newfile</span><br></pre></td></tr></table></figure></p>
+<p>除此之外，还可以结合通配符来打印匹配到的所有文件内容。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat a*</span><br><span class="line">cat *.txt</span><br></pre></td></tr></table></figure></p>
+<p>如果查看的文件内容很多，还可以使用 <code>less</code> 命令<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">less file</span><br></pre></td></tr></table></figure></p>
+<p>然后使用 <code>space</code> 便可以向下一页一页的翻动，或者 <code>pgup</code> 向上翻页 , <code>pgdn</code> 向下翻页，<code>q</code> 则可以退出 <code>less</code> 命令。</p>
+<h4 id="查找文件-1"><a href="#查找文件-1" class="headerlink" title="查找文件"></a>查找文件</h4><p>find ：可以根绝名称、大小、修改时间来查找指定的文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find -name httpd.conf #在当前目录下查找httpd.conf文件。</span><br><span class="line">find -name *.js       #在当前目录下查找所有js文件。</span><br><span class="line">find -empty           #查找所有为空的目录。</span><br><span class="line">find -size -1000      #查找小于1000KB的文件。</span><br><span class="line">find -size +1000      #查找大于1000KB的文件。</span><br></pre></td></tr></table></figure></p>
+<p><code>find</code> 命令默认在当前目录进行查找，你也可以指定一个目录进行查找。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find / -name *.txt          #在根目录下查找所有的txt文件。</span><br><span class="line">find /etc -name httpd.conf  #在etc目录下查找httpd.conf文件。</span><br></pre></td></tr></table></figure></p>
+<p>与根据文件名查找文件相同，也可以使用 <code>find</code> 按照目录名来查找目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name dirname</span><br></pre></td></tr></table></figure></p>
+<h4 id="根据内容查找文件-1"><a href="#根据内容查找文件-1" class="headerlink" title="根据内容查找文件"></a>根据内容查找文件</h4><p>grep ：可以根据指定的内容来查找含有这些内容的文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep pattern *  #查找当前目录含有指定匹配模式的文件。pattren可以是一个正则表达式。</span><br><span class="line">grep c *        #查找当前目录含有单词c的文件。</span><br></pre></td></tr></table></figure></p>
+<p>如果想忽略内容的大小写可以附加一个 <code>-i</code> 的参数。<br>显示匹配行及行号附加 <code>-n</code><br>如果只显示文件名，不显示具体匹配到的内容，则附加 <code>-l</code> 参数</p>
+<h4 id="压缩与解压"><a href="#压缩与解压" class="headerlink" title="压缩与解压"></a>压缩与解压</h4><p>gzip ：单独压缩指定的文件，压缩后删除被压缩文件，只保留压缩后的文件，并且不能压缩目录。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip file                   #压缩指定的文件</span><br><span class="line">gzip file1 file2 file3...   #同时压缩多个文件</span><br></pre></td></tr></table></figure></p>
+<p><code>gzip</code> 还可以与通配符结合使用，压缩匹配到的文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip <span class="emphasis">*.*</span></span><br><span class="line">gzip ?.?.*</span><br></pre></td></tr></table></figure></p>
+<p>若想列出某个 .gz 压缩文件中的内容，可以附加一个 <code>-l</code> 参数。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -l file.gz</span><br></pre></td></tr></table></figure></p>
+<p>解压某个.gz 文件，则使用 <code>gunzip</code> 命令。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunzip file.gz</span><br></pre></td></tr></table></figure></p>
+<p>zip ：与 <code>gzip</code> 相比 <code>zip</code> 可以压缩目录还可以将多个文件压缩在一起，并保留被压缩的文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip filename.zip file1 file2 ...   #将指定的文件压缩到一个新创建的压缩文件中。</span><br></pre></td></tr></table></figure></p>
+<p><code>zip</code> 也可以结合通配符使用，压缩匹配到的文件。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip filename.zip *.txt</span><br></pre></td></tr></table></figure></p>
+<p>更强的是 <code>zip</code> 还可以一次性压缩一个目录<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip filename.zip dir</span><br></pre></td></tr></table></figure></p>
+<p>同样的，若想列出某个 .zip 压缩文件中的内容，可以附加一个 <code>-l</code> 参数。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -l filename.zip</span><br></pre></td></tr></table></figure></p>
+<p>解压某个<code>.zip</code> 文件，则使用 <code>unzip</code> 命令。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip file.zip</span><br></pre></td></tr></table></figure></p>
+<h4 id="打包与解包"><a href="#打包与解包" class="headerlink" title="打包与解包"></a>打包与解包</h4><p>tar ：它是linux下的一个打包命令，它可以将一大堆松散的文件或者是目录打包在一起，从而保证资源的完整性。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf package.tar file1 file2 file3 ...</span><br></pre></td></tr></table></figure></p>
+<p>如果要打包一个目录，则指定目录名：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf package.tar dirname</span><br></pre></td></tr></table></figure></p>
+<p>如果想解包，则附加 <code>-xvf</code> 的参数即可。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf package.tar</span><br></pre></td></tr></table></figure></p>
+<p>如果只是想列出某个包中含有的文件或目录,则附加 <code>-tvf</code> 参数即可。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar tvf package.tar</span><br></pre></td></tr></table></figure></p>
+<p><code>tar</code> 命令只能打包，而不能压缩，而 <code>gzip</code> 虽然可以压缩但是只能对文件进行单独压缩，并且只保留压缩后的文件，而不保留被压缩的文件，所以将 <code>tar</code> + <code>gzip</code> 结合使用，将会互补其短，产生更大的功效。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar package.tar file1 file2 file3 ... #将多个文件打包在package.tar包文件中。</span><br><span class="line">gzip package.tar.gz package.tar       #将通过tar打包的文件再进行压缩。</span><br></pre></td></tr></table></figure></p>
+<p>解压缩解包也要依次进行。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gunzip package.tar.gz #解压缩</span><br><span class="line">tar -xvf package.tar  #解包</span><br></pre></td></tr></table></figure></p>
+<p>当然，你也可以通过附加参数的方式一次性的打包压缩。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf package.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>然后一次性的解压缩解包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf package.tar.gz</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ctr+c  #终止当前命令</span><br><span class="line">ctr+l  ##清屏  相当于 clear</span><br><span class="line">ctr+a  #光标移到行首</span><br><span class="line">ctr+e  #光标移到行尾</span><br><span class="line">ctr+u  #把光标所在位置删除到行首</span><br><span class="line">ctr+d  #删除光标前面的字符，一旦内容全部删除再按则会退出窗口。</span><br><span class="line">ctr+h  #删除光标后面的字符，</span><br></pre></td></tr></table></figure>
+<h3 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">clear   #清除屏幕。</span><br><span class="line">echo    #显示消息，或将命令回显打开或关闭。</span><br><span class="line">whoami  #返回当前登录用户名。</span><br><span class="line">passwd  #允许当前登录的用户更改其密码。</span><br><span class="line">file    #尝试判断指定文件的类型。</span><br><span class="line">exit    #退出命令行工具</span><br><span class="line">users   #显示当前登录系统地用户</span><br><span class="line">last    #查看用户的登录日志</span><br><span class="line">cammand --help  #查看相关命令的帮助文档。</span><br><span class="line">ping    #查看网络状态</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果觉得我的文章对你有帮助，请随意打赏</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="wave 微信支付">
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+
+    <div>
+        
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/cmd-and-bash.html">cmd 与 bash 基础命令入门</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 wave 的个人博客">wave</a></p>
+  <p><span>原始链接:</span><a href="/cmd-and-bash.html" title="cmd 与 bash 基础命令入门">http://imbotao.top/cmd-and-bash.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://imbotao.top/cmd-and-bash.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));
+</script>
+
+
+        
+    </div>
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"><i class="fa fa-tag"></i> shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/top-8-diagrams-for-understanding-java.html" rel="next" title="八张图理解 JAVA">
+                <i class="fa fa-chevron-left"></i> 八张图理解 JAVA
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java-multi-thread-problem.html" rel="prev" title="一道有意思的多线程编程题">
+                一道有意思的多线程编程题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block !important;">
+      
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="wave">
+            
+              <p class="site-author-name" itemprop="name">wave</p>
+              <p class="site-description motion-element" itemprop="description">In doing we learn</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wave-gbt" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://leetcode.com/wave_t" target="_blank" title="LeetCode">
+                    
+                      <i class="fa fa-fw fa-code"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/wave628" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/botaogou" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:botaogou@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zyf.im" title="Yifans_Z" target="_blank">Yifans_Z</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://dangluren.top" title="挡路人" target="_blank">挡路人</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/author/63711069" title="阿凋-豆瓣作者" target="_blank">阿凋-豆瓣作者</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CMD-基础命令"><span class="nav-number">1.</span> <span class="nav-text">CMD 基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作"><span class="nav-number">1.1.</span> <span class="nav-text">目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切换目录"><span class="nav-number">1.1.1.</span> <span class="nav-text">切换目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列出文件与子目录"><span class="nav-number">1.1.2.</span> <span class="nav-text">列出文件与子目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建目录"><span class="nav-number">1.1.3.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除目录"><span class="nav-number">1.1.4.</span> <span class="nav-text">删除目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制目录"><span class="nav-number">1.1.5.</span> <span class="nav-text">复制目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动目录"><span class="nav-number">1.1.6.</span> <span class="nav-text">移动目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重命名目录"><span class="nav-number">1.1.7.</span> <span class="nav-text">重命名目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示树形目录"><span class="nav-number">1.1.8.</span> <span class="nav-text">显示树形目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">1.2.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建文件"><span class="nav-number">1.2.1.</span> <span class="nav-text">新建文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制文件"><span class="nav-number">1.2.3.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动文件"><span class="nav-number">1.2.4.</span> <span class="nav-text">移动文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重命名文件"><span class="nav-number">1.2.5.</span> <span class="nav-text">重命名文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件内容比较"><span class="nav-number">1.2.6.</span> <span class="nav-text">文件内容比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印文件"><span class="nav-number">1.2.7.</span> <span class="nav-text">打印文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找文件"><span class="nav-number">1.2.8.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据内容查找文件"><span class="nav-number">1.2.9.</span> <span class="nav-text">根据内容查找文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">1.3.</span> <span class="nav-text">环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置环境变量"><span class="nav-number">1.3.1.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用环境变量"><span class="nav-number">1.3.2.</span> <span class="nav-text">使用环境变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助命令"><span class="nav-number">1.4.</span> <span class="nav-text">辅助命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BASH-基本命令"><span class="nav-number">2.</span> <span class="nav-text">BASH 基本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作-1"><span class="nav-number">2.1.</span> <span class="nav-text">目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切换目录-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">切换目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列出文件与子目录-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">列出文件与子目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建目录-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除目录-1"><span class="nav-number">2.1.4.</span> <span class="nav-text">删除目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制目录-1"><span class="nav-number">2.1.5.</span> <span class="nav-text">复制目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动目录-1"><span class="nav-number">2.1.6.</span> <span class="nav-text">移动目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重命名目录-1"><span class="nav-number">2.1.7.</span> <span class="nav-text">重命名目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示树形目录-1"><span class="nav-number">2.1.8.</span> <span class="nav-text">显示树形目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用目录说明"><span class="nav-number">2.1.9.</span> <span class="nav-text">常用目录说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作-1"><span class="nav-number">2.2.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建文件-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">新建文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除文件-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制文件-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动文件-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">移动文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重命名文件-1"><span class="nav-number">2.2.5.</span> <span class="nav-text">重命名文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件内容比较-1"><span class="nav-number">2.2.6.</span> <span class="nav-text">文件内容比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印文件-1"><span class="nav-number">2.2.7.</span> <span class="nav-text">打印文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找文件-1"><span class="nav-number">2.2.8.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据内容查找文件-1"><span class="nav-number">2.2.9.</span> <span class="nav-text">根据内容查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩与解压"><span class="nav-number">2.2.10.</span> <span class="nav-text">压缩与解压</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包与解包"><span class="nav-number">2.2.11.</span> <span class="nav-text">打包与解包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用快捷键"><span class="nav-number">2.3.</span> <span class="nav-text">常用快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他常用命令"><span class="nav-number">2.4.</span> <span class="nav-text">其他常用命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wave</span>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+  </div>
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'kMCc4jOdwVpswXPbiIy1fnT0-gzGzoHsz',
+        app_key: 'uCQhW6LoLa9PraLKDtMC6lnT',
+        placeholder: 'ヾﾉ≧∀≦)o快来评论一下吧~'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+undefined
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

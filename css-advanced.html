@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ttt.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="front-end," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wave's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、CSS2 高阶知识（常用）1. css 优先权优先权（从低到高）1234浏览器缺省设置外部样式表内部样式表（位于 &amp;lt;head&amp;gt; 标签内部）内联样式（在 HTML 元素内部）">
+<meta name="keywords" content="front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 进阶篇[转]">
+<meta property="og:url" content="http://imbotao.top/css-advanced.html">
+<meta property="og:site_name" content="wave&#39;s blog">
+<meta property="og:description" content="一、CSS2 高阶知识（常用）1. css 优先权优先权（从低到高）1234浏览器缺省设置外部样式表内部样式表（位于 &amp;lt;head&amp;gt; 标签内部）内联样式（在 HTML 元素内部）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T03:32:28.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 进阶篇[转]">
+<meta name="twitter:description" content="一、CSS2 高阶知识（常用）1. css 优先权优先权（从低到高）1234浏览器缺省设置外部样式表内部样式表（位于 &amp;lt;head&amp;gt; 标签内部）内联样式（在 HTML 元素内部）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TBI6JFVCNE',
+      apiKey: '145eaebb3a26faa57c63d57286ce1c74',
+      indexName: 'qindex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imbotao.top/css-advanced.html"/>
+
+
+
+
+
+  <title>CSS 进阶篇[转] | wave's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wave-gbt">
+	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wave's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Less is More</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-书单">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/css-advanced.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS 进阶篇[转]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T15:32:37+08:00">
+                2017-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、CSS2-高阶知识（常用）"><a href="#一、CSS2-高阶知识（常用）" class="headerlink" title="一、CSS2 高阶知识（常用）"></a>一、CSS2 高阶知识（常用）</h1><h2 id="1-css-优先权"><a href="#1-css-优先权" class="headerlink" title="1. css 优先权"></a>1. css 优先权</h2><p>优先权（从低到高）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">浏览器缺省设置</span><br><span class="line">外部样式表</span><br><span class="line">内部样式表（位于 &lt;head&gt; 标签内部）</span><br><span class="line">内联样式（在 HTML 元素内部）</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a> 
+<p>因此，内联样式（在 HTML 元素内部）拥有最高的优先权，这意味着它将优先于以下的样式声明：<head><meta name="generator" content="Hexo 3.8.0"> 标签中的样式声明，外部样式表中的样式声明，或者浏览器中的样式声明（缺省值）。</head></p>
+<h2 id="2-背景定位（background-position）"><a href="#2-背景定位（background-position）" class="headerlink" title="2. 背景定位（background-position）"></a>2. 背景定位（background-position）</h2><p> 可以利用 <code>background-position</code> 属性改变图像在背景中的位置。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span></span><br><span class="line"> &#123; </span><br><span class="line"> <span class="attribute">background-image</span>:<span class="built_in">url</span>(<span class="string">'/img/bg_03.png'</span>);</span><br><span class="line"> <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line"> <span class="attribute">background-position</span>:<span class="number">50px</span> <span class="number">100px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-缩进文本-（text-indent）"><a href="#3-缩进文本-（text-indent）" class="headerlink" title="3. 缩进文本 （text-indent）"></a>3. 缩进文本 （text-indent）</h2><p>把 Web 页面上的段落的第一行缩进，这是一种最常用的文本格式化效果。<br>CSS 提供了 text-indent 属性，该属性可以方便地实现文本缩进。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">text-indent</span>: <span class="number">5em</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同时也可用做文本信息隐藏（-99999px）</p>
+<h2 id="4-字（单词）间隔-（word-spacing）"><a href="#4-字（单词）间隔-（word-spacing）" class="headerlink" title="4. 字（单词）间隔 （word-spacing）"></a>4. 字（单词）间隔 （word-spacing）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.spread</span> &#123;<span class="attribute">word-spacing</span>: <span class="number">30px</span>;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-字母间隔（letter-spacing）"><a href="#5-字母间隔（letter-spacing）" class="headerlink" title="5. 字母间隔（letter-spacing）"></a>5. 字母间隔（letter-spacing）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">letter-spacing</span>: -<span class="number">2px</span>;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-字符大小写转换（text-transform）"><a href="#6-字符大小写转换（text-transform）" class="headerlink" title="6. 字符大小写转换（text-transform）"></a>6. 字符大小写转换（text-transform）</h2><pre><code>none（默认无操作）
+uppercase（全大写）
+lowercase（全小写）
+capitalize（首字母大写）
+</code></pre><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">text-transform</span>: uppercase;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-处理空白符（white-space）"><a href="#7-处理空白符（white-space）" class="headerlink" title="7. 处理空白符（white-space）"></a>7. 处理空白符（white-space）</h2><h3 id="1-值-nowrap（防止元素中的文本换行）"><a href="#1-值-nowrap（防止元素中的文本换行）" class="headerlink" title="1. 值 nowrap（防止元素中的文本换行）"></a>1. 值 nowrap（防止元素中的文本换行）</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;<span class="attribute">white-space</span>: nowrap;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-单行文本溢出显示-…（text-overflow）"><a href="#2-单行文本溢出显示-…（text-overflow）" class="headerlink" title="2. 单行文本溢出显示 …（text-overflow）"></a>2. 单行文本溢出显示 …（text-overflow）</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">	<span class="attribute">white-space</span>: nowrap;</span><br><span class="line">	<span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-table-表格（border-collapse-单一边框）"><a href="#8-table-表格（border-collapse-单一边框）" class="headerlink" title="8. table 表格（border-collapse 单一边框）"></a>8. table 表格（border-collapse 单一边框）</h2><p><code>border-collapse</code> 属性设置是否将表格边框折叠为单一边框：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span>&#123;</span><br><span class="line"> <span class="attribute">border-collapse</span>:collapse;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">table</span>,<span class="selector-tag">th</span>, <span class="selector-tag">td</span>&#123;</span><br><span class="line"> <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="9-选择子元素（-gt-）"><a href="#9-选择子元素（-gt-）" class="headerlink" title="9. 选择子元素（&gt;）"></a>9. 选择子元素（&gt;）</h2><p>如果您不希望选择任意的后代元素，而是希望缩小范围，只选择某个元素的子元素，请使用子元素选择器（Child selector）。<br>例如，如果您希望选择只作为 h1 元素子元素的 strong 元素，可以这样写：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &gt; <span class="selector-tag">strong</span> &#123;<span class="attribute">color</span>:red;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个规则会把第一个 h1 下面的两个 strong 元素变为红色，但是第二个 h1 中的 strong 不受影响：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>This is <span class="tag">&lt;<span class="name">strong</span>&gt;</span>very<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> <span class="tag">&lt;<span class="name">strong</span>&gt;</span>very<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> important.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>This is <span class="tag">&lt;<span class="name">em</span>&gt;</span>really <span class="tag">&lt;<span class="name">strong</span>&gt;</span>very<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">em</span>&gt;</span> important.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="10-选择相邻兄弟-（＋）"><a href="#10-选择相邻兄弟-（＋）" class="headerlink" title="10. 选择相邻兄弟 （＋）"></a>10. 选择相邻兄弟 （＋）</h2><p>如果需要选择紧接在另一个元素后的元素，而且二者有相同的父元素，可以使用相邻兄弟选择器（Adjacent sibling selector）。<br>例如，如果要增加紧接在 h1 元素后出现的段落的上边距，可以这样写：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;<span class="attribute">margin-top</span>:<span class="number">50px</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="11-伪类-Pseudo-classes"><a href="#11-伪类-Pseudo-classes" class="headerlink" title="11. 伪类 (Pseudo-classes)"></a>11. 伪类 (Pseudo-classes)</h2><p>CSS 伪类用于向某些选择器添加特殊的效果。</p>
+<h3 id="1-锚伪类"><a href="#1-锚伪类" class="headerlink" title="1. 锚伪类"></a>1. 锚伪类</h3><p>在支持 CSS 的浏览器中，链接的不同状态都可以不同的方式显示，这些状态包括：活动状态，已被访问状态，未被访问状态，和鼠标悬停状态。</p>
+<pre><code>a:link {color: #FF0000}    /* 未访问的链接 */
+a:visited {color: #00FF00}    /* 已访问的链接 */
+a:hover {color: #FF00FF}    /* 鼠标移动到链接上 */
+a:active {color: #0000FF}    /* 选定的链接 */
+</code></pre><h3 id="2-CSS2-first-child-伪类（第一个子元素）"><a href="#2-CSS2-first-child-伪类（第一个子元素）" class="headerlink" title="2. CSS2 - :first-child 伪类（第一个子元素）"></a>2. CSS2 - :first-child 伪类（第一个子元素）</h3><p>可以使用 :first-child 伪类来选择元素的第一个子元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span><span class="selector-pseudo">:first-child</span>&#123;</span></span><br><span class="line"><span class="css">	<span class="selector-tag">font-weight</span><span class="selector-pseudo">:bold</span></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I am a <span class="tag">&lt;<span class="name">em</span>&gt;</span>strong<span class="tag">&lt;/<span class="name">em</span>&gt;</span> man. I am a <span class="tag">&lt;<span class="name">em</span>&gt;</span>strong<span class="tag">&lt;/<span class="name">em</span>&gt;</span> man.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I am a <span class="tag">&lt;<span class="name">em</span>&gt;</span>strong<span class="tag">&lt;/<span class="name">em</span>&gt;</span> man. I am a <span class="tag">&lt;<span class="name">em</span>&gt;</span>strong<span class="tag">&lt;/<span class="name">em</span>&gt;</span> man.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-first-line-伪元素（首行）"><a href="#3-first-line-伪元素（首行）" class="headerlink" title="3. :first-line 伪元素（首行）"></a>3. :first-line 伪元素（首行）</h3><p>“first-line” 伪元素用于向文本的首行设置特殊样式。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:first-line</span>&#123;</span><br><span class="line"> <span class="attribute">color</span>:<span class="number">#ff0000</span>;</span><br><span class="line"> <span class="attribute">font-variant</span>:small-caps;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>“first-line” 伪元素只能用于块级元素。</p>
+<h3 id="4-first-letter-伪元素（首字母）"><a href="#4-first-letter-伪元素（首字母）" class="headerlink" title="4. :first-letter 伪元素（首字母）"></a>4. :first-letter 伪元素（首字母）</h3><p>“first-letter” 伪元素用于向文本的首字母设置特殊样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:first-letter</span> &#123;</span><br><span class="line"> <span class="attribute">color</span>:<span class="number">#ff0000</span>;</span><br><span class="line"> <span class="attribute">font-size</span>:xx-large;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-CSS2-before-伪元素"><a href="#5-CSS2-before-伪元素" class="headerlink" title="5. CSS2 - :before 伪元素"></a>5. CSS2 - :before 伪元素</h3><p>“:before” 伪元素可以在元素的内容前面插入新内容。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line"> <span class="attribute">content</span>:<span class="built_in">url</span>(logo.gif);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-CSS2-after-伪元素"><a href="#6-CSS2-after-伪元素" class="headerlink" title="6. CSS2 - :after 伪元素"></a>6. CSS2 - :after 伪元素</h3><p>“:after” 伪元素可以在元素的内容之后插入新内容。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line"> <span class="attribute">content</span>:<span class="built_in">url</span>(logo.gif);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="12-使用-margin-属性来水平对齐"><a href="#12-使用-margin-属性来水平对齐" class="headerlink" title="12. 使用 margin 属性来水平对齐"></a>12. 使用 margin 属性来水平对齐</h2><p>可通过将左和右外边距设置为 “auto”，来对齐块元素。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">	<span class="attribute">margin-left</span>:auto;</span><br><span class="line">	<span class="attribute">margin-right</span>:auto;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">70%</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#b0e0e6</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="13-改变光标-（cursor-pointer）"><a href="#13-改变光标-（cursor-pointer）" class="headerlink" title="13. 改变光标 （cursor:pointer）"></a>13. 改变光标 （cursor:pointer）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-class">.pointer</span> &#123;<span class="attribute">cursor</span>:pointer;&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.crosshair</span> &#123;<span class="attribute">cursor</span>:crosshair;&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.help</span> &#123;<span class="attribute">cursor</span>:help;&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.wait</span> &#123;<span class="attribute">cursor</span>:wait;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="14-透明度-（opacity）"><a href="#14-透明度-（opacity）" class="headerlink" title="14. 透明度 （opacity）"></a>14. 透明度 （opacity）</h2><p>定义透明效果的 CSS3 属性是 opacity。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">	<span class="attribute">opacity</span>:<span class="number">0.4</span>;</span><br><span class="line">	<span class="attribute">filter</span>:<span class="built_in">alpha</span>(opacity=40); <span class="comment">/* 针对 IE8 以及更早的版本 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>IE9, Firefox, Chrome, Opera 和 Safari 使用属性 opacity 来设定透明度。opacity 属性能够设置的值从 0.0 到 1.0。值越小，越透明。<br>IE8 以及更早的版本使用滤镜 filter:alpha(opacity=x)。x 能够取的值从 0 到 100。值越小，越透明。</p>
+<h2 id="15-颜色透明（RGBA）"><a href="#15-颜色透明（RGBA）" class="headerlink" title="15. 颜色透明（RGBA）"></a>15. 颜色透明（RGBA）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span>: <span class="selector-tag">rgba</span>(0, 0, 0, 0<span class="selector-class">.6</span>) ;</span><br></pre></td></tr></table></figure>
+<h1 id="二、CSS3-新特性"><a href="#二、CSS3-新特性" class="headerlink" title="二、CSS3 新特性"></a>二、CSS3 新特性</h1><p><strong>CSS3 标准</strong><br>W3C 仍然在对 CSS3 规范进行开发。<br>不过，现代浏览器已经实现了相当多的 CSS3 属性。</p>
+<h2 id="１-CSS3-圆角边框（border-radius）"><a href="#１-CSS3-圆角边框（border-radius）" class="headerlink" title="１. CSS3 圆角边框（border-radius）"></a>１. CSS3 圆角边框（border-radius）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">text-align</span>:center;</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">2px</span> solid <span class="number">#a1a1a1</span>;</span><br><span class="line">	<span class="attribute">border-radius</span>:<span class="number">25px</span>;</span><br><span class="line">	<span class="attribute">-moz-border-radius</span>:<span class="number">25px</span>; <span class="comment">/* 老的 Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-CSS3-边框阴影（box-shadow）"><a href="#2-CSS3-边框阴影（box-shadow）" class="headerlink" title="2. CSS3 边框阴影（box-shadow）"></a>2. CSS3 边框阴影（box-shadow）</h2><p>语法：box-shadow: h-shadow v-shadow blur spread color inset;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#ff9900</span>;</span><br><span class="line">	<span class="attribute">-moz-box-shadow</span>: <span class="number">10px</span> <span class="number">10px</span> <span class="number">5px</span> <span class="number">#888888</span>; <span class="comment">/* 老的 Firefox */</span></span><br><span class="line">	<span class="attribute">box-shadow</span>: <span class="number">10px</span> <span class="number">10px</span> <span class="number">5px</span> <span class="number">#888888</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-CSS3-文本阴影（text-shadow）"><a href="#3-CSS3-文本阴影（text-shadow）" class="headerlink" title="3. CSS3 文本阴影（text-shadow）"></a>3. CSS3 文本阴影（text-shadow）</h2><p>您能够规定水平阴影、垂直阴影、模糊距离，以及阴影的颜色：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>&#123;</span><br><span class="line">	<span class="attribute">text-shadow</span>: <span class="number">5px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="number">#FF0000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-CSS3-自动换行（word-wrap）"><a href="#4-CSS3-自动换行（word-wrap）" class="headerlink" title="4. CSS3 自动换行（word-wrap）"></a>4. CSS3 自动换行（word-wrap）</h2><p>在 CSS3 中，word-wrap 属性允许您允许文本强制文本进行换行 - 即使这意味着会对单词进行拆分。<br>允许对长单词进行拆分，并换行到下一行：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">word-wrap</span>:break-word;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-CSS3-字体（-font-face）"><a href="#5-CSS3-字体（-font-face）" class="headerlink" title="5. CSS3 字体（@font-face）"></a>5. CSS3 字体（@font-face）</h2><p><strong>使用您需要的字体</strong><br>在新的 @font-face 规则中，您必须首先定义字体的名称（比如 myFirstFont），然后指向该字体文件。<br>如需为 HTML 元素使用字体，请通过 font-family 属性来引用字体的名称 (myFirstFont)：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>: myFirstFont;</span><br><span class="line">	<span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Sansation_Light.ttf'</span>),</span><br><span class="line">	<span class="built_in">url</span>(<span class="string">'Sansation_Light.eot'</span>); <span class="comment">/* IE9+ */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">font-family</span>:myFirstFont;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-CSS3-2D-转换"><a href="#6-CSS3-2D-转换" class="headerlink" title="6. CSS3 2D 转换"></a>6. CSS3 2D 转换</h2><p>Internet Explorer 10、Firefox 以及 Opera 支持 transform 属性。<br>Chrome 和 Safari 需要前缀 -webkit-。<br>注释：Internet Explorer 9 需要前缀 -ms-。</p>
+<p>通过 CSS3 转换，我们能够对元素进行移动、缩放、转动、拉长或拉伸。</p>
+<h3 id="1-translate-方法-（位置移动）"><a href="#1-translate-方法-（位置移动）" class="headerlink" title="1. translate()方法 （位置移动）"></a>1. translate()方法 （位置移动）</h3><p>通过 translate() 方法，元素从其当前位置移动，根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(50px,100px);</span><br><span class="line">	<span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(50px,100px);	<span class="comment">/* IE 9 */</span></span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(50px,100px);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">	<span class="attribute">-o-transform</span>: <span class="built_in">translate</span>(50px,100px);	<span class="comment">/* Opera */</span></span><br><span class="line">	<span class="attribute">-moz-transform</span>: <span class="built_in">translate</span>(50px,100px);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-rotate-方法（顺时针旋转角度）"><a href="#2-rotate-方法（顺时针旋转角度）" class="headerlink" title="2. rotate()方法（顺时针旋转角度）"></a>2. rotate()方法（顺时针旋转角度）</h3><p>通过 rotate() 方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(30deg);</span><br><span class="line">	<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(30deg);	<span class="comment">/* IE 9 */</span></span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(30deg);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">	<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(30deg);	<span class="comment">/* Opera */</span></span><br><span class="line">	<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(30deg);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-scale-方法（改变尺寸）"><a href="#3-scale-方法（改变尺寸）" class="headerlink" title="3. scale() 方法（改变尺寸）"></a>3. scale() 方法（改变尺寸）</h3><p>通过 scale() 方法，元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(2,4);</span><br><span class="line">	<span class="attribute">-ms-transform</span>: <span class="built_in">scale</span>(2,4);	<span class="comment">/* IE 9 */</span></span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(2,4);	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">-o-transform</span>: <span class="built_in">scale</span>(2,4);	<span class="comment">/* Opera */</span></span><br><span class="line">	<span class="attribute">-moz-transform</span>: <span class="built_in">scale</span>(2,4);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>值 scale(2,4) 把宽度转换为原始尺寸的 2 倍，把高度转换为原始高度的 4 倍。</p>
+<h3 id="4-skew-方法（元素翻转角度）"><a href="#4-skew-方法（元素翻转角度）" class="headerlink" title="4. skew() 方法（元素翻转角度）"></a>4. skew() 方法（元素翻转角度）</h3><p>通过 skew() 方法，元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">skew</span>(30deg,20deg);</span><br><span class="line">	<span class="attribute">-ms-transform</span>: <span class="built_in">skew</span>(30deg,20deg);	<span class="comment">/* IE 9 */</span></span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">skew</span>(30deg,20deg);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">	<span class="attribute">-o-transform</span>: <span class="built_in">skew</span>(30deg,20deg);	<span class="comment">/* Opera */</span></span><br><span class="line">	<span class="attribute">-moz-transform</span>: <span class="built_in">skew</span>(30deg,20deg);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>值 skew(30deg,20deg) 围绕 X 轴把元素翻转 30 度，围绕 Y 轴翻转 20 度。</p>
+<h3 id="5-matrix-方法（2D-转换方法组合）"><a href="#5-matrix-方法（2D-转换方法组合）" class="headerlink" title="5. matrix() 方法（2D 转换方法组合）"></a>5. matrix() 方法（2D 转换方法组合）</h3><p>matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。</p>
+<h2 id="7-CSS3-3D-转换"><a href="#7-CSS3-3D-转换" class="headerlink" title="7. CSS3 3D 转换"></a>7. CSS3 3D 转换</h2><p>Internet Explorer 10 和 Firefox 支持 3D 转换。<br>Chrome 和 Safari 需要前缀 -webkit-。<br>Opera 仍然不支持 3D 转换（它只支持 2D 转换）。</p>
+<h3 id="1-rotateX-方法（X-轴旋转）"><a href="#1-rotateX-方法（X-轴旋转）" class="headerlink" title="1. rotateX() 方法（X 轴旋转）"></a>1. rotateX() 方法（X 轴旋转）</h3><p>通过 rotateX() 方法，元素围绕其 X 轴以给定的度数进行旋转。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">rotateX</span>(120deg);</span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotateX</span>(120deg);	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">-moz-transform</span>: <span class="built_in">rotateX</span>(120deg);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-rotateY-方法（Y-轴旋转）"><a href="#2-rotateY-方法（Y-轴旋转）" class="headerlink" title="2. rotateY() 方法（Y 轴旋转）"></a>2. rotateY() 方法（Y 轴旋转）</h3><p>通过 rotateY() 方法，元素围绕其 Y 轴以给定的度数进行旋转。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">rotateY</span>(130deg);</span><br><span class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotateY</span>(130deg);	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">-moz-transform</span>: <span class="built_in">rotateY</span>(130deg);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="8-CSS3-过渡（transition）"><a href="#8-CSS3-过渡（transition）" class="headerlink" title="8. CSS3 过渡（transition）"></a>8. CSS3 过渡（transition）</h2><p>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。</p>
+<h3 id="1-transition-width"><a href="#1-transition-width" class="headerlink" title="1. transition: width"></a>1. transition: width</h3><p>应用于宽度属性的过渡效果，时长为 2 秒：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transition</span>: width <span class="number">2s</span>;</span><br><span class="line">	<span class="attribute">-moz-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Firefox 4 */</span></span><br><span class="line">	<span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">-o-transition</span>: width <span class="number">2s</span>;	<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">300px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-width-2s-height-2s-transform-2s（多项改变）"><a href="#2-width-2s-height-2s-transform-2s（多项改变）" class="headerlink" title="2. width 2s, height 2s, transform 2s（多项改变）"></a>2. width 2s, height 2s, transform 2s（多项改变）</h3><p>如需向多个样式添加过渡效果，请添加多个属性，由逗号隔开：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, transform <span class="number">2s</span>;</span><br><span class="line">	<span class="attribute">-moz-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -moz-transform <span class="number">2s</span>;</span><br><span class="line">	<span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>;</span><br><span class="line">	<span class="attribute">-o-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>,-o-transform <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>所有的转换属性</strong><br>|属性|描述|CSS|<br>|—|:—|:—|<br>|transition|简写属性，用于在一个属性中设置四个过渡属性。    |3|<br>|transition-property|规定应用过渡的 CSS 属性的名称。    |3|<br>|transition-duration|定义过渡效果花费的时间。默认是 0。|3|<br>|transition-timing-function|规定过渡效果的时间曲线。默认是 “ease”。    |3|<br>|transition-delay|规定过渡效果何时开始。默认是 0。|3|</p>
+<h3 id="3-使用所有过渡属性"><a href="#3-使用所有过渡属性" class="headerlink" title="3. 使用所有过渡属性"></a>3. 使用所有过渡属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">transition-property</span>: width;</span><br><span class="line">	<span class="attribute">transition-duration</span>: <span class="number">1s</span>;</span><br><span class="line">	<span class="attribute">transition-timing-function</span>: linear;</span><br><span class="line">	<span class="attribute">transition-delay</span>: <span class="number">2s</span>;</span><br><span class="line">	<span class="comment">/* Firefox 4 */</span></span><br><span class="line">	<span class="attribute">-moz-transition-property</span>:width;</span><br><span class="line">	<span class="attribute">-moz-transition-duration</span>:<span class="number">1s</span>;</span><br><span class="line">	<span class="attribute">-moz-transition-timing-function</span>:linear;</span><br><span class="line">	<span class="attribute">-moz-transition-delay</span>:<span class="number">2s</span>;</span><br><span class="line">	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">-webkit-transition-property</span>:width;</span><br><span class="line">	<span class="attribute">-webkit-transition-duration</span>:<span class="number">1s</span>;</span><br><span class="line">	<span class="attribute">-webkit-transition-timing-function</span>:linear;</span><br><span class="line">	<span class="attribute">-webkit-transition-delay</span>:<span class="number">2s</span>;</span><br><span class="line">	<span class="comment">/* Opera */</span></span><br><span class="line">	<span class="attribute">-o-transition-property</span>:width;</span><br><span class="line">	<span class="attribute">-o-transition-duration</span>:<span class="number">1s</span>;</span><br><span class="line">	<span class="attribute">-o-transition-timing-function</span>:linear;</span><br><span class="line">	<span class="attribute">-o-transition-delay</span>:<span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-简写的-transition-（property，duration，timing-function，delay）"><a href="#4-简写的-transition-（property，duration，timing-function，delay）" class="headerlink" title="4. 简写的 transition （property，duration，timing-function，delay）"></a>4. 简写的 transition （property，duration，timing-function，delay）</h3><p>属性的名称，花费的时间，时间曲线，何时开始<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">transition</span>: width <span class="number">1s</span> ease <span class="number">2s</span>;</span><br><span class="line">	<span class="comment">/* Firefox 4 */</span></span><br><span class="line">	<span class="attribute">-moz-transition</span>:width <span class="number">1s</span> ease <span class="number">2s</span>;</span><br><span class="line">	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">	<span class="attribute">-webkit-transition</span>:width <span class="number">1s</span> ease <span class="number">2s</span>;</span><br><span class="line">	<span class="comment">/* Opera */</span></span><br><span class="line">	<span class="attribute">-o-transition</span>:width <span class="number">1s</span> ease <span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="9-CSS3-动画"><a href="#9-CSS3-动画" class="headerlink" title="9. CSS3 动画"></a>9. CSS3 动画</h2><p>通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript。</p>
+<p><strong>CSS3 @keyframes 规则</strong><br>如需在 CSS3 中创建动画，您需要学习 @keyframes 规则。<br>@keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。</p>
+<h3 id="1-关键字-“from”“to”"><a href="#1-关键字-“from”“to”" class="headerlink" title="1. 关键字 “from”“to”"></a>1. 关键字 “from”“to”</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> myfirst&#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	<span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Firefox */</span></span><br><span class="line">@-<span class="keyword">moz</span>-<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	<span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	<span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Opera */</span></span><br><span class="line">@-<span class="keyword">o</span>-<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	<span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>通过规定至少以下两项 CSS3 动画属性，即可将动画绑定到选择器：</strong></p>
+<pre><code>1. 规定动画的名称
+2. 规定动画的时长
+</code></pre><p>把 “myfirst” 动画捆绑到 div 元素，时长：5 秒：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">animation</span>: myfirst <span class="number">5s</span>;</span><br><span class="line">	<span class="attribute">-moz-animation</span>: myfirst <span class="number">5s</span>;	<span class="comment">/* Firefox */</span></span><br><span class="line">	<span class="attribute">-webkit-animation</span>: myfirst <span class="number">5s</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">-o-animation</span>: myfirst <span class="number">5s</span>;	<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-0-和-100-选择器"><a href="#2-0-和-100-选择器" class="headerlink" title="2. 0% 和 100% 选择器"></a>2. 0% 和 100% 选择器</h3><p>必须定义动画的名称和时长。如果忽略时长，则动画不会允许，因为默认值是 0。<br>您可以改变任意多的样式任意多的次数。<br>请用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0% 和 100%。<br>0% 是动画的开始，100% 是动画的完成。<br>为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。</p>
+<p>例：当动画为 25% 及 50% 时改变背景色，然后当动画 100% 完成时再次改变：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	0% &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	25% &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">	50% &#123;<span class="attribute">background</span>: blue;&#125;</span><br><span class="line">	100% &#123;<span class="attribute">background</span>: green;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Firefox */</span></span><br><span class="line">@-<span class="keyword">moz</span>-<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	0% &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	25% &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">	50% &#123;<span class="attribute">background</span>: blue;&#125;</span><br><span class="line">	100% &#123;<span class="attribute">background</span>: green;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	0% &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	25% &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">	50% &#123;<span class="attribute">background</span>: blue;&#125;</span><br><span class="line">	100% &#123;<span class="attribute">background</span>: green;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Opera */</span></span><br><span class="line">@-<span class="keyword">o</span>-<span class="keyword">keyframes</span> myfirst &#123;</span><br><span class="line">	0% &#123;<span class="attribute">background</span>: red;&#125;</span><br><span class="line">	25% &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line">	50% &#123;<span class="attribute">background</span>: blue;&#125;</span><br><span class="line">	100% &#123;<span class="attribute">background</span>: green;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-改变背景色和位置："><a href="#3-改变背景色和位置：" class="headerlink" title="3. 改变背景色和位置："></a>3. 改变背景色和位置：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> myfirst&#123;</span><br><span class="line">	0% &#123;<span class="attribute">background</span>: red; <span class="attribute">left</span>:<span class="number">0px</span>; <span class="attribute">top</span>:<span class="number">0px</span>;&#125;</span><br><span class="line">	25% &#123;<span class="attribute">background</span>: yellow; <span class="attribute">left</span>:<span class="number">200px</span>; <span class="attribute">top</span>:<span class="number">0px</span>;&#125;</span><br><span class="line">	50% &#123;<span class="attribute">background</span>: blue; <span class="attribute">left</span>:<span class="number">200px</span>; <span class="attribute">top</span>:<span class="number">200px</span>;&#125;</span><br><span class="line">	75% &#123;<span class="attribute">background</span>: green; <span class="attribute">left</span>:<span class="number">0px</span>; <span class="attribute">top</span>:<span class="number">200px</span>;&#125;</span><br><span class="line">	100% &#123;<span class="attribute">background</span>: red; <span class="attribute">left</span>:<span class="number">0px</span>; <span class="attribute">top</span>:<span class="number">0px</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的表格列出了 @keyframes 规则和所有动画属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@keyframes</td>
+<td style="text-align:left">规定动画。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation</td>
+<td style="text-align:left">所有动画属性的简写属性，除了 animation-play-state 属性。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td style="text-align:left">规定 @keyframes 动画的名称。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td style="text-align:left">规定动画完成一个周期所花费的秒或毫秒。默认是 0。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td style="text-align:left">规定动画的速度曲线。默认是 “ease”。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-delay</td>
+<td style="text-align:left">规定动画何时开始。默认是 0。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td style="text-align:left">规定动画被播放的次数。默认是 1。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td style="text-align:left">规定动画是否在下一周期逆向地播放。默认是 “normal”。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td style="text-align:left">规定动画是否正在运行或暂停。默认是 “running”。</td>
+<td style="text-align:left">3</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td style="text-align:left">规定对象动画时间之外的状态。</td>
+<td style="text-align:left">3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-使用所有动画属性"><a href="#4-使用所有动画属性" class="headerlink" title="4. 使用所有动画属性"></a>4. 使用所有动画属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">animation-name</span>: myfirst;</span><br><span class="line">	<span class="attribute">animation-duration</span>: <span class="number">5s</span>;</span><br><span class="line">	<span class="attribute">animation-timing-function</span>: linear;</span><br><span class="line">	<span class="attribute">animation-delay</span>: <span class="number">2s</span>;</span><br><span class="line">	<span class="attribute">animation-iteration-count</span>: infinite;</span><br><span class="line">	<span class="attribute">animation-direction</span>: alternate;</span><br><span class="line">	<span class="attribute">animation-play-state</span>: running;</span><br><span class="line">	浏览器兼容代码省略...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-使用简写的动画-animation-属性"><a href="#5-使用简写的动画-animation-属性" class="headerlink" title="5. 使用简写的动画 animation 属性"></a>5. 使用简写的动画 animation 属性</h3><p>动画的名称,一个周期所花费的秒,速度曲线,何时开始,播放的次数<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br><span class="line">	<span class="comment">/* Firefox: */</span></span><br><span class="line">	<span class="attribute">-moz-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br><span class="line">	<span class="comment">/* Safari 和 Chrome: */</span></span><br><span class="line">	<span class="attribute">-webkit-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br><span class="line">	<span class="comment">/* Opera: */</span></span><br><span class="line">	<span class="attribute">-o-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="10-CSS3-多列"><a href="#10-CSS3-多列" class="headerlink" title="10. CSS3 多列"></a>10. CSS3 多列</h2><p>通过 CSS3，您能够创建多个列来对文本进行布局 - 就像报纸那样！</p>
+<h3 id="1-CSS3-创建多列（column-count）"><a href="#1-CSS3-创建多列（column-count）" class="headerlink" title="1. CSS3 创建多列（column-count）"></a>1. CSS3 创建多列（column-count）</h3><p>把 div 元素中的文本分隔为三列：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">-moz-column-count</span>:<span class="number">3</span>; <span class="comment">/* Firefox */</span></span><br><span class="line">	<span class="attribute">-webkit-column-count</span>:<span class="number">3</span>; <span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">column-count</span>:<span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-CSS3-规定列之间的间隔（column-gap）"><a href="#2-CSS3-规定列之间的间隔（column-gap）" class="headerlink" title="2. CSS3 规定列之间的间隔（column-gap）"></a>2. CSS3 规定列之间的间隔（column-gap）</h3><p>规定列之间 40 像素的间隔：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">-moz-column-gap</span>:<span class="number">40px</span>;	<span class="comment">/* Firefox */</span></span><br><span class="line">	<span class="attribute">-webkit-column-gap</span>:<span class="number">40px</span>;	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">	<span class="attribute">column-gap</span>:<span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-CSS3-列规则（column-rule）"><a href="#3-CSS3-列规则（column-rule）" class="headerlink" title="3. CSS3 列规则（column-rule）"></a>3. CSS3 列规则（column-rule）</h3><p>规定列之间的宽度、样式和颜色规则：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">-moz-column-rule</span>:<span class="number">3px</span> outset <span class="number">#ff0000</span>;	<span class="comment">/* Firefox */</span></span><br><span class="line">	<span class="attribute">-webkit-column-rule</span>:<span class="number">3px</span> outset <span class="number">#ff0000</span>;	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">	<span class="attribute">column-rule</span>:<span class="number">3px</span> outset <span class="number">#ff0000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="11-CSS3-用户界面"><a href="#11-CSS3-用户界面" class="headerlink" title="11. CSS3 用户界面"></a>11. CSS3 用户界面</h2><p>在 CSS3 中，新的用户界面特性包括重设元素尺寸、盒尺寸以及轮廓等。</p>
+<h3 id="1-CSS3-Resizing（可调整大小）"><a href="#1-CSS3-Resizing（可调整大小）" class="headerlink" title="1. CSS3 Resizing（可调整大小）"></a>1. CSS3 Resizing（可调整大小）</h3><p>规定 div 元素可由用户调整大小：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">resize</span>:both;</span><br><span class="line">	<span class="attribute">overflow</span>:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-CSS3-Box-Sizing"><a href="#2-CSS3-Box-Sizing" class="headerlink" title="2. CSS3 Box Sizing"></a>2. CSS3 Box Sizing</h3><p>box-sizing 属性允许您以确切的方式定义适应某个区域的具体内容。<br>border 或 padding的数值计入父宽高内（意思为不会增加父容器宽度）。</p>
+<p>规定两个并排的带边框方框：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>:border-box;</span><br><span class="line">	<span class="attribute">-moz-box-sizing</span>:border-box;	<span class="comment">/* Firefox */</span></span><br><span class="line">	<span class="attribute">-webkit-box-sizing</span>:border-box;	<span class="comment">/* Safari */</span></span><br><span class="line">	<span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-CSS3-Outline-Offset"><a href="#3-CSS3-Outline-Offset" class="headerlink" title="3. CSS3 Outline Offset"></a>3. CSS3 Outline Offset</h3><p>outline-offset 属性对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓。</p>
+<p>规定边框边缘之外 15 像素处的轮廓：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">2px</span> solid black;</span><br><span class="line">	<span class="attribute">outline</span>:<span class="number">2px</span> solid red;</span><br><span class="line">	<span class="attribute">outline-offset</span>:<span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="三、编写-CSS-注意事项"><a href="#三、编写-CSS-注意事项" class="headerlink" title="三、编写 CSS 注意事项"></a>三、编写 CSS 注意事项</h1><h2 id="1-修饰选择器（尽量少用）"><a href="#1-修饰选择器（尽量少用）" class="headerlink" title="1. 修饰选择器（尽量少用）"></a>1. 修饰选择器（尽量少用）</h2><p>能写<code>.nav{}</code>就尽量不要写<code>ul.nav{}</code>。过分修饰选择器将影响性能，影响 class 复用性，会增加选择器私有度。这些都应当竭力避免的。<br>如果想描述我们规划的 class 作用范围，可以在选择器前加上注释，如下写法：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*ul*/</span></span><br><span class="line"><span class="selector-class">.nav</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就能在不影响代码私有度的前提下获知 class 作用范围。</p>
+<h2 id="2-布局（宽度和高度）"><a href="#2-布局（宽度和高度）" class="headerlink" title="2. 布局（宽度和高度）"></a>2. 布局（宽度和高度）</h2><p>所有内部组件都不要声明宽度，而由其外层父容器块（格栅系统）来决定。理想情况下，格栅系统应当用百分比设定。<br><strong>坚决不要声明高度。</strong>高度应当仅用于尺寸已经固定的东西，例如图片。在 p，ul，div 等元素上不应当声明高度。如果需要的话可以写 line-height，这个更加灵活。。</p>
+<h2 id="3-简写（谨慎使用）"><a href="#3-简写（谨慎使用）" class="headerlink" title="3. 简写（谨慎使用）"></a>3. 简写（谨慎使用）</h2><p>编写像<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span><span class="selector-pseudo">:red</span>;</span><br></pre></td></tr></table></figure></p>
+<p>这样的属性的确很省事，但是你这么写的意思其实是同时声明<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background-image</span><span class="selector-pseudo">:none</span>;</span><br><span class="line"><span class="selector-tag">background-position</span><span class="selector-pseudo">:top</span> <span class="selector-tag">left</span>;</span><br><span class="line"><span class="selector-tag">background-repeat</span>: <span class="selector-tag">repeat</span>;</span><br><span class="line"><span class="selector-tag">background-color</span><span class="selector-pseudo">:red</span>;</span><br></pre></td></tr></table></figure></p>
+<p>最优应当改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-color:red;</span><br></pre></td></tr></table></figure></p>
+<p>类似的，像 <code>margin:0;</code> 这样的声明的确简洁清爽，但是还是应当尽量写清楚。如果你只是想修改底边边距，就要具体一些，写成 <code>margin-bottom:0;</code>。<br>简写虽然是好东西，但是注意切勿滥用。</p>
+<h2 id="4-ID（CSS-里坚决不要用-ID）"><a href="#4-ID（CSS-里坚决不要用-ID）" class="headerlink" title="4. ID（CSS 里坚决不要用 ID）"></a>4. ID（CSS 里坚决不要用 ID）</h2><p><strong>在 HTML 里 ID 可以用于 JS 以及锚点定位</strong>，但是在 CSS 里只要用 class，一个 ID 也不要用。</p>
+<p>Class 的优势在于复用性，而且私有度也并不高。私有度非常容易导致问题，所以将其降低就尤为重要。ID 的私有度是 class 的 255 倍，所以在 CSS 中坚决不要使用。</p>
+<h2 id="5-选择器（保持选择器简短高效）"><a href="#5-选择器（保持选择器简短高效）" class="headerlink" title="5. 选择器（保持选择器简短高效）"></a>5. 选择器（保持选择器简短高效）</h2><ul>
+<li>结构复杂的选择器将会影响性能。（如<code>.sidebar h3 span{}</code>为三层，<code>.content ul p a{}</code>是四层），层级越深浏览器的消耗就越大。选择器应当尽量简短，更好的办法是直接给你想要添加样式的元素直接添加一个 class。</li>
+<li>class 名则不应当过于简略，例如<code>.user-avatar</code>就远比 <code>.usr-avt</code> 好。</li>
+</ul>
+<h2 id="6-important（优先级高，一般情况不要用）"><a href="#6-important（优先级高，一般情况不要用）" class="headerlink" title="6. !important（优先级高，一般情况不要用）"></a>6. !important（优先级高，一般情况不要用）</h2><p>用 !important 提升优先级也可以，例如如果你要让某条规则一直生效的话，可以用 <code>.error{ color:red !important; }</code>。</p>
+<p>避免主动使用 !important。例如 CSS 写得很复杂时不要用它来取巧，要好好整理并重构之前的部分，保持选择器简短并且避免用 ID 将效果拔群。</p>
+<h2 id="7-魔数与绝对定位（「凑巧有效果」的数字）"><a href="#7-魔数与绝对定位（「凑巧有效果」的数字）" class="headerlink" title="7. 魔数与绝对定位（「凑巧有效果」的数字）"></a>7. 魔数与绝对定位（「凑巧有效果」的数字）</h2><p>魔数（Magic Number）是指那些「凑巧有效果」的数字，这东西非常不好，缺乏拓展性。<br>例如 .dropdown-nav li:hover ul{ top:37px; } 把下拉菜单移动下来，远非良策，因为这里的 37px 就是个魔数。37px 会生效的原因是因为这时 .dropbox-nav 碰巧高 37px 而已。</p>
+<p>这时你应该用 .dropdown-nav li:hover ul{ top:100%; }，也即无论 .dropbox-down 多高，这个下拉菜单都会往下移动 100%。<br>每当你要在代码中放入数字的时候，请三思而行。</p>
+<h2 id="8-Debugging（调试）"><a href="#8-Debugging（调试）" class="headerlink" title="8. Debugging（调试）"></a>8. Debugging（调试）</h2><p>如果你要解决 CSS 问题的话，先把旧代码拿掉再写新的。如果旧的 CSS 中有问题的话，写新代码是解决不了的。<br>把 CSS 代码和 HTML 部分删掉，直到没有 BUG 为止，然后你就知道问题出在哪里了。<br>有时候写上一个 overflow:hidden 或者其它能把问题藏起来的代码的确效果立竿见影，但是 overflow 方面可能根本就没问题。所以要治本，而不是单纯治标。</p>
+<blockquote>
+<p>Reference: </p>
+<p><a href="http://blog.csdn.net/hanshileiai/article/details/47373945" target="_blank" rel="noopener">中国风2012——CSS 进阶篇</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果觉得我的文章对你有帮助，请随意打赏</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="wave 微信支付"/>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+
+    <div>
+        
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/css-advanced.html">CSS 进阶篇[转]</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 wave 的个人博客">wave</a></p>
+  <p><span>原始链接:</span><a href="/css-advanced.html" title="CSS 进阶篇[转]">http://imbotao.top/css-advanced.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://imbotao.top/css-advanced.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));
+</script>
+
+
+        
+    </div>
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/front-end/" rel="tag"><i class="fa fa-tag"></i> front-end</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/oracle-trigger.html" rel="next" title="Oracle 触发器">
+                <i class="fa fa-chevron-left"></i> Oracle 触发器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/es-introductory-learning.html" rel="prev" title="ElasticSearch入门">
+                ElasticSearch入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block !important;">
+      
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="wave" />
+            
+              <p class="site-author-name" itemprop="name">wave</p>
+              <p class="site-description motion-element" itemprop="description">In doing we learn</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wave-gbt" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://leetcode.com/wave_t" target="_blank" title="LeetCode">
+                    
+                      <i class="fa fa-fw fa-code"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/wave628" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/botaogou" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:botaogou@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zyf.im" title="Yifans_Z" target="_blank">Yifans_Z</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://dangluren.top" title="挡路人" target="_blank">挡路人</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/author/63711069" title="阿凋-豆瓣作者" target="_blank">阿凋-豆瓣作者</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、CSS2-高阶知识（常用）"><span class="nav-number">1.</span> <span class="nav-text">一、CSS2 高阶知识（常用）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-css-优先权"><span class="nav-number">1.1.</span> <span class="nav-text">1. css 优先权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-背景定位（background-position）"><span class="nav-number">1.2.</span> <span class="nav-text">2. 背景定位（background-position）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-缩进文本-（text-indent）"><span class="nav-number">1.3.</span> <span class="nav-text">3. 缩进文本 （text-indent）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字（单词）间隔-（word-spacing）"><span class="nav-number">1.4.</span> <span class="nav-text">4. 字（单词）间隔 （word-spacing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-字母间隔（letter-spacing）"><span class="nav-number">1.5.</span> <span class="nav-text">5. 字母间隔（letter-spacing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-字符大小写转换（text-transform）"><span class="nav-number">1.6.</span> <span class="nav-text">6. 字符大小写转换（text-transform）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-处理空白符（white-space）"><span class="nav-number">1.7.</span> <span class="nav-text">7. 处理空白符（white-space）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-值-nowrap（防止元素中的文本换行）"><span class="nav-number">1.7.1.</span> <span class="nav-text">1. 值 nowrap（防止元素中的文本换行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-单行文本溢出显示-…（text-overflow）"><span class="nav-number">1.7.2.</span> <span class="nav-text">2. 单行文本溢出显示 …（text-overflow）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-table-表格（border-collapse-单一边框）"><span class="nav-number">1.8.</span> <span class="nav-text">8. table 表格（border-collapse 单一边框）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-选择子元素（-gt-）"><span class="nav-number">1.9.</span> <span class="nav-text">9. 选择子元素（&gt;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-选择相邻兄弟-（＋）"><span class="nav-number">1.10.</span> <span class="nav-text">10. 选择相邻兄弟 （＋）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-伪类-Pseudo-classes"><span class="nav-number">1.11.</span> <span class="nav-text">11. 伪类 (Pseudo-classes)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-锚伪类"><span class="nav-number">1.11.1.</span> <span class="nav-text">1. 锚伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CSS2-first-child-伪类（第一个子元素）"><span class="nav-number">1.11.2.</span> <span class="nav-text">2. CSS2 - :first-child 伪类（第一个子元素）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-first-line-伪元素（首行）"><span class="nav-number">1.11.3.</span> <span class="nav-text">3. :first-line 伪元素（首行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-first-letter-伪元素（首字母）"><span class="nav-number">1.11.4.</span> <span class="nav-text">4. :first-letter 伪元素（首字母）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-CSS2-before-伪元素"><span class="nav-number">1.11.5.</span> <span class="nav-text">5. CSS2 - :before 伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-CSS2-after-伪元素"><span class="nav-number">1.11.6.</span> <span class="nav-text">6. CSS2 - :after 伪元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-使用-margin-属性来水平对齐"><span class="nav-number">1.12.</span> <span class="nav-text">12. 使用 margin 属性来水平对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-改变光标-（cursor-pointer）"><span class="nav-number">1.13.</span> <span class="nav-text">13. 改变光标 （cursor:pointer）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-透明度-（opacity）"><span class="nav-number">1.14.</span> <span class="nav-text">14. 透明度 （opacity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-颜色透明（RGBA）"><span class="nav-number">1.15.</span> <span class="nav-text">15. 颜色透明（RGBA）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、CSS3-新特性"><span class="nav-number">2.</span> <span class="nav-text">二、CSS3 新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#１-CSS3-圆角边框（border-radius）"><span class="nav-number">2.1.</span> <span class="nav-text">１. CSS3 圆角边框（border-radius）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CSS3-边框阴影（box-shadow）"><span class="nav-number">2.2.</span> <span class="nav-text">2. CSS3 边框阴影（box-shadow）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CSS3-文本阴影（text-shadow）"><span class="nav-number">2.3.</span> <span class="nav-text">3. CSS3 文本阴影（text-shadow）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-CSS3-自动换行（word-wrap）"><span class="nav-number">2.4.</span> <span class="nav-text">4. CSS3 自动换行（word-wrap）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-CSS3-字体（-font-face）"><span class="nav-number">2.5.</span> <span class="nav-text">5. CSS3 字体（@font-face）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-CSS3-2D-转换"><span class="nav-number">2.6.</span> <span class="nav-text">6. CSS3 2D 转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-translate-方法-（位置移动）"><span class="nav-number">2.6.1.</span> <span class="nav-text">1. translate()方法 （位置移动）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-rotate-方法（顺时针旋转角度）"><span class="nav-number">2.6.2.</span> <span class="nav-text">2. rotate()方法（顺时针旋转角度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-scale-方法（改变尺寸）"><span class="nav-number">2.6.3.</span> <span class="nav-text">3. scale() 方法（改变尺寸）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-skew-方法（元素翻转角度）"><span class="nav-number">2.6.4.</span> <span class="nav-text">4. skew() 方法（元素翻转角度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-matrix-方法（2D-转换方法组合）"><span class="nav-number">2.6.5.</span> <span class="nav-text">5. matrix() 方法（2D 转换方法组合）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-CSS3-3D-转换"><span class="nav-number">2.7.</span> <span class="nav-text">7. CSS3 3D 转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-rotateX-方法（X-轴旋转）"><span class="nav-number">2.7.1.</span> <span class="nav-text">1. rotateX() 方法（X 轴旋转）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-rotateY-方法（Y-轴旋转）"><span class="nav-number">2.7.2.</span> <span class="nav-text">2. rotateY() 方法（Y 轴旋转）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-CSS3-过渡（transition）"><span class="nav-number">2.8.</span> <span class="nav-text">8. CSS3 过渡（transition）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-transition-width"><span class="nav-number">2.8.1.</span> <span class="nav-text">1. transition: width</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-width-2s-height-2s-transform-2s（多项改变）"><span class="nav-number">2.8.2.</span> <span class="nav-text">2. width 2s, height 2s, transform 2s（多项改变）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用所有过渡属性"><span class="nav-number">2.8.3.</span> <span class="nav-text">3. 使用所有过渡属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-简写的-transition-（property，duration，timing-function，delay）"><span class="nav-number">2.8.4.</span> <span class="nav-text">4. 简写的 transition （property，duration，timing-function，delay）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-CSS3-动画"><span class="nav-number">2.9.</span> <span class="nav-text">9. CSS3 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-关键字-“from”“to”"><span class="nav-number">2.9.1.</span> <span class="nav-text">1. 关键字 “from”“to”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-和-100-选择器"><span class="nav-number">2.9.2.</span> <span class="nav-text">2. 0% 和 100% 选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-改变背景色和位置："><span class="nav-number">2.9.3.</span> <span class="nav-text">3. 改变背景色和位置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用所有动画属性"><span class="nav-number">2.9.4.</span> <span class="nav-text">4. 使用所有动画属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-使用简写的动画-animation-属性"><span class="nav-number">2.9.5.</span> <span class="nav-text">5. 使用简写的动画 animation 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-CSS3-多列"><span class="nav-number">2.10.</span> <span class="nav-text">10. CSS3 多列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CSS3-创建多列（column-count）"><span class="nav-number">2.10.1.</span> <span class="nav-text">1. CSS3 创建多列（column-count）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CSS3-规定列之间的间隔（column-gap）"><span class="nav-number">2.10.2.</span> <span class="nav-text">2. CSS3 规定列之间的间隔（column-gap）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CSS3-列规则（column-rule）"><span class="nav-number">2.10.3.</span> <span class="nav-text">3. CSS3 列规则（column-rule）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-CSS3-用户界面"><span class="nav-number">2.11.</span> <span class="nav-text">11. CSS3 用户界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CSS3-Resizing（可调整大小）"><span class="nav-number">2.11.1.</span> <span class="nav-text">1. CSS3 Resizing（可调整大小）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CSS3-Box-Sizing"><span class="nav-number">2.11.2.</span> <span class="nav-text">2. CSS3 Box Sizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CSS3-Outline-Offset"><span class="nav-number">2.11.3.</span> <span class="nav-text">3. CSS3 Outline Offset</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、编写-CSS-注意事项"><span class="nav-number">3.</span> <span class="nav-text">三、编写 CSS 注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-修饰选择器（尽量少用）"><span class="nav-number">3.1.</span> <span class="nav-text">1. 修饰选择器（尽量少用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-布局（宽度和高度）"><span class="nav-number">3.2.</span> <span class="nav-text">2. 布局（宽度和高度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-简写（谨慎使用）"><span class="nav-number">3.3.</span> <span class="nav-text">3. 简写（谨慎使用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-ID（CSS-里坚决不要用-ID）"><span class="nav-number">3.4.</span> <span class="nav-text">4. ID（CSS 里坚决不要用 ID）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-选择器（保持选择器简短高效）"><span class="nav-number">3.5.</span> <span class="nav-text">5. 选择器（保持选择器简短高效）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-important（优先级高，一般情况不要用）"><span class="nav-number">3.6.</span> <span class="nav-text">6. !important（优先级高，一般情况不要用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-魔数与绝对定位（「凑巧有效果」的数字）"><span class="nav-number">3.7.</span> <span class="nav-text">7. 魔数与绝对定位（「凑巧有效果」的数字）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Debugging（调试）"><span class="nav-number">3.8.</span> <span class="nav-text">8. Debugging（调试）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wave</span>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+  </div>
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'kMCc4jOdwVpswXPbiIy1fnT0-gzGzoHsz',
+        app_key: 'uCQhW6LoLa9PraLKDtMC6lnT',
+        placeholder: 'ヾﾉ≧∀≦)o快来评论一下吧~'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+undefined
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
