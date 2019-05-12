@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://imbotao.top/how-to-guarantee-idempotent-mechanism.html</loc>
+    <lastmod>2019-05-12</lastmod>
+  </url>  <url>
     <loc>http://imbotao.top/questions-share-2.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
@@ -34,13 +37,13 @@
     <loc>http://imbotao.top/add-website-icons-to-the-home-screen.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
+    <loc>http://imbotao.top/website-picture-carousel-fade.html</loc>
+    <lastmod>2019-05-10</lastmod>
+  </url>  <url>
     <loc>http://imbotao.top/custom-scroll-bar-styles.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/singleton-pattern.html</loc>
-    <lastmod>2019-05-10</lastmod>
-  </url>  <url>
-    <loc>http://imbotao.top/website-picture-carousel-fade.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/imooc-oracle-course.html</loc>
@@ -172,10 +175,10 @@
     <loc>http://imbotao.top/mysql-optimize.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/mysql-dev-skill.html</loc>
+    <loc>http://imbotao.top/mysql-upcase-first-letter.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/mysql-upcase-first-letter.html</loc>
+    <loc>http://imbotao.top/mysql-dev-skill.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/mysql-summary.html</loc>
@@ -208,13 +211,13 @@
     <loc>http://imbotao.top/maven-learn-note.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
+    <loc>http://imbotao.top/leetcode-second-height-salary.html</loc>
+    <lastmod>2019-05-10</lastmod>
+  </url>  <url>
     <loc>http://imbotao.top/leetcode-205-isomorphic-strings.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/leetcode-290-word-pattern.html</loc>
-    <lastmod>2019-05-10</lastmod>
-  </url>  <url>
-    <loc>http://imbotao.top/leetcode-second-height-salary.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/leetcode-35-search-insert-position.html</loc>
@@ -244,10 +247,10 @@
     <loc>http://imbotao.top/lambda-expressions.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/leetcode-167-two-sum-II.html</loc>
+    <loc>http://imbotao.top/leetcode-1-two-sum.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/leetcode-1-two-sum.html</loc>
+    <loc>http://imbotao.top/leetcode-167-two-sum-II.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/freemark-analysis-json-string.html</loc>

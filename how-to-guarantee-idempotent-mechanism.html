@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="In doing we learn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wave&#39;s blog">
-<meta property="og:url" content="http://imbotao.top/archives/2017/06/index.html">
+  <meta name="description" content="概述　　其实这是一个很常见的问题，做后端开发会经常遇到这个问题，如何保证消息消费不被重复消费，或者说如何保证一个接口多次调用只会产生一种结果，不管调多少次，资源都不会发生改变。如果重复消费了或者调用了，如何保证不造成系统异常。所以幂等机制的核心就是保证资源唯一性。">
+<meta name="keywords" content="架构,沉淀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何保证幂等机制">
+<meta property="og:url" content="http://imbotao.top/how-to-guarantee-idempotent-mechanism.html">
 <meta property="og:site_name" content="wave&#39;s blog">
-<meta property="og:description" content="In doing we learn">
+<meta property="og:description" content="概述　　其实这是一个很常见的问题，做后端开发会经常遇到这个问题，如何保证消息消费不被重复消费，或者说如何保证一个接口多次调用只会产生一种结果，不管调多少次，资源都不会发生改变。如果重复消费了或者调用了，如何保证不造成系统异常。所以幂等机制的核心就是保证资源唯一性。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-12T07:20:46.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wave&#39;s blog">
-<meta name="twitter:description" content="In doing we learn">
+<meta name="twitter:title" content="如何保证幂等机制">
+<meta name="twitter:description" content="概述　　其实这是一个很常见的问题，做后端开发会经常遇到这个问题，如何保证消息消费不被重复消费，或者说如何保证一个接口多次调用只会产生一种结果，不管调多少次，资源都不会发生改变。如果重复消费了或者调用了，如何保证不造成系统异常。所以幂等机制的核心就是保证资源唯一性。">
 
 
 
@@ -115,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://imbotao.top/archives/2017/06/">
+  <link rel="canonical" href="http://imbotao.top/how-to-guarantee-idempotent-mechanism">
 
 
 
@@ -125,7 +127,7 @@
   };
 </script>
 
-  <title>Archive | wave's blog</title>
+  <title>如何保证幂等机制 | wave's blog</title>
   
 
 
@@ -173,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -266,7 +268,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -361,278 +363,260 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/how-to-guarantee-idempotent-mechanism.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="In doing we learn">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h2 class="post-title" itemprop="name headline">如何保证幂等机制
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-12 14:39:49 / Modified: 15:20:46" itemprop="dateCreated datePublished" datetime="2019-05-12T14:39:49+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        Good! 96 posts in total. Keep on posting.
-      </span>
-      
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/graduated-and-quit.html" itemprop="url">
             
-              <span itemprop="name">我毕业了也离职了</span>
             
-          </a>
-        
-      </h3>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-06-25T18:48:21+08:00" content="2017-06-25">
-          06-25
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/ubuntu-markdown-to-pdf.html" itemprop="url">
-            
-              <span itemprop="name">ubuntu 环境下markdown转pdf</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-06-25T00:37:12+08:00" content="2017-06-25">
-          06-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/mysql-upcase-first-letter.html" itemprop="url">
-            
-              <span itemprop="name">MySQL 将字段中首字母大写</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-06-22T21:47:48+08:00" content="2017-06-22">
-          06-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>　　其实这是一个很常见的问题，做后端开发会经常遇到这个问题，如何保证消息消费不被重复消费，或者说如何保证一个接口多次调用只会产生一种结果，不管调多少次，资源都不会发生改变。如果重复消费了或者调用了，如何保证不造成系统异常。所以幂等机制的核心就是保证资源唯一性。<br><a id="more"></a></p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>　　需要保证幂等性的场景就是需要限定接口只能调用一次；消息重复消费之后，要保证资源不会发生改变。例如：</p>
+<ul>
+<li>支付接口</li>
+<li>退款接口</li>
+<li>新增数据的接口</li>
+<li>…</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>利用数据库的唯一索引，针对我们需要约束的资源字段创建唯一索引，可以防止插入重复的数据。需要注意的是，如果是分库分表的情况，唯一索引的情况就不能限制资源数据的唯一性。</li>
+<li>可以先根据数据库唯一索引查一下，如果存在，就做更新操作。 这块要注意的是如何避免并发场景（分布式锁）。</li>
+<li>如果是直接写 redis，每次都是set，天然就幂等的。</li>
+<li>利用 redis 做一层校验，每次调接口或这消费消息之前先查一下 redis 里有没有全局的ID，如果没有消费过，加redis，再处理消息或接口。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/eclipse-maven-spring-springmvc-mybatis-example.html" itemprop="url">
-            
-              <span itemprop="name">Eclipse Maven Spring SpringMVC Mybatis 整合</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-06-07T21:20:21+08:00" content="2017-06-07">
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/add-website-icons-to-the-home-screen.html" itemprop="url">
-            
-              <span itemprop="name">给网站添加保存到移动设备主屏的 icon</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-06-07T21:11:11+08:00" content="2017-06-07">
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/git-modify-commit-history.html" itemprop="url">
-            
-              <span itemprop="name">Git 修改提交历史</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-06-04T13:15:13+08:00" content="2017-06-04">
-          06-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+   <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your encouragement</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="wave WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>wave</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://imbotao.top/how-to-guarantee-idempotent-mechanism.html" title="如何保证幂等机制">http://imbotao.top/how-to-guarantee-idempotent-mechanism.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag"><i class="fa fa-tag"></i> 架构</a>
+          
+            <a href="/tags/沉淀/" rel="tag"><i class="fa fa-tag"></i> 沉淀</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/goodbye-2018.html" rel="next" title="All Or Nothing">
+                <i class="fa fa-chevron-left"></i> All Or Nothing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -652,8 +636,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -877,6 +870,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#场景"><span class="nav-number">2.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1033,6 +1043,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -1048,6 +1062,8 @@
 
   
 
+
+  
 
 
   
