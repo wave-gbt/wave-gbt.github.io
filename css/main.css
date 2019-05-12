@@ -1733,6 +1733,16 @@ pre .javascript .function {
 #qr p {
   text-align: center;
 }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
+}
+.post-copyright i.fa {
+  font-size: 15px;
+}
 .rtl.post-body p,
 .rtl.post-body a,
 .rtl.post-body h1,
@@ -1897,7 +1907,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4bb5;
+  background: #87ff2e;
 }
 .feed-link,
 .chat {
@@ -2148,22 +2158,6 @@ pre .javascript .function {
   50%, 70% {
     transform: scale(1.1);
   }
-}
-#gitment-display-button {
-  display: inline-block;
-  padding: 0 15px;
-  color: #0a9caf;
-  cursor: pointer;
-  font-size: 14px;
-  border: 1px solid #0a9caf;
-  border-radius: 4px;
-}
-#gitment-display-button:hover {
-  color: #fff;
-  background: #0a9caf;
-}
-#gitment-container a {
-  border-bottom: none;
 }
 .local-search-pop-overlay {
   position: fixed;
