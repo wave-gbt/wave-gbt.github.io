@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[最长公共前缀]]></title>
+    <url>%2Flongest-common-prefix.html</url>
+    <content type="text"><![CDATA[编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 “”。 示例 1:12输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出: &quot;fl&quot; 示例 2:123输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出: &quot;&quot;解释: 输入不存在公共前缀。 思路先利用Arrays.sort(strs)为数组排序，再将数组第一个元素和最后一个元素的字符从前往后对比即可。 实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546public class Main &#123; public static String replaceSpace(String[] strs) &#123; // 如果检查值不合法及就返回空串 if (!checkStrs(strs)) &#123; return ""; &#125; // 数组长度 int len = strs.length; // 用于保存结果 StringBuilder res = new StringBuilder(); // 给字符串数组的元素按照升序排序(包含数字的话，数字会排在前面) Arrays.sort(strs); int m = strs[0].length(); int n = strs[len - 1].length(); int num = Math.min(m, n); for (int i = 0; i &lt; num; i++) &#123; if (strs[0].charAt(i) == strs[len - 1].charAt(i)) &#123; res.append(strs[0].charAt(i)); &#125; else break; &#125; return res.toString(); &#125; private static boolean checkStrs(String[] strs) &#123; if (strs != null) &#123; // 遍历strs检查元素值 for (int i = 0; i &lt; strs.length; i++) &#123; if (strs[i] == null || strs[i].length() == 0) &#123; return false; &#125; &#125; &#125; return true; &#125; // 测试 public static void main(String[] args) &#123; String[] strs = &#123; "customer", "car", "cat" &#125;; // String[] strs = &#123; "customer", "car", null &#125;;//空串 // String[] strs = &#123;&#125;;//空串 // String[] strs = null;//空串 System.out.println(Main.replaceSpace(strs));// c &#125;&#125;]]></content>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何保证幂等机制]]></title>
     <url>%2Fhow-to-guarantee-idempotent-mechanism.html</url>
     <content type="text"><![CDATA[概述 其实这是一个很常见的问题，做后端开发会经常遇到这个问题，如何保证消息消费不被重复消费，或者说如何保证一个接口多次调用只会产生一种结果，不管调多少次，资源都不会发生改变。如果重复消费了或者调用了，如何保证不造成系统异常。所以幂等机制的核心就是保证资源唯一性。 场景 需要保证幂等性的场景就是需要限定接口只能调用一次；消息重复消费之后，要保证资源不会发生改变。例如： 支付接口 退款接口 新增数据的接口 … 思路 利用数据库的唯一索引，针对我们需要约束的资源字段创建唯一索引，可以防止插入重复的数据。需要注意的是，如果是分库分表的情况，唯一索引的情况就不能限制资源数据的唯一性。 可以先根据数据库唯一索引查一下，如果存在，就做更新操作。 这块要注意的是如何避免并发场景（分布式锁）。 如果是直接写 redis，每次都是set，天然就幂等的。 利用 redis 做一层校验，每次调接口或这消费消息之前先查一下 redis 里有没有全局的ID，如果没有消费过，加redis，再处理消息或接口。]]></content>
