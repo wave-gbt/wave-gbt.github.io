@@ -96,16 +96,20 @@
 
 
 
-  <meta name="description" content="In doing we learn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wave&#39;s blog">
-<meta property="og:url" content="http://imbotao.top/page/9/index.html">
+  <meta name="description" content="看薛兆丰的《经济学通识》，他总结到，人类面临着四大基本约束：东西不够，生命有限，互相依赖，需要协调。当我看到这句话的时候，我猛然间意识到：计算机也同样面临着这四大基本约束。　　在计算中，CPU、内存、IO、硬盘、带宽等，这些资源也都有不够的时候，而每个线程的也有着自己的生命周期，并且它们之间又是相互依赖的，也同样需要协调。有了上面的这种想法，我觉得我学习计算机的知识有了章法可循。">
+<meta name="keywords" content="并发编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 并发编程学习 - 概述">
+<meta property="og:url" content="http://imbotao.top/java-concurrent-programming-outline.html">
 <meta property="og:site_name" content="wave&#39;s blog">
-<meta property="og:description" content="In doing we learn">
+<meta property="og:description" content="看薛兆丰的《经济学通识》，他总结到，人类面临着四大基本约束：东西不够，生命有限，互相依赖，需要协调。当我看到这句话的时候，我猛然间意识到：计算机也同样面临着这四大基本约束。　　在计算中，CPU、内存、IO、硬盘、带宽等，这些资源也都有不够的时候，而每个线程的也有着自己的生命周期，并且它们之间又是相互依赖的，也同样需要协调。有了上面的这种想法，我觉得我学习计算机的知识有了章法可循。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://imbotao.top/img/11e0c64618c04edba52619f41aaa3565.png">
+<meta property="og:updated_time" content="2019-05-14T11:17:11.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wave&#39;s blog">
-<meta name="twitter:description" content="In doing we learn">
+<meta name="twitter:title" content="Java 并发编程学习 - 概述">
+<meta name="twitter:description" content="看薛兆丰的《经济学通识》，他总结到，人类面临着四大基本约束：东西不够，生命有限，互相依赖，需要协调。当我看到这句话的时候，我猛然间意识到：计算机也同样面临着这四大基本约束。　　在计算中，CPU、内存、IO、硬盘、带宽等，这些资源也都有不够的时候，而每个线程的也有着自己的生命周期，并且它们之间又是相互依赖的，也同样需要协调。有了上面的这种想法，我觉得我学习计算机的知识有了章法可循。">
+<meta name="twitter:image" content="http://imbotao.top/img/11e0c64618c04edba52619f41aaa3565.png">
 
 
 
@@ -115,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://imbotao.top/page/9/">
+  <link rel="canonical" href="http://imbotao.top/java-concurrent-programming-outline">
 
 
 
@@ -125,7 +129,7 @@
   };
 </script>
 
-  <title>wave's blog – Less is More</title>
+  <title>Java 并发编程学习 - 概述 | wave's blog</title>
   
 
 
@@ -173,8 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -365,9 +368,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -382,7 +385,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/php-mail-function.html">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/java-concurrent-programming-outline.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wave">
@@ -399,10 +402,8 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/php-mail-function.html" class="post-title-link" itemprop="url">php mail 函数发送邮件</a>
+          <h2 class="post-title" itemprop="name headline">Java 并发编程学习 - 概述
+
               
             
           </h2>
@@ -427,24 +428,12 @@
                 
               
 
-              <time title="Created: 2017-03-24 22:15:27" itemprop="dateCreated datePublished" datetime="2017-03-24T22:15:27+08:00">2017-03-24</time>
+              <time title="Created: 2019-05-14 18:05:56 / Modified: 19:17:11" itemprop="dateCreated datePublished" datetime="2019-05-14T18:05:56+08:00">2019-05-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
               
             
           </span>
@@ -459,6 +448,13 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -478,21 +474,20 @@
       
 
       
-        
-          <blockquote>
-<p>当然你可以通过php ,在自己的站点制作一个反馈表单.<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/php-mail-function.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+        <p>　　看薛兆丰的《经济学通识》，他总结到，人类面临着四大基本约束：东西不够，生命有限，互相依赖，需要协调。当我看到这句话的时候，我猛然间意识到：计算机也同样面临着这四大基本约束。<br>　　在计算中，CPU、内存、IO、硬盘、带宽等，这些资源也都有不够的时候，而每个线程的也有着自己的生命周期，并且它们之间又是相互依赖的，也同样需要协调。有了上面的这种想法，我觉得我学习计算机的知识有了章法可循。</p>
+<a id="more"></a>
+<p>并发编程知识全景图<br><img src="/img/11e0c64618c04edba52619f41aaa3565.png" alt="并发编程全景图之思维导图"></p>
+<p>并发编程领域可以抽象成三个核心问题：分工、同步和互斥。</p>
+<h2 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h2><p>类似于现实中一个组织完成一个项目，项目经理要拆分任务，安排合适的成员去完成。</p>
+<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>每个小任务间可能存在相互依赖，同步需要做的是在前置任务完成后，通知后置任务启动。</p>
+<h2 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h2><p>互斥主要解决正确性问题。互斥要求同一时间，只允许一个线程访问共享变量。</p>
+<p><strong>学习方法论:</strong> 我认为工程上的解决方案，一定要有理论做基础。「跳出来，看全景」 和 「钻进去，看本质」，这两条方法论，我想是适合很多领域的学习的。</p>
+<blockquote>
+<p>Reference:　<a href="https://time.geekbang.org/column/intro/159" target="_blank" rel="noopener">极客时间-Java并发编程实战</a>　　</p>
+</blockquote>
+
       
-    </p></blockquote></div>
+    </div>
 
     
 
@@ -502,6 +497,13 @@
 
    <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
     </div>
 
     
@@ -510,354 +512,90 @@
       
     
     
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your encouragement</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
 
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="wave WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>wave</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://imbotao.top/java-concurrent-programming-outline.html" title="Java 并发编程学习 - 概述">http://imbotao.top/java-concurrent-programming-outline.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
     
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/ubuntu-install-navicat.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/ubuntu-install-navicat.html" class="post-title-link" itemprop="url">ubuntu安装navicat及常见问题解决</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-24 22:07:43" itemprop="dateCreated datePublished" datetime="2017-03-24T22:07:43+08:00">2017-03-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/并发编程/" rel="tag"><i class="fa fa-tag"></i> 并发编程</a>
           
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <blockquote>
-<p>如果系统中没有安装wine组件则执行./start_navicat命令则系统毫无反应，没有错误日志等，因此需要安装wine和修改脚本…<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/ubuntu-install-navicat.html#more" rel="contents">
-                Read more &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/longest-common-prefix.html" rel="next" title="最长公共前缀">
+                <i class="fa fa-chevron-left"></i> 最长公共前缀
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/mysql-optimization-method.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/mysql-optimization-method.html" class="post-title-link" itemprop="url">SQL 语句优化方法</a>
-              
             
-          </h2>
-        
+          </div>
 
-        <div class="post-meta">
-          <span class="post-time">
+          <span class="post-nav-divider"></span>
 
+          <div class="post-nav-prev post-nav-item">
             
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-13 23:26:02" itemprop="dateCreated datePublished" datetime="2017-03-13T23:26:02+08:00">2017-03-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>以下是对sql语句优化方法的一些总结。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/mysql-optimization-method.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -867,1187 +605,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/java-hashmap.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/java-hashmap.html" class="post-title-link" itemprop="url">说说 Java 集合类:HashMap 是如何设计的? 是如何解决什么冲突的?</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-13 21:55:21" itemprop="dateCreated datePublished" datetime="2017-03-13T21:55:21+08:00">2017-03-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>说说 Java 集合类:HashMap 是如何设计的? 是如何解决什么冲突的?<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/java-hashmap.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/some-sort-algorithm.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/some-sort-algorithm.html" class="post-title-link" itemprop="url">几种排序算法</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-12 21:04:36" itemprop="dateCreated datePublished" datetime="2017-03-12T21:04:36+08:00">2017-03-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>排序方法有： 插入排序（直接插入排序，希尔排序），交换排序（冒泡排序，快速排序），选择排序（直接选择排序，堆排序），归并排序，分配排序（箱排序，基数排序）。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/some-sort-algorithm.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/understanding-recursive-functions.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/understanding-recursive-functions.html" class="post-title-link" itemprop="url">简单了解递归函数</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-12 20:50:26" itemprop="dateCreated datePublished" datetime="2017-03-12T20:50:26+08:00">2017-03-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>什么是递归？什么情况下会使用递归?<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/understanding-recursive-functions.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/share-some-good-tools.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/share-some-good-tools.html" class="post-title-link" itemprop="url">安利一些好用的在线工具</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-12 20:08:07" itemprop="dateCreated datePublished" datetime="2017-03-12T20:08:07+08:00">2017-03-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这里收集一些开发中很好用的在线工具，会不断补充，欢迎大家补充。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/share-some-good-tools.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/safe-and-sound.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/safe-and-sound.html" class="post-title-link" itemprop="url">Safe And Sound</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-03-08 22:45:42" itemprop="dateCreated datePublished" datetime="2017-03-08T22:45:42+08:00">2017-03-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>寻找和突破心障的方法是寻找一种对美好世界和美好人生的渐进解，首先我们承认对这个世界的终极一无所知，但是我们知道近一点儿比远一点儿更好，我们不知道完美世界的图景是什么，但是我们可以一点儿一点儿努力去接近它。我们不知道目标在哪里，但是从渐进解出发，我们永远可以找到一个方向，一个清晰的方向，它可以告诉我们，我们一直在前进，一直没有停息。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/safe-and-sound.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/php-array-sort-by-key.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/php-array-sort-by-key.html" class="post-title-link" itemprop="url">PHP 二维数组按照其中某个字段进行排序</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-02-26 16:13:21" itemprop="dateCreated datePublished" datetime="2017-02-26T16:13:21+08:00">2017-02-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>根据指定字段排序二位数组，保留原有键值，降序<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/php-array-sort-by-key.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/git-about-use.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/git-about-use.html" class="post-title-link" itemprop="url">Git 使用过程中的相关总结</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2017-02-26 16:10:28" itemprop="dateCreated datePublished" datetime="2017-02-26T16:10:28+08:00">2017-02-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Git是目前世界上最先进的分布式版本控制系统，尤其是它极其强大的分支管理，以下是我在开发中的一些总结，会不断补充。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/git-about-use.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></blockquote></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -2067,8 +633,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -2292,6 +867,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分工"><span class="nav-number">1.</span> <span class="nav-text">分工</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步"><span class="nav-number">2.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互斥"><span class="nav-number">3.</span> <span class="nav-text">互斥</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -2448,6 +1040,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -2463,6 +1059,8 @@
 
   
 
+
+  
 
 
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imbotao.top/"/>
-  <updated>2019-05-12T08:24:42.016Z</updated>
+  <updated>2019-05-14T11:17:11.139Z</updated>
   <id>http://imbotao.top/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 并发编程学习 - 概述</title>
+    <link href="http://imbotao.top/java-concurrent-programming-outline.html"/>
+    <id>http://imbotao.top/java-concurrent-programming-outline.html</id>
+    <published>2019-05-14T10:05:56.000Z</published>
+    <updated>2019-05-14T11:17:11.139Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　看薛兆丰的《经济学通识》，他总结到，人类面临着四大基本约束：东西不够，生命有限，互相依赖，需要协调。当我看到这句话的时候，我猛然间意识到：计算机也同样面临着这四大基本约束。<br>　　在计算中，CPU、内存、IO、硬盘、带宽等，这些资源也都有不够的时候，而每个线程的也有着自己的生命周期，并且它们之间又是相互依赖的，也同样需要协调。有了上面的这种想法，我觉得我学习计算机的知识有了章法可循。</p><a id="more"></a><p>并发编程知识全景图<br><img src="/img/11e0c64618c04edba52619f41aaa3565.png" alt="并发编程全景图之思维导图"></p><p>并发编程领域可以抽象成三个核心问题：分工、同步和互斥。</p><h2 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h2><p>类似于现实中一个组织完成一个项目，项目经理要拆分任务，安排合适的成员去完成。</p><h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>每个小任务间可能存在相互依赖，同步需要做的是在前置任务完成后，通知后置任务启动。</p><h2 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h2><p>互斥主要解决正确性问题。互斥要求同一时间，只允许一个线程访问共享变量。</p><p><strong>学习方法论:</strong> 我认为工程上的解决方案，一定要有理论做基础。「跳出来，看全景」 和 「钻进去，看本质」，这两条方法论，我想是适合很多领域的学习的。</p><blockquote><p>Reference:　<a href="https://time.geekbang.org/column/intro/159" target="_blank" rel="noopener">极客时间-Java并发编程实战</a>　　</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　看薛兆丰的《经济学通识》，他总结到，人类面临着四大基本约束：东西不够，生命有限，互相依赖，需要协调。当我看到这句话的时候，我猛然间意识到：计算机也同样面临着这四大基本约束。&lt;br&gt;　　在计算中，CPU、内存、IO、硬盘、带宽等，这些资源也都有不够的时候，而每个线程的也有着自己的生命周期，并且它们之间又是相互依赖的，也同样需要协调。有了上面的这种想法，我觉得我学习计算机的知识有了章法可循。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="并发编程" scheme="http://imbotao.top/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>最长公共前缀</title>
@@ -401,26 +421,6 @@
     
     
       <category term="shell" scheme="http://imbotao.top/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>八张图理解 JAVA</title>
-    <link href="http://imbotao.top/top-8-diagrams-for-understanding-java.html"/>
-    <id>http://imbotao.top/top-8-diagrams-for-understanding-java.html</id>
-    <published>2018-02-17T16:13:09.000Z</published>
-    <updated>2019-05-10T03:32:28.593Z</updated>
-    
-    <content type="html"><![CDATA[<p>　　一图胜千言，下面图解均来自 Program Creek 网站的 <a href="http://www.programcreek.com/java-tutorials/" target="_blank" rel="noopener">Java教程</a>，目前它们拥有最多的票选。如果图解没有阐明问题，那么你可以借助它的标题来一窥究竟。<br><a id="more"></a></p><h2 id="字符串不变性"><a href="#字符串不变性" class="headerlink" title="字符串不变性"></a>字符串不变性</h2><p>下面这张图展示了这段代码做了什么<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;abcd&quot;;</span><br><span class="line">s = s.concat(&quot;ef&quot;);</span><br></pre></td></tr></table></figure></p><p><img src="/img/566535260001c98e06500279.jpg" alt="字符串不变性"></p><h2 id="equals-方法、hashCode-方法的区别"><a href="#equals-方法、hashCode-方法的区别" class="headerlink" title="equals()方法、hashCode()方法的区别"></a>equals()方法、hashCode()方法的区别</h2><p>HashCode被设计用来提高性能。equals()方法与hashCode()方法的区别在于：</p><ol><li>如果两个对象相等(equal)，那么他们一定有相同的哈希值。</li><li>如果两个对象的哈希值相同，但他们未必相等(equal)。</li></ol><p><img src="/img/5665355c0001a41106500369.jpg" alt="equals"></p><h2 id="Java异常类的层次结构"><a href="#Java异常类的层次结构" class="headerlink" title="Java异常类的层次结构"></a>Java异常类的层次结构</h2><p>图中红色部分为受检查异常。它们必须被捕获，或者在函数中声明为抛出该异常。</p><p><img src="/img/56653579000175e204981024.jpg" alt="java 异常类的层次结构"></p><h2 id="集合类的层次结构"><a href="#集合类的层次结构" class="headerlink" title="集合类的层次结构"></a>集合类的层次结构</h2><p>注意Collections和Collection的区别。（Collections包含有各种有关集合操作的静态多态方法）</p><p><img src="/img/5665359400016c2f09100467.jpg" alt="集合类的层次结构"></p><h2 id="Java同步"><a href="#Java同步" class="headerlink" title="Java同步"></a>Java同步</h2><p>Java同步机制可通过类比建筑物来阐明。</p><p><img src="/img/566535b60001050603240216.jpg" alt="Java同步"></p><h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><p>别名意味着有多个变量指向同一可被更新的内存块，这些别名分别是不同的对象类型。</p><p><img src="/img/566535fb000113f703170201.jpg" alt="别名"></p><h2 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h2><p>图解表明了方法和对象在运行时内存中的位置。</p><p><img src="/img/566536260001052904960257.jpg" alt="堆和栈"></p><h2 id="Java虚拟机运行时数据区域"><a href="#Java虚拟机运行时数据区域" class="headerlink" title="Java虚拟机运行时数据区域"></a>Java虚拟机运行时数据区域</h2><p>图解展示了整个虚拟机运行时数据区域的情况。</p><p><img src="/img/5665364300010ec905010363.jpg" alt="Java虚拟机运行时数据区域"></p><blockquote><p>原文链接：<a href="https://www.imooc.com/article/2592" target="_blank" rel="noopener">programcreek</a>　　翻译：ImportNew.com - era_misa<br>译文链接：<a href="http://www.importnew.com/11725.html" target="_blank" rel="noopener">http://www.importnew.com/11725.html</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　一图胜千言，下面图解均来自 Program Creek 网站的 &lt;a href=&quot;http://www.programcreek.com/java-tutorials/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Java教程&lt;/a&gt;，目前它们拥有最多的票选。如果图解没有阐明问题，那么你可以借助它的标题来一窥究竟。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://imbotao.top/tags/Java/"/>
     
   </entry>
   
