@@ -382,6 +382,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/谈谈常用分布式ID的设计方案.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="In doing we learn">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/谈谈常用分布式ID的设计方案.html" class="post-title-link" itemprop="url">谈谈常用分布式ID的设计方案</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-20 14:53:59 / Modified: 19:57:15" itemprop="dateCreated datePublished" datetime="2019-05-20T14:53:59+08:00">2019-05-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>　　需要明确通常的分布式 ID 的定义，基本包括:</p>
+<ul>
+<li>全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。</li>
+<li>有序性，通常要保证生成的 ID 是有序递增的。
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/谈谈常用分布式ID的设计方案.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </li></ul></div>
+
+    
+
+    
+    
+    
+
+   <div>
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://imbotao.top/java-concurrent-programming-outline.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1826,172 +1983,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imbotao.top/improve-service-availability.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wave">
-      <meta itemprop="description" content="In doing we learn">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wave's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/improve-service-availability.html" class="post-title-link" itemprop="url">保证服务可用行性的核心思路</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-09 21:28:04" itemprop="dateCreated datePublished" datetime="2018-09-09T21:28:04+08:00">2018-09-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-10 11:32:28" itemprop="dateModified" datetime="2019-05-10T11:32:28+08:00">2019-05-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>　　如何保障稳定性，提高可用性呢？其实，可以分为几个方面：通过技术和流程防止故障产生、并且在发生故障时，减少故障的定位时间，以及提高故障恢复时间。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/improve-service-availability.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-   <div>
-      
-    </div>
-
-    
-
-    
-      
-    
-    
-
-    
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2040,7 +2031,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-count">99</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
