@@ -105,7 +105,7 @@
 <meta property="og:description" content="需要明确通常的分布式 ID 的定义，基本包括:  全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。 有序性，通常要保证生成的 ID 是有序递增的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imbotao.top/img/ffd41494a39ef737b3c1151929c3c4ad.png">
-<meta property="og:updated_time" content="2019-05-20T12:00:59.701Z">
+<meta property="og:updated_time" content="2019-06-01T05:35:08.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈常用分布式ID的设计方案">
 <meta name="twitter:description" content="需要明确通常的分布式 ID 的定义，基本包括:  全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。 有序性，通常要保证生成的 ID 是有序递增的。">
@@ -428,12 +428,24 @@
                 
               
 
-              <time title="Created: 2019-05-20 14:53:59 / Modified: 20:00:59" itemprop="dateCreated datePublished" datetime="2019-05-20T14:53:59+08:00">2019-05-20</time>
+              <time title="Created: 2019-05-20 14:53:59" itemprop="dateCreated datePublished" datetime="2019-05-20T14:53:59+08:00">2019-05-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-01 13:35:08" itemprop="dateModified" datetime="2019-06-01T13:35:08+08:00">2019-06-01</time>
               
             
           </span>
@@ -478,7 +490,7 @@
 <ul>
 <li>全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。</li>
 <li>有序性，通常要保证生成的 ID 是有序递增的。<a id="more"></a>
-　　目前业界的的方案主要是：</li>
+　　<br>　　目前业界的的方案主要是：</li>
 <li>基于数据库自增序列的实现。这种方式优点和缺点都非常明显，好处是简单易用，但是在扩展性和可靠性等方面存在局限性。</li>
 <li>基于 Twitter 早期开源的Snowflake的实现，以及相关改动方案。其结构定义可以参考下面的示意图。</li>
 </ul>
