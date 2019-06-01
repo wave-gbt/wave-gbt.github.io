@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imbotao.top/"/>
-  <updated>2019-06-01T05:35:08.206Z</updated>
+  <updated>2019-06-01T05:37:55.585Z</updated>
   <id>http://imbotao.top/</id>
   
   <author>
@@ -21,16 +21,18 @@
     <link href="http://imbotao.top/distributed-id-design.html"/>
     <id>http://imbotao.top/distributed-id-design.html</id>
     <published>2019-05-20T06:53:59.000Z</published>
-    <updated>2019-06-01T05:35:08.206Z</updated>
+    <updated>2019-06-01T05:37:55.585Z</updated>
     
-    <content type="html"><![CDATA[<p>　　需要明确通常的分布式 ID 的定义，基本包括:</p><ul><li>全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。</li><li>有序性，通常要保证生成的 ID 是有序递增的。<a id="more"></a>　　<br>　　目前业界的的方案主要是：</li><li>基于数据库自增序列的实现。这种方式优点和缺点都非常明显，好处是简单易用，但是在扩展性和可靠性等方面存在局限性。</li><li>基于 Twitter 早期开源的Snowflake的实现，以及相关改动方案。其结构定义可以参考下面的示意图。</li></ul><p><img src="/img/ffd41494a39ef737b3c1151929c3c4ad.png" alt="分布式id结构图"></p><p>其中 10 位的WorkerID，标准定义是 5 位数据中心 + 5 位机器编码，以区分不同的集群节点。<br>最后的 12 位就是单位毫秒内可生成的序列号数目的理论极限。</p><p>　　在明确的业务场景中，我们到底需要一个什么样的分布式ID呢，除了唯一性和有序，通常还希望分布式ID：</p><ul><li>有意义，也就是说包含更多的信息，比如时间和业务信息。</li><li>高可用性，取决于我们业务对扩展性，性能方面的要求。</li><li>紧凑性，ID 的大小可能受实际应用的制约，例如太长的ID会降低 MYSQL 等数据库索引的性能。</li></ul><p>分享一个很好的分布式ID的实现 <a href="https://github.com/bingoohuang/westid" target="_blank" rel="noopener">westid</a>.</p><blockquote><p>Reference:　<a href="https://time.geekbang.org/column/intro/82" target="_blank" rel="noopener">极客时间-Java核心技术36讲</a>　</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>　　需要明确通常的分布式 ID 的定义，基本包括:</p><ul><li>全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。</li><li>有序性，通常要保证生成的 ID 是有序递增的。</li></ul><p><a id="more"></a>　<br>　　目前业界的的方案主要是：</p><ul><li>基于数据库自增序列的实现。这种方式优点和缺点都非常明显，好处是简单易用，但是在扩展性和可靠性等方面存在局限性。</li><li>基于 Twitter 早期开源的Snowflake的实现，以及相关改动方案。其结构定义可以参考下面的示意图。</li></ul><p><img src="/img/ffd41494a39ef737b3c1151929c3c4ad.png" alt="分布式id结构图"></p><p>其中 10 位的WorkerID，标准定义是 5 位数据中心 + 5 位机器编码，以区分不同的集群节点。<br>最后的 12 位就是单位毫秒内可生成的序列号数目的理论极限。</p><p>　　在明确的业务场景中，我们到底需要一个什么样的分布式ID呢，除了唯一性和有序，通常还希望分布式ID：</p><ul><li>有意义，也就是说包含更多的信息，比如时间和业务信息。</li><li>高可用性，取决于我们业务对扩展性，性能方面的要求。</li><li>紧凑性，ID 的大小可能受实际应用的制约，例如太长的ID会降低 MYSQL 等数据库索引的性能。</li></ul><p>分享一个很好的分布式ID的实现 <a href="https://github.com/bingoohuang/westid" target="_blank" rel="noopener">westid</a>.</p><blockquote><p>Reference:　<a href="https://time.geekbang.org/column/intro/82" target="_blank" rel="noopener">极客时间-Java核心技术36讲</a>　</p></blockquote>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;　　需要明确通常的分布式 ID 的定义，基本包括:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;全局唯一，区别于单点系统的唯一，全局是要求分布式系统内唯一。&lt;/li&gt;
-&lt;li&gt;有序性，通常要保证生成的 ID 是有序递增的。
+&lt;li&gt;有序性，通常要保证生成的 ID 是有序递增的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
     
     </summary>
     
