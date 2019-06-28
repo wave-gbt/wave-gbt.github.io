@@ -1137,28 +1137,23 @@
     <!-- LOCAL: You can save these files to your site and update links -->
 
   
-  <script src="https://jjeejj.github.io/js/gitment.js"></script>
+  <script src="//jjeejj.github.io/js/gitment.js"></script>
 
-  <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<link rel="stylesheet" href="//jjeejj.github.io/css/gitment.css">
 <!-- END LOCAL -->
 
 <script>
-  function renderGitment() {
-    var gitment = new Gitment({
-      id: window.location.pathname,
-      owner: 'wave-gbt',
-      repo: 'wave-gbt.github.io',
-      
-      oauth: {
-      
-      
-        client_secret: '82290d349b10d54609cc1a133fbe9ac79dab2fae',
-      
-        client_id: '1443764480ddbfce252c'
-      }
+var gitment = new Gitment({
+        id: '<%= page.date %>',
+        owner: '<%=theme.comment.gitment.github_user%>',
+        repo: '<%=theme.comment.gitment.github_repo%>',
+        oauth: {
+            client_id: '<%=theme.comment.gitment.client_id%>',
+            client_secret: '<%=theme.comment.gitment.client_secret%>',
+        },
+        cleanly: '<%=theme.comment.gitment.cleanly%>',
     });
-    gitment.render('gitment-container');
-  }
+    gitment.render('gitmentContainer');
 
   
     renderGitment();
