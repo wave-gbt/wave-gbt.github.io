@@ -622,10 +622,7 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+    <div class="comments" id="gitalk-container">
     </div>
 
   
@@ -1052,30 +1049,32 @@
 
 
   
-    <!-- LOCAL: You can save these files to your site and update links -->
+    
 
-  
-  <script src="//jjeejj.github.io/js/gitment.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
-<link rel="stylesheet" href="//jjeejj.github.io/css/gitment.css">
-<!-- END LOCAL -->
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
 
 <script>
-var gitment = new Gitment({
-        id: '<%= page.date %>',
-        owner: '<%=theme.comment.gitment.github_user%>',
-        repo: '<%=theme.comment.gitment.github_repo%>',
-        oauth: {
-            client_id: '<%=theme.comment.gitment.client_id%>',
-            client_secret: '<%=theme.comment.gitment.client_secret%>',
-        },
-        cleanly: '<%=theme.comment.gitment.cleanly%>',
-    });
-    gitment.render('gitmentContainer');
-
-  
-    renderGitment();
-  
+  var gitalk = new Gitalk({
+    clientID: '1443764480ddbfce252c',
+    clientSecret: '82290d349b10d54609cc1a133fbe9ac79dab2fae',
+    repo: 'wave-gbt.github.io',
+    owner: 'wave-gbt',
+    admin: ['wave-gbt'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
 </script>
 
   
