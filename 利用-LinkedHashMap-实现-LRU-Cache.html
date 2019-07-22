@@ -97,14 +97,15 @@
 
 
   <meta name="description" content="In doing we learn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wave&#39;s blog">
-<meta property="og:url" content="http://imbotao.top/tags/json/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 LinkedHashMap 实现 LRU Cache">
+<meta property="og:url" content="http://imbotao.top/利用-LinkedHashMap-实现-LRU-Cache.html">
 <meta property="og:site_name" content="wave&#39;s blog">
 <meta property="og:description" content="In doing we learn">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-22T09:05:30.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wave&#39;s blog">
+<meta name="twitter:title" content="利用 LinkedHashMap 实现 LRU Cache">
 <meta name="twitter:description" content="In doing we learn">
 
 
@@ -115,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://imbotao.top/tags/json/">
+  <link rel="canonical" href="http://imbotao.top/利用-LinkedHashMap-实现-LRU-Cache">
 
 
 
@@ -125,7 +126,7 @@
   };
 </script>
 
-  <title>Tag: json | wave's blog</title>
+  <title>利用 LinkedHashMap 实现 LRU Cache | wave's blog</title>
   
 
 
@@ -173,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -249,7 +250,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -361,83 +362,238 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>json<small>Tag</small>
-        </h2>
-      </div>
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/利用-LinkedHashMap-实现-LRU-Cache.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="In doing we learn">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">利用 LinkedHashMap 实现 LRU Cache
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-22 17:05:30" itemprop="dateCreated datePublished" datetime="2019-07-22T17:05:30+08:00">2019-07-22</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         
+      
+    </div>
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
 
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/freemark-analysis-json-string.html" itemprop="url">
-            
-              <span itemprop="name">FreeMarker解析json数据</span>
-            
-          </a>
-        
-      </h3>
+    
+    
+    
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-11-07T16:22:06+08:00" content="2017-11-07">
-          11-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+   <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
 
       
     </div>
 
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your encouragement</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="wave WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>wave</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://imbotao.top/利用-LinkedHashMap-实现-LRU-Cache.html" title="利用 LinkedHashMap 实现 LRU Cache">http://imbotao.top/利用-LinkedHashMap-实现-LRU-Cache.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Solve-NPE-problems-with-Optional.html" rel="next" title="使用 Optional 解决 NPE 问题">
+                <i class="fa fa-chevron-left"></i> 使用 Optional 解决 NPE 问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -554,23 +710,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -838,6 +978,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -853,6 +997,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1443764480ddbfce252c',
+    clientSecret: '82290d349b10d54609cc1a133fbe9ac79dab2fae',
+    repo: 'wave-gbt.github.io',
+    owner: 'wave-gbt',
+    admin: ['wave-gbt'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imbotao.top/"/>
-  <updated>2019-07-19T08:26:12.639Z</updated>
+  <updated>2019-07-22T09:05:30.541Z</updated>
   <id>http://imbotao.top/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用 LinkedHashMap 实现 LRU Cache</title>
+    <link href="http://imbotao.top/%E5%88%A9%E7%94%A8-LinkedHashMap-%E5%AE%9E%E7%8E%B0-LRU-Cache.html"/>
+    <id>http://imbotao.top/利用-LinkedHashMap-实现-LRU-Cache.html</id>
+    <published>2019-07-22T09:05:30.000Z</published>
+    <updated>2019-07-22T09:05:30.541Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>使用 Optional 解决 NPE 问题</title>
@@ -213,7 +227,7 @@
     <link href="http://imbotao.top/find-in-two-dimensional-array.html"/>
     <id>http://imbotao.top/find-in-two-dimensional-array.html</id>
     <published>2018-11-14T09:34:53.000Z</published>
-    <updated>2019-05-10T03:32:28.593Z</updated>
+    <updated>2019-07-22T09:28:50.303Z</updated>
     
     <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>　　在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br><a id="more"></a></p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Consider the following matrix:</span><br><span class="line">[</span><br><span class="line">  [1,   4,  7, 11, 15],</span><br><span class="line">  [2,   5,  8, 12, 19],</span><br><span class="line">  [3,   6,  9, 16, 22],</span><br><span class="line">  [10, 13, 14, 17, 24],</span><br><span class="line">  [18, 21, 23, 26, 30]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">Given target = 5, return true.</span><br><span class="line">Given target = 20, return false.</span><br></pre></td></tr></table></figure><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>从右上角开始查找。矩阵中的一个数，它左边的数都比它小，下边的数都比它大。因此，从右上角开始查找，就可以根据 target 和当前元素的大小关系来缩小查找区间。</p><p>复杂度：O(M + N) + O(1)</p><p>当前元素的查找区间为左下角的所有元素，例如元素 12 的查找区间如下：<br><img src="/img/222array.png" alt="二维数组中的查找"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public boolean Find(int target, int[][] matrix) &#123;</span><br><span class="line">    if (matrix == null || matrix.length == 0 || matrix[0].length == 0)</span><br><span class="line">        return false;</span><br><span class="line">    int rows = matrix.length, cols = matrix[0].length;</span><br><span class="line">    int r = 0, c = cols - 1; // 从右上角开始</span><br><span class="line">    while (r &lt;= rows - 1 &amp;&amp; c &gt;= 0) &#123;</span><br><span class="line">        if (target == matrix[r][c]) </span><br><span class="line">            return true;</span><br><span class="line">        else if (target &gt; matrix[r][c]) // 如果比右上角的数大,就往下找；否则往左找</span><br><span class="line">            r++;</span><br><span class="line">        else </span><br><span class="line">            c--;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>题目来源：<a href="https://www.nowcoder.com/practice/abc3fe2ce8e146608e868a70efebf62e?tpId=13&amp;tqId=11154&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">nowcoder</a></p></blockquote>]]></content>
     
@@ -224,7 +238,7 @@
     </summary>
     
     
-      <category term="nowcoder" scheme="http://imbotao.top/tags/nowcoder/"/>
+      <category term="algorithm" scheme="http://imbotao.top/tags/algorithm/"/>
     
   </entry>
   
@@ -333,7 +347,7 @@
     <link href="http://imbotao.top/lambda-expressions.html"/>
     <id>http://imbotao.top/lambda-expressions.html</id>
     <published>2018-04-19T06:58:54.000Z</published>
-    <updated>2019-05-10T03:32:28.586Z</updated>
+    <updated>2019-07-22T09:18:45.890Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是-Lambda"><a href="#什么是-Lambda" class="headerlink" title="什么是 Lambda?"></a>什么是 Lambda?</h2><p>我们知道，对于一个Java变量，我们可以赋给其一个“<strong>值</strong>”。<br><img src="/img/lambda/p1.jpg" alt="normal"></p><p>如果你想把“<strong>一块代码</strong>”赋给一个Java变量，应该怎么做呢？<br><a id="more"></a></p><p>比如，我想把右边那块代码，赋给一个叫做<code>aBlockOfCode</code>的Java变量：<br><img src="/img/lambda/p2.jpg" alt="p2"></p><p>在Java 8之前，这个是做不到的。但是Java 8问世之后，利用Lambda特性，就可以做到了。<br><img src="/img/lambda/p3.jpg" alt="p3"></p><p>当然，这个并不是一个很简洁的写法。所以，为了使这个赋值操作更加<strong>elegant</strong>, 我们可以移除一些没用的声明。<br><img src="/img/lambda/p4.jpg" alt="p4"></p><p>这样，我们就成功的非常优雅的把“一块代码”赋给了一个变量。<strong>而“这块代码”，或者说“这个被赋给一个变量的函数”，就是一个Lambda表达式</strong>。<br>但是这里仍然有一个问题，就是变量<code>aBlockOfCode</code>的类型应该是什么？在Java 8里面，<strong>所有的Lambda的类型都是一个接口，而Lambda表达式本身，也就是”那段代码“，需要是这个接口的实现</strong>。这是我认为理解Lambda的一个关键所在，简而言之就是，<strong>Lambda表达式本身就是一个接口的实现</strong>。直接这样说可能还是有点让人困扰，我们继续看看例子。我们给上面的aBlockOfCode加上一个类型：</p><p><img src="/img/lambda/p5.jpg" alt="p5"><br>这种只有<strong>一个接口函数需要被实现的接口类型，我们叫它”函数式接口“</strong>。为了避免后来的人在这个接口中增加接口函数导致其有多个接口函数需要被实现，变成”非函数接口”，我们可以在这个上面加上一个声明@FunctionalInterface, 这样别人就无法在里面添加新的接口函数了：<br><img src="/img/lambda/p6.jpg" alt="p6"></p><p>这样，我们就得到了一个完整的Lambda表达式声明：<br><img src="/img/lambda/p7.jpg" alt="p7"></p><h2 id="Lambda表达式有什么作用"><a href="#Lambda表达式有什么作用" class="headerlink" title="Lambda表达式有什么作用?"></a>Lambda表达式有什么作用?</h2><p><strong>最直观的作用就是使得代码变得异常简洁。</strong><br>我们可以对比一下Lambda表达式和传统的Java对同一个接口的实现：<br><img src="/img/lambda/p8.jpg" alt="p8"></p><p>这两种写法本质上是等价的。但是显然，Java 8中的写法更加优雅简洁。并且，由于Lambda可以直接赋值给一个变量，<strong>我们就可以直接把Lambda作为参数传给函数, 而传统的Java必须有明确的接口实现的定义，初始化才行：</strong><br><img src="/img/lambda/p9.jpg" alt="p9"><br>有些情况下，这个接口实现只需要用到一次。传统的Java 7必须要求你定义一个“污染环境”的接口实现MyInterfaceImpl，而相较之下Java 8的Lambda, 就显得干净很多。</p><h2 id="Lambda结合FunctionalInterface-Lib-forEach-stream-，method-reference等新特性可以使代码变的更加简洁！"><a href="#Lambda结合FunctionalInterface-Lib-forEach-stream-，method-reference等新特性可以使代码变的更加简洁！" class="headerlink" title="Lambda结合FunctionalInterface Lib, forEach, stream()，method reference等新特性可以使代码变的更加简洁！"></a>Lambda结合FunctionalInterface Lib, forEach, stream()，method reference等新特性可以使代码变的更加简洁！</h2><p>直接上例子。</p><p>假设Person的定义和List<person>的值都给定。<br><img src="/img/lambda/p10.jpg" alt="p10"><br>现在需要你打印出guiltyPersons List里面所有LastName以”Z”开头的人的FirstName。</person></p><p><strong>原生态Lambda写法</strong>：定义两个函数式接口，定义一个静态函数，调用静态函数并给参数赋值Lambda表达式。<br><img src="/img/lambda/p12.jpg" alt="p12"><br>这个代码实际上已经比较简洁了，但是我们还可以更简洁么？当然可以。在Java 8中有一个函数式接口的包，里面定义了大量可能用到的函数式接口（<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html" target="_blank" rel="noopener">java.util.function (Java Platform SE 8 )</a>）。所以，我们在这里压根都不需要定义NameChecker和Executor这两个函数式接口，直接用Java 8函数式接口包里的Predicate<t>和Consumer<t>就可以了——因为他们这一对的接口定义和NameChecker/Executor其实是一样的。<br><img src="/img/lambda/pp.jpg" alt="pp"><br><strong>第一步简化 - 利用函数式接口包：</strong><br><img src="/img/lambda/p13.jpg" alt="p13"><br>静态函数里面的for each循环其实是非常碍眼的。这里可以利用Iterable自带的forEach()来替代。forEach()本身可以接受一个Consumer<t> 参数。<br><strong>第二步简化 - 用Iterable.forEach()取代foreach loop：</strong><br><img src="/img/lambda/p14.jpg" alt="p14"><br>由于静态函数其实只是对List进行了一通操作，这里我们可以甩掉静态函数，直接使用stream()特性来完成。stream()的几个方法都是接受Predicate<t>，Consumer<t>等参数的（<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html" target="_blank" rel="noopener">java.util.stream (Java Platform SE 8 )</a>）。你理解了上面的内容，stream()这里就非常好理解了，并不需要多做解释。<br><strong>第三步简化 - 利用stream()替代静态函数：</strong><br><img src="/img/lambda/p15.jpg" alt="p15"><br>对比最开始的Lambda写法，这里已经非常非常简洁了。但是如果，我们的要求变一下，变成print这个人的全部信息，及p -&gt; System.out.println(p); 那么还可以利用Method reference来继续简化。所谓Method reference, 就是用已经写好的别的Object/Class的method来代替Lambda expression。格式如下：<br><img src="/img/lambda/p16.jpg" alt="p16"><br><strong>第四步简化 - 如果是println(p)，则可以利用Method reference代替forEach中的Lambda表达式：</strong><br><img src="/img/lambda/p17.jpg" alt="p17"><br>这基本上就是能写的最简洁的版本了。</t></t></t></t></t></p><h2 id="Lambda配合Optional可以使Java对于null的处理变的异常优雅"><a href="#Lambda配合Optional可以使Java对于null的处理变的异常优雅" class="headerlink" title="Lambda配合Optional可以使Java对于null的处理变的异常优雅"></a>Lambda配合Optional<t>可以使Java对于null的处理变的异常优雅</t></h2><p>这里假设我们有一个person object，以及一个person object的Optional wrapper:<br><img src="/img/lambda/p18.jpg" alt="p18"><br>Optional<t>如果不结合Lambda使用的话，并不能使原来繁琐的null check变的简单。<br><img src="/img/lambda/p20.jpg" alt="p20"><br><strong>只有当Optional<t>结合Lambda一起使用的时候，才能发挥出其真正的威力！</t></strong></t></p><p>我们现在就来对比一下下面四种常见的null处理中，Java 8的Lambda+Optional<t>和传统Java两者之间对于null的处理差异。<br><strong>情况一 - 存在则开干</strong><br><img src="/img/lambda/p21.jpg" alt="p21"><br><strong>情况二 - 存在则返回，无则返回屁</strong><br><img src="/img/lambda/p22.jpg" alt="p22"><br><strong>情况三 - 存在则返回，无则由函数产生</strong><br><img src="/img/lambda/p23.jpg" alt="p23"><br><strong>情况四 - 夺命连环null检查</strong><br><img src="/img/lambda/p24.jpg" alt="p24"><br>由上述四种情况可以清楚地看到，Optional<t>+Lambda可以让我们少写很多ifElse块。尤其是对于情况四那种夺命连环null检查，传统java的写法显得冗长难懂，而新的Optional<t>+Lambda则清新脱俗，清楚简洁。</t></t></t></p><p>关于Java的Lambda, 还有东西需要讨论和学习。比如如何handle lambda exception，如何利用Lambda的特性来进行parallel processing等。总之，我只是一如既往地介绍个大概，让你大概知道，哦！原来是这样子就OK了。网上关于Lambda有很多相关的教程，多看多练。假以时日，必定有所精益。</p><blockquote><p>Reference:　<a href="https://www.zhihu.com/question/20125256/answer/324121308" target="_blank" rel="noopener">Sevenvidia-知乎</a>　　</p></blockquote>]]></content>
     
@@ -346,8 +360,6 @@
     
     
       <category term="Java" scheme="http://imbotao.top/tags/Java/"/>
-    
-      <category term="Lambda" scheme="http://imbotao.top/tags/Lambda/"/>
     
   </entry>
   
@@ -405,26 +417,6 @@
     <summary type="html">
     
       &lt;p&gt;关键字: &lt;code&gt;幂等&lt;/code&gt;、&lt;code&gt;CountDownLatch&lt;/code&gt;、&lt;code&gt;异常处理&lt;/code&gt;、&lt;code&gt;B+ 树&lt;/code&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="沉淀" scheme="http://imbotao.top/tags/%E6%B2%89%E6%B7%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>问题沉淀「一」</title>
-    <link href="http://imbotao.top/questions-share-1.html"/>
-    <id>http://imbotao.top/questions-share-1.html</id>
-    <published>2018-03-28T07:40:40.000Z</published>
-    <updated>2019-05-10T03:32:28.597Z</updated>
-    
-    <content type="html"><![CDATA[<p>关键字: <code>mysql字符编码</code>、<code>索引</code>、<code>介绍项目</code>、<code>跨库跨表关联</code><br><a id="more"></a></p><p><strong>问题：</strong> 在 join 操作时，为什么 MySQL 编码不同，性能差距很大。<br><strong>解决方案：</strong><br>　　问题字符集转换遵循由小到大的原则，因为utf8mb4是utf8的超集，所以这里把utf8转换成utf8mb4，即把t1.code转换成utf8mb4字符集，转换了之后，由于t1.code上面的索引仍然是utf8字符集，所以这个索引就被执行计划忽略了，然后t1表只能选择全表扫描。更糟糕的是，如果t2筛选出来的记录不止1条，那么t1就会被全表扫描多次，性能之差可想而知。<a href="https://mp.weixin.qq.com/s/ns9eRxjXZfUPNSpfgGA7UA?from=groupmessage&amp;isappinstalled=0" target="_blank" rel="noopener">链接:MySQL表字段字符集不同导致的索引失效问题</a></p><hr><p><strong>问题：</strong> MySQL的最左前缀在第一字段不存在的情况下，为什么使用到了索引？<br><strong>解决方案：</strong><br>　　可以认真阅读这篇文章。<a href="https://www.zhihu.com/question/36996520?from=groupmessage&amp;isappinstalled=0" target="_blank" rel="noopener">链接：mysql索引最左匹配原则的理解? - 知乎</a></p><hr><p><strong>问题：</strong> 面试中面试官让谈一谈 MySQL 中的索引，怎么回答比较好？<br><strong>解决方案：</strong><br>　　MySQL是很常用的数据库，其中改善性能最好的方式，就是通过数据库中合理地使用索引。因此，首先可以谈谈在项目中如何设计索引。其次，索引使用的注意事项有哪些，例如复合索引的最左前缀原则，范围查询对多列查询的影响等。最后，如果面试官对原理比较感兴趣，可能再聊聊数据库索引的原理，为什么要用 B-tree，聚集索引与非聚集索引的区别这些问题。此外，加分项，还可以说说自己在项目中，遇到了哪些索引的难点，例如之前提到的编码转换的索引失效问题，以及通过曲线救国的方式满足业务场景。</p><hr><p><strong>问题：</strong> 如何介绍项目<br><strong>解决方案：</strong><br>　　面试官问这个问题，主要是考察你的概述能力和全局视野。当然，今天我们聊的并不是面试题，而是我们怎么去理解和复盘我们每天做的事情。有的人经常抱怨自己每天在堆业务，但没有成长。事实上，很多情况下确实在堆业务，但并不是没有成长的。并非做中间件或者技术架构才是成长，例如我们的需求分析能力，沟通协作能力，产品思维能力，抽象建模能力等都是一个非常重要的硬实力。首先，请你静下来思考，你真的了解自己每天在做的事情吗，你真的了解自己所做的业务吗？</p><p>  好的，现在进入正文，我们如何理解和复盘项目。这里，列了一个清单，请大家好好思考下这些内容。</p><ol><li>明确项目的周期。</li><li>明确项目的价值。（为什么做这个项目，它解决了用户什么痛点，它带来什么价值？）</li><li>明确项目的功能。（这个项目涉及哪些功能？）</li><li>明确项目的技术。（这个项目用到哪些技术？）</li><li>明确个人在项目中的位置和作用。（你在这个项目的承担角色？）</li><li>明确项目的整体架构。</li><li>明确项目的优缺点,如果重新设计你会如何设计。</li><li>明确项目的亮点。（这个项目有什么亮点？）</li><li>明确技术成长。（你通过这个项目有哪些技术成长？）</li></ol><hr><p><strong>问题：</strong> 分库与分表，联合查询就遇到跨库关联和跨表关系问题，那应该怎么办？<br><strong>解决方案：</strong> </p><ol><li>其实，数据量小的情况下，怎么使用都没有问题的。</li><li>如果在数据量大的情况下，不一定分库分表，单库也不行的。看阿里编码规范，禁止存储过程，尽量不要使用join，有也不要超过3个。</li><li>联合查询不一定性能就差，如果很多join，都能用到主键或者唯一键性能也不差的。</li><li>业务解偶，单张表也能更好缓存。</li><li>在单库单表的情况下，联合查询是非常容易的。但是，随着分库与分表的演变，联合查询就遇到跨库关联和跨表关系问题。在设计之初就应该尽量避免联合查询，可以通过程序中进行拼装，或者通过反范式化设计进行规避。</li></ol><blockquote><p>Reference:</p><ul><li>梁桂钊的知识星球 –「服务端思维」</li></ul></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关键字: &lt;code&gt;mysql字符编码&lt;/code&gt;、&lt;code&gt;索引&lt;/code&gt;、&lt;code&gt;介绍项目&lt;/code&gt;、&lt;code&gt;跨库跨表关联&lt;/code&gt;&lt;br&gt;
     
     </summary>
     
