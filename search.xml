@@ -50,8 +50,8 @@
     <url>%2Fhow-to-guarantee-idempotent-mechanism.html</url>
     <content type="text"><![CDATA[概述 其实这是一个很常见的问题，做后端开发会经常遇到这个问题，如何保证消息消费不被重复消费，或者说如何保证一个接口多次调用只会产生一种结果，不管调多少次，资源都不会发生改变。如果重复消费了或者调用了，如何保证不造成系统异常。所以幂等机制的核心就是保证资源唯一性。 场景 需要保证幂等性的场景就是需要限定接口只能调用一次；消息重复消费之后，要保证资源不会发生改变。例如： 支付接口 退款接口 新增数据的接口 … 思路 利用数据库的唯一索引，针对我们需要约束的资源字段创建唯一索引，可以防止插入重复的数据。需要注意的是，如果是分库分表的情况，唯一索引的情况就不能限制资源数据的唯一性。 可以先根据数据库唯一索引查一下，如果存在，就做更新操作。 这块要注意的是如何避免并发场景（分布式锁）。 如果是直接写 redis，每次都是set，天然就幂等的。 利用 redis 做一层校验，每次调接口或这消费消息之前先查一下 redis 里有没有全局的ID，如果没有消费过，加redis，再处理消息或接口。]]></content>
       <tags>
-        <tag>架构</tag>
         <tag>沉淀</tag>
+        <tag>架构</tag>
       </tags>
   </entry>
   <entry>
@@ -75,7 +75,7 @@
     <url>%2Fachieve-queues-with-two-stack.html</url>
     <content type="text"><![CDATA[题目描述 用两个栈来实现一个队列，完成队列的 Push 和 Pop 操作。 题目分析 首先清楚栈和队列的特点，栈的特点是先进后出，队列的特点是先进先出。也就是说，栈的删除操作在表尾进行，队列的删除操作在表头进行。 解题思路in 栈用来处理入栈（push）操作，out 栈用来处理出栈（pop）操作。一个元素进入 in 栈之后，出栈的顺序被反转。当元素要出栈时，需要先进入 out 栈，此时元素出栈顺序再一次被反转，因此出栈顺序就和最开始入栈顺序是相同的，先进入的元素先退出，这就是队列的顺序。 12345678910111213141516171819Stack&lt;Integer&gt; in = new Stack&lt;Integer&gt;();Stack&lt;Integer&gt; out = new Stack&lt;Integer&gt;();// 入栈 (in 栈)public void push(int node) &#123; in.push(node);&#125;// 出栈public int pop() throws Exception &#123; if (out.isEmpty()) // 如果 out 栈为空，in 栈不为空，把元素从 in 栈顶出栈，放到 out 栈底 while (!in.isEmpty()) out.push(in.pop()); if (out.isEmpty()) throw new Exception(&quot;queue is empty&quot;); return out.pop(); // 然后从 out 的栈的栈顶出栈，就是当时最先入栈的元素&#125; 题目来源：nowcoder]]></content>
       <tags>
-        <tag>nowcoder</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -91,7 +91,7 @@
     <url>%2Fabout-cache.html</url>
     <content type="text"><![CDATA[对于热点数据，缓存的价值非常大，主要解决热点数据访问的性能问题。提供高性能的数据快速访问。 缓存特征命中率当某个请求能够通过访问缓存而得到响应时，称为缓存命中。 缓存命中率越高，缓存的利用率也就越高。 最大空间缓存通常位于内存中，内存的空间通常比磁盘空间小的多，因此缓存的最大空间不可能非常大。 当缓存存放的数据量超过最大空间时，就需要淘汰部分数据来存放新到达的数据。 清空策略 FIFO (First In First Out)：先进先出策略，在实时性的场景下，需要经常访问最新的数据，那么就可以使用 FIFO，使得最先进入的数据（最晚的数据）被淘汰。 LRU (Least Recently Used)：最近最久未使用策略，优先淘汰最久未使用的数据，也就是上次被访问时间距离现在最久的数据。该策略可以保证内存中的数据都是热点数据，也就是经常被访问的数据，从而保证缓存命中率。 LFU (less frequently used)：最少使用策略，无论是否过期，根据元素的被使用次数判断，清除使用次数较少的元素释放空间。策略算法主要比较元素的hitCount（命中次数）。在保证高频数据有效性场景下，可选择这类策略。 缓存位置浏览器当 HTTP 响应允许进行缓存时，浏览器会将 HTML、CSS、JavaScript、图片等静态资源进行缓存。 ISP网络服务提供商（ISP）是网络访问的第一跳，通过将数据缓存在 ISP 中能够大大提高用户的访问速度。 反向代理反向代理位于服务器之前，请求与响应都需要经过反向代理。通过将数据缓存在反向代理，在用户请求反向代理时就可以直接使用缓存进行响应。 本地缓存使用 Guava Cache 将数据缓存在服务器本地内存中，服务器代码可以直接读取本地内存中的缓存，速度非常快。 分布式缓存使用 Redis、Memcache 等分布式缓存将数据缓存在分布式缓存系统中。 相对于本地缓存来说，分布式缓存单独部署，可以根据需求分配硬件资源。不仅如此，服务器集群都可以访问分布式缓存，而本地缓存需要在服务器集群之间进行同步，实现难度和性能开销上都非常大。 数据库缓存MySQL 等数据库管理系统具有自己的查询缓存机制来提高查询效率。 缓存问题缓存穿透指的是对某个一定不存在的数据进行请求，该请求将会穿透缓存到达数据库。 解决方案： 对这些不存在的数据缓存一个空数据； 对这类请求进行过滤。 缓存雪崩指的是由于数据没有被加载到缓存中，或者缓存数据在同一时间大面积失效（过期），又或者缓存服务器宕机，导致大量的请求都到达数据库。 在有缓存的系统中，系统非常依赖于缓存，缓存分担了很大一部分的数据请求。当发生缓存雪崩时，数据库无法处理这么大的请求，导致数据库崩溃。 解决方案： 为了防止缓存在同一时间大面积过期导致的缓存雪崩，可以通过观察用户行为，合理设置缓存过期时间来实现； 为了防止缓存服务器宕机出现的缓存雪崩，可以使用分布式缓存，分布式缓存中每一个节点只缓存部分的数据，当某个节点宕机时可以保证其它节点的缓存仍然可用。 也可以进行缓存预热，避免在系统刚启动不久由于还未将大量数据进行缓存而导致缓存雪崩。 缓存一致性缓存一致性要求数据更新的同时缓存数据也能够实时更新。 解决方案： 在数据更新的同时立即去更新缓存； 在读缓存之前先判断缓存是否是最新的，如果不是最新的先进行更新。 要保证缓存一致性需要付出很大的代价，缓存数据最好是那些对一致性要求不高的数据，允许缓存数据存在一些脏数据。 Reference: 缓存那些事 How Aspiration CDN helps to improve your website loading speed?]]></content>
       <tags>
-        <tag>缓存</tag>
+        <tag>架构</tag>
       </tags>
   </entry>
   <entry>
@@ -140,7 +140,6 @@
     <content type="text"><![CDATA[近期的项目需求需要用到消息队列, 结合实际的业务需求(佣金结算), 需要对市面上的几种消息中间件进行选型分析, 从功能维度(优先级队列、延迟队列、死信队列、重试队列、消费模式、消息过滤、消息顺序性、事务性消息等), 性能,可靠性 + 可用性, 运维管理, 日志追踪, 社区力度及生态发展等层面进行考虑, 根据各自的侧重点, 选择合适自己的消息中间件尤为重要。 我这次选择了阿里开源的RocketMQ,下面主要记录下我的首次使用,与Spring集成,采用push方式接收消息。 Maven 依赖123456789101112&lt;dependency&gt; &lt;groupId&gt;com.alibaba.rocketmq&lt;/groupId&gt; &lt;artifactId&gt;rocketmq-client&lt;/artifactId&gt; &lt;version&gt;3.2.6&lt;/version&gt;&lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.rocketmq&lt;/groupId&gt; &lt;artifactId&gt;rocketmq-all&lt;/artifactId&gt; &lt;version&gt;3.2.6&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt;&lt;/dependency&gt; application.properties123apache.rocketmq.consumer.PushConsumer=WeChatConsumerapache.rocketmq.producer.producerGroup=WeChatProducerapache.rocketmq.namesrvAddr=XX.XX.XX.XX:9876 生产者123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354public class Producer &#123; private static final Logger logger = LoggerFactory.getLogger(Producer.class); /** * 生产者的组名 */ @Value("$&#123;apache.rocketmq.producer.producerGroup&#125;") private String producerGroup; /** * NameServer 地址 */ @Value("$&#123;apache.rocketmq.namesrvAddr&#125;") private String namesrvAddr; public void defaultMQProducer()&#123; //生产者的组名 DefaultMQProducer producer = new DefaultMQProducer(producerGroup); //指定NameServer地址，多个地址以 ; 隔开 producer.setNamesrvAddr(namesrvAddr); /** * 从文件中获取待消费消息数据： * 4418040302625808|2018-04-03 10:35:52|81|820|16608187978|2018-04-03 14:22:56|9095180232 6518040101499088|2018-04-01 10:50:20|75|750|13037219257|2018-04-03 14:22:55|3579901463 */ File fin = new File("E:\\work\\20180403_1432_002.REQ"); try &#123; /** * Producer对象在使用之前必须要调用start初始化，初始化一次即可 * 注意：切记不可以在每次发送消息时，都调用start方法 */ producer.start(); List&lt;String&gt; msgList = ReadFile.readFile(fin); if (CollectionUtils.isEmpty(msgList)) &#123; return; &#125; StopWatch stop = new StopWatch(); stop.start(); for (String str : msgList) &#123; // 拆分字符串, id 记录流水号 String[] msgArr = str.split("\\|"); Message msg = new Message("WXData","push",msgArr[0],str.getBytes()); // 发送消息 SendResult result = producer.send(msg); logger.info("id:&#123;&#125;,result:&#123;&#125;", result.getMsgId(), result.getSendStatus()); &#125; stop.stop(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125;finally&#123; producer.shutdown(); &#125; &#125;&#125; 消费者12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152public class Consumer &#123; /** * 消费者的组名 */ @Value("$&#123;apache.rocketmq.consumer.PushConsumer&#125;") private String consumerGroup; /** * NameServer 地址 */ @Value("$&#123;apache.rocketmq.namesrvAddr&#125;") private String namesrvAddr; private static final Logger logger = LoggerFactory.getLogger(Consumer.class); @Autowired CalcCommissionService calcService; // spring框架的注解，在方法上加该注解会在项目启动的时候执行该方法，也可以理解为在spring容器初始化的时候执行该方法 @PostConstruct public void defaultMQPushConsumer()&#123; //消费者的组名 DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(consumerGroup); //指定NameServer地址，多个地址以 ; 隔开 consumer.setNamesrvAddr(namesrvAddr); try &#123; //订阅WXData下的push消息 consumer.subscribe("WXData", "push"); //设置Consumer第一次启动是从队列头部开始消费还是队列尾部开始消费 //如果非第一次启动，那么按照上次消费的位置继续消费 consumer.setConsumeFromWhere( ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET); consumer.registerMessageListener( (List&lt;MessageExt&gt; list, ConsumeConcurrentlyContext Context) -&gt; &#123; try &#123; Message msg = list.get(0); String msgBody = new String (msg.getBody()); // TODO coding... &#125; catch (Exception e) &#123; e.printStackTrace(); return ConsumeConcurrentlyStatus.RECONSUME_LATER; // 稍后重试 &#125; return ConsumeConcurrentlyStatus.CONSUME_SUCCESS; // 消费成功 &#125;); consumer.start(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; &#125;&#125; 测试123456789101112public class Test&#123; /** * test rocketMQ */ @Autowired Producer rocketMQProvider; @RequestMapping("/testMQ") public String testMq() &#123; rocketMQProvider.defaultMQProducer(); return null; &#125;&#125;]]></content>
       <tags>
         <tag>MQ</tag>
-        <tag>RocketMQ</tag>
       </tags>
   </entry>
   <entry>
@@ -582,7 +581,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ubuntu 环境下markdown转pdf]]></title>
+    <title><![CDATA[Ubuntu 环境下markdown转pdf]]></title>
     <url>%2Fubuntu-markdown-to-pdf.html</url>
     <content type="text"><![CDATA[方法一：在 chrome 上使用马克飞象编辑器对markdown 文件进行编写预览，完成之后在预览模式一侧右键，选择打印，然后就可以选择纸张大小，margin，打印页数，然后默认保存为PDF格式即可。我是我认为比较方便快捷的一种方式。方法二：安装 retext1sudo apt-get install retext 软件安装成功后，ctrl+L 即可进入实时预览模式，点击菜单栏中的打印，也可以保存为PDF格式的文件。]]></content>
       <tags>
@@ -679,7 +678,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ubuntu安装navicat及常见问题解决]]></title>
+    <title><![CDATA[Ubuntu安装navicat及常见问题解决]]></title>
     <url>%2Fubuntu-install-navicat.html</url>
     <content type="text"><![CDATA[如果系统中没有安装wine组件则执行./start_navicat命令则系统毫无反应，没有错误日志等，因此需要安装wine和修改脚本… 安装navicat 下载Navicat，网址：http://www.navicat.com/en/download/download.html 进入下载目录，解压压缩包：tar -zxvf navicat11_mysql_en.tar.gz 打开解压后的目录，会看到 start_navicat文件 运行他就可以了 执行命令： ./start_navicat 。执行命令后便启动navicat 常见问题解决：如果系统中没有安装wine组件则执行./start_navicat命令则系统毫无反应，没有错误日志等，因此需要安装wine和修改脚本： 安装wine：sudo apt-get install wine 修改start_navicat文件：找到winboot，改成wineboot后保存，然后重新执行./start_navicat命令]]></content>
       <tags>
@@ -715,7 +714,7 @@
     <url>%2Funderstanding-recursive-functions.html</url>
     <content type="text"><![CDATA[什么是递归？什么情况下会使用递归? 递归作为一种算法在程序设计语言中广泛使用，是指函数/过程/子程序在运行过程中直接或间接调用自身而产生的重入现象。 递归算法一般用于解决三类问题 数据的定义是按递归定义的。（Fibonacci 函数） 问题解决按递归算法实现。（回溯） 数据的结构形式是按递归定义的。（树的遍历，图的搜索） 下面两个程序是使用递归实现的小栗子 1234567891011121314151617181920/*** 计算二进制中1的个数* N为奇数，二进制中的1的个数等于N/2的个数* 例子* num =13* 1. getBinary(13/2=6)+1;* 2. getBinary(6/2=3)+1;* 3. getBinary(3/2=1)+1+1;* 4. getBinary(1)+1+1; getBinary(1) 返回1，所以与后面两个1相加是3**/public static int getBinary(int num)&#123; if (num == 1) return 1; if (0 == num%2)&#123; // 为偶数 return getBinary(num/2); &#125; else &#123; return getBinary(num/2)+1; &#125;&#125; 1234567891011121314151617181920/*** 求 n!***/public class Factorial &#123; public static void main(String[] args) &#123; long n = 7; System.out.println(); &#125; public static long doFactorial(long n) &#123; if (n &lt; 1) &#123; System.out.println(&quot;error&quot;); return 0; &#125; else if (n == 1 || n ==2 ) &#123; return n; &#125; else &#123; return n * doFactorial(n-1); &#125; &#125;&#125;]]></content>
       <tags>
-        <tag>Java</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -811,7 +810,7 @@
     <url>%2Ftomcat-80-port-occupy.html</url>
     <content type="text"><![CDATA[在企业版Eclipse中，在已经启动了Tomcat服务器后，准备运行页面或Servlet时，有时会出现这样的关于Tomcat服务器端口占用的问题：“Several ports (8005, 8080, 8009) required by Tomcat v6.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).” 首先查看端口占用情况 ，使用以下命令 1sudo lsof -i:8080 查看结果 1java 1564 tomcat8 50u IPv6 19336 0t0 TCP *:http-alt (LISTEN) kill 该进程 (pid) 即可，使用以下命令 1sudo kill -9 1564]]></content>
       <tags>
-        <tag>tomcat</tag>
+        <tag>沉淀</tag>
       </tags>
   </entry>
 </search>
