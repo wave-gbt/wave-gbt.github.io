@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="In doing we learn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wave&#39;s blog">
-<meta property="og:url" content="http://imbotao.top/archives/2018/11/index.html">
+  <meta name="description" content="死信消息会被RabbitMQ进行特殊处理，如果配置了死信队列信息，那么该消息将会被丢进死信队列中，如果没有配置，则该消息将会被丢弃。">
+<meta name="keywords" content="MQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RabbitMQ 死信队列">
+<meta property="og:url" content="http://imbotao.top/RabbitMQ-dead-letter-queue.html">
 <meta property="og:site_name" content="wave&#39;s blog">
-<meta property="og:description" content="In doing we learn">
+<meta property="og:description" content="死信消息会被RabbitMQ进行特殊处理，如果配置了死信队列信息，那么该消息将会被丢进死信队列中，如果没有配置，则该消息将会被丢弃。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-30T08:03:05.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wave&#39;s blog">
-<meta name="twitter:description" content="In doing we learn">
+<meta name="twitter:title" content="RabbitMQ 死信队列">
+<meta name="twitter:description" content="死信消息会被RabbitMQ进行特殊处理，如果配置了死信队列信息，那么该消息将会被丢进死信队列中，如果没有配置，则该消息将会被丢弃。">
 
 
 
@@ -115,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://imbotao.top/archives/2018/11/">
+  <link rel="canonical" href="http://imbotao.top/RabbitMQ-dead-letter-queue">
 
 
 
@@ -125,7 +127,7 @@
   };
 </script>
 
-  <title>Archive | wave's blog</title>
+  <title>RabbitMQ 死信队列 | wave's blog</title>
   
 
 
@@ -173,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -266,7 +268,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -361,208 +363,265 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/RabbitMQ-dead-letter-queue.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="In doing we learn">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h2 class="post-title" itemprop="name headline">RabbitMQ 死信队列
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-30 14:29:16 / Modified: 16:03:05" itemprop="dateCreated datePublished" datetime="2019-07-30T14:29:16+08:00">2019-07-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        Good! 101 posts in total. Keep on posting.
-      </span>
-      
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/achieve-queues-with-two-stack.html" itemprop="url">
             
-              <span itemprop="name">用两个栈实现队列</span>
             
-          </a>
-        
-      </h3>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-15T14:46:34+08:00" content="2018-11-15">
-          11-15
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/find-in-two-dimensional-array.html" itemprop="url">
-            
-              <span itemprop="name">二维数组中的查找</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-14T17:34:53+08:00" content="2018-11-14">
-          11-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/about-cache.html" itemprop="url">
-            
-              <span itemprop="name">关于缓存</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-12T15:37:54+08:00" content="2018-11-12">
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>　　死信消息会被<code>RabbitMQ</code>进行特殊处理，如果配置了死信队列信息，那么该消息将会被丢进死信队列中，如果没有配置，则该消息将会被丢弃。<br><a id="more"></a></p>
+<h3 id="什么是死信"><a href="#什么是死信" class="headerlink" title="什么是死信"></a>什么是死信</h3><p>　　队列中的消息在以下三种情况下会变成死信:</p>
+<ul>
+<li>消息被拒绝 (basic.reject/ basic.nack)并且不再重新投递 requeue=false</li>
+<li>消息超期 (rabbitmq  Time-To-Live -&gt; messageProperties.setExpiration())</li>
+<li>队列超载 (长度限制超过了)</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>　　一般是应用在较为重要的业务中，确保消息不会丢失。通过配置死信队列，可以让未正常消费的消息暂存到另一个队列里，通过相应的业务代码来处理死信消息。</p>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>　　生产者 –&gt; 消息 –&gt; 交换机 –&gt; 队列 –&gt; 变成死信 –&gt; DLX交换机 –&gt;队列 –&gt; 消费者<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">lindQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> QueueBuilder.durable(LIND_QUEUE)</span><br><span class="line">      .withArgument(<span class="string">"x-dead-letter-exchange"</span>, LIND_DL_EXCHANGE)<span class="comment">//设置死信交换机</span></span><br><span class="line">      .withArgument(<span class="string">"x-message-ttl"</span>, makeCallExpire)</span><br><span class="line">      .withArgument(<span class="string">"x-dead-letter-routing-key"</span>, LIND_DEAD_QUEUE)<span class="comment">//设置死信routingKey</span></span><br><span class="line">      .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>x-dead-letter-exchange</code>: 用来设置死信后发送的交换机<br><code>x-dead-letter-routing-key</code>: 用来设置死信的 <code>routing-key</code>,如果不设置默认使用消息本身的<code>routing-key</code></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">z<span class="meta">@Component</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AmqpConfig</span> </span>&#123;</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 主要测试一个死信队列，功能主要实现延时消费，原理是先把消息发到正常队列，</span></span><br><span class="line"><span class="comment">    * 正常队列有超时时间，当达到时间后自动发到死信队列，然后由消费者去消费死信队列里的消息.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LIND_EXCHANGE = <span class="string">"lind.exchange"</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LIND_DL_EXCHANGE = <span class="string">"lind.dl.exchange"</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LIND_QUEUE = <span class="string">"lind.queue"</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LIND_DEAD_QUEUE = <span class="string">"lind.queue.dead"</span>;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LIND_FANOUT_EXCHANGE = <span class="string">"lindFanoutExchange"</span>;</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 单位为微秒.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Value</span>(<span class="string">"$&#123;tq.makecall.expire:60000&#125;"</span>)</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">long</span> makeCallExpire;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 创建普通交换机.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> TopicExchange <span class="title">lindExchange</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> (TopicExchange) ExchangeBuilder.topicExchange(LIND_EXCHANGE).durable(<span class="keyword">true</span>)</span><br><span class="line">         .build();</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 创建死信交换机.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> TopicExchange <span class="title">lindExchangeDl</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> (TopicExchange) ExchangeBuilder.topicExchange(LIND_DL_EXCHANGE).durable(<span class="keyword">true</span>)</span><br><span class="line">         .build();</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 创建普通队列.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Queue <span class="title">lindQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> QueueBuilder.durable(LIND_QUEUE)</span><br><span class="line">         .withArgument(<span class="string">"x-dead-letter-exchange"</span>, LIND_DL_EXCHANGE)<span class="comment">//设置死信交换机</span></span><br><span class="line">         .withArgument(<span class="string">"x-message-ttl"</span>, makeCallExpire)</span><br><span class="line">         .withArgument(<span class="string">"x-dead-letter-routing-key"</span>, LIND_DEAD_QUEUE)<span class="comment">//设置死信routingKey</span></span><br><span class="line">         .build();</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 创建死信队列.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Queue <span class="title">lindDelayQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> QueueBuilder.durable(LIND_DEAD_QUEUE).build();</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 绑定死信队列.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Binding <span class="title">bindDeadBuilders</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> BindingBuilder.bind(lindDelayQueue())</span><br><span class="line">         .to(lindExchangeDl())</span><br><span class="line">         .with(LIND_DEAD_QUEUE);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 绑定普通队列.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Binding <span class="title">bindBuilders</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> BindingBuilder.bind(lindQueue())</span><br><span class="line">         .to(lindExchange())</span><br><span class="line">         .with(LIND_QUEUE);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 广播交换机.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> FanoutExchange <span class="title">fanoutExchange</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> FanoutExchange(LIND_FANOUT_EXCHANGE);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">//-----生产者</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">@Component</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Publisher</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Autowired</span></span><br><span class="line">   <span class="keyword">private</span> RabbitTemplate rabbitTemplate;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">publish</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">       rabbitTemplate</span><br><span class="line">           .convertAndSend(AmqpConfig.LIND_EXCHANGE, AmqpConfig.LIND_DELAY_QUEUE,</span><br><span class="line">               message);</span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">       e.printStackTrace();</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//------消费者</span></span><br><span class="line"> </span><br><span class="line"> <span class="meta">@Component</span></span><br><span class="line"> <span class="meta">@Slf</span>4j</span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subscriber</span> </span>&#123;</span><br><span class="line">   <span class="meta">@RabbitListener</span>(queues = AmqpConfig.LIND_QUEUE)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">customerSign</span><span class="params">(String data)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line"> </span><br><span class="line">       log.info(<span class="string">"从队列拿到数据 ：&#123;&#125;"</span>, data);</span><br><span class="line"> </span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Reference: </p>
+<ul>
+<li><a href="https://www.cnblogs.com/lori/archive/2018/11/19/9984760.html" target="_blank" rel="noopener">rabbitmq实现死信队列</a></li>
+</ul>
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/message-reliability-delivery-suggestion.html" itemprop="url">
-            
-              <span itemprop="name">消息可靠性投递的技术方案</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-06T10:26:26+08:00" content="2018-11-06">
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+   <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your encouragement</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="wave WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>wave</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://imbotao.top/RabbitMQ-dead-letter-queue.html" title="RabbitMQ 死信队列">http://imbotao.top/RabbitMQ-dead-letter-queue.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MQ/" rel="tag"><i class="fa fa-tag"></i> MQ</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Solve-NPE-problems-with-Optional.html" rel="next" title="使用 Optional 解决 NPE 问题">
+                <i class="fa fa-chevron-left"></i> 使用 Optional 解决 NPE 问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -582,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -783,6 +851,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是死信"><span class="nav-number">1.</span> <span class="nav-text">什么是死信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">3.</span> <span class="nav-text">实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -939,6 +1024,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -954,6 +1043,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1443764480ddbfce252c',
+    clientSecret: '82290d349b10d54609cc1a133fbe9ac79dab2fae',
+    repo: 'wave-gbt.github.io',
+    owner: 'wave-gbt',
+    admin: ['wave-gbt'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
   
