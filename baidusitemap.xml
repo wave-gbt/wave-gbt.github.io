@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://imbotao.top/springboot-start-principle.html</loc>
+    <lastmod>2019-08-16</lastmod>
+  </url>  <url>
     <loc>http://imbotao.top/cmd-and-bash.html</loc>
     <lastmod>2019-08-01</lastmod>
   </url>  <url>
@@ -115,10 +118,10 @@
     <loc>http://imbotao.top/imooc-oracle-course.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/reset-imei-code.html</loc>
+    <loc>http://imbotao.top/graduated-and-quit.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/graduated-and-quit.html</loc>
+    <loc>http://imbotao.top/reset-imei-code.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/build-first-springBoot-project.html</loc>
@@ -157,10 +160,10 @@
     <loc>http://imbotao.top/improve-service-availability.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/single-or-join-query.html</loc>
+    <loc>http://imbotao.top/top-8-diagrams-for-understanding-java.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/top-8-diagrams-for-understanding-java.html</loc>
+    <loc>http://imbotao.top/single-or-join-query.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/ubuntu-install-daily-application.html</loc>
@@ -178,13 +181,13 @@
     <loc>http://imbotao.top/SpringBoot-hot-deployment-idea.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/SpringBoot-redis.html</loc>
-    <lastmod>2019-05-10</lastmod>
-  </url>  <url>
     <loc>http://imbotao.top/SpringBoot-multi-datasource.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/SpringBoot-eql-or-mybatis.html</loc>
+    <lastmod>2019-05-10</lastmod>
+  </url>  <url>
+    <loc>http://imbotao.top/SpringBoot-redis.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/springboot-JdbcTemplate-mysql.html</loc>
@@ -214,10 +217,10 @@
     <loc>http://imbotao.top/mysql-dev-skill.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/nginx-learn.html</loc>
+    <loc>http://imbotao.top/mysql-summary.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/mysql-summary.html</loc>
+    <loc>http://imbotao.top/nginx-learn.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/oracle-trigger.html</loc>
@@ -238,10 +241,10 @@
     <loc>http://imbotao.top/linux-summary.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/maven-learn-note.html</loc>
+    <loc>http://imbotao.top/linux-process-manage.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/linux-process-manage.html</loc>
+    <loc>http://imbotao.top/maven-learn-note.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/leetcode-second-height-salary.html</loc>
@@ -286,19 +289,19 @@
     <loc>http://imbotao.top/git-about-use.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
+    <loc>http://imbotao.top/git-modify-commit-history.html</loc>
+    <lastmod>2019-05-10</lastmod>
+  </url>  <url>
     <loc>http://imbotao.top/idea-use-tips.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
-    <loc>http://imbotao.top/git-modify-commit-history.html</loc>
+    <loc>http://imbotao.top/css-advanced.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/goodbye-2018.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/chrome-plug-collection.html</loc>
-    <lastmod>2019-05-10</lastmod>
-  </url>  <url>
-    <loc>http://imbotao.top/css-advanced.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
     <loc>http://imbotao.top/eclipse-maven-spring-springmvc-mybatis-example.html</loc>
