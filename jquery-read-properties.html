@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="关于我　　尽管我们拥有意识却和动物一样习惯逃避痛苦。然而当我们正直地思考时，就必须承受因果纠缠的压力，正直永远都不会是不痛不痒的。　　我所理解的学习或是教育，无非是一棵树摇动另一棵树,一个灵魂唤醒另一个灵魂。　　感谢开源运动，感谢互联网自由开放的精神，我在其中获益匪浅。　　我是wave，我在努力成为一名软件工程师。     座右铭　　进步远非由变化组成，而是取决于好记性。不能记住过去的人，被判重复">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wave&#39;s blog">
-<meta property="og:url" content="http://imbotao.top/about/index.html">
+  <meta name="description" content="在前端页面中, 可以通过使用 jQuery.i18n.properties 这个 jQuery 插件灵活读取配置,从而达到可以通过修改配置文件,就可以变更前端文件的资源引用。">
+<meta name="keywords" content="front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 读取 properties 配置">
+<meta property="og:url" content="http://imbotao.top/jquery-read-properties.html">
 <meta property="og:site_name" content="wave&#39;s blog">
-<meta property="og:description" content="关于我　　尽管我们拥有意识却和动物一样习惯逃避痛苦。然而当我们正直地思考时，就必须承受因果纠缠的压力，正直永远都不会是不痛不痒的。　　我所理解的学习或是教育，无非是一棵树摇动另一棵树,一个灵魂唤醒另一个灵魂。　　感谢开源运动，感谢互联网自由开放的精神，我在其中获益匪浅。　　我是wave，我在努力成为一名软件工程师。     座右铭　　进步远非由变化组成，而是取决于好记性。不能记住过去的人，被判重复">
+<meta property="og:description" content="在前端页面中, 可以通过使用 jQuery.i18n.properties 这个 jQuery 插件灵活读取配置,从而达到可以通过修改配置文件,就可以变更前端文件的资源引用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-13T01:42:47.118Z">
+<meta property="og:updated_time" content="2020-03-27T08:52:49.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wave&#39;s blog">
-<meta name="twitter:description" content="关于我　　尽管我们拥有意识却和动物一样习惯逃避痛苦。然而当我们正直地思考时，就必须承受因果纠缠的压力，正直永远都不会是不痛不痒的。　　我所理解的学习或是教育，无非是一棵树摇动另一棵树,一个灵魂唤醒另一个灵魂。　　感谢开源运动，感谢互联网自由开放的精神，我在其中获益匪浅。　　我是wave，我在努力成为一名软件工程师。     座右铭　　进步远非由变化组成，而是取决于好记性。不能记住过去的人，被判重复">
+<meta name="twitter:title" content="jQuery 读取 properties 配置">
+<meta name="twitter:description" content="在前端页面中, 可以通过使用 jQuery.i18n.properties 这个 jQuery 插件灵活读取配置,从而达到可以通过修改配置文件,就可以变更前端文件的资源引用。">
 
 
 
@@ -116,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://imbotao.top/about/">
+  <link rel="canonical" href="http://imbotao.top/jquery-read-properties">
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title> | wave's blog</title>
+  <title>jQuery 读取 properties 配置 | wave's blog</title>
   
 
 
@@ -233,7 +234,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -362,103 +363,244 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imbotao.top/jquery-read-properties.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wave">
+      <meta itemprop="description" content="In doing we learn">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wave's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">
-
-</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>　　尽管我们拥有意识却和动物一样习惯逃避痛苦。然而当我们正直地思考时，就必须承受因果纠缠的压力，正直永远都不会是不痛不痒的。<br>　　我所理解的学习或是教育，无非是一棵树摇动另一棵树,一个灵魂唤醒另一个灵魂。<br>　　感谢开源运动，感谢互联网自由开放的精神，我在其中获益匪浅。<br>　　我是<code>wave</code>，我在努力成为一名软件工程师。</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//n.miaopai.com/media/ZBJb41wuP8j7gb8YJmGmLHAGcV7ILmWW.htm" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
-height: 100%; left: 0; top: 0;"> </iframe></div>
+          <h2 class="post-title" itemprop="name headline">jQuery 读取 properties 配置
 
-
-<h3 id="座右铭"><a href="#座右铭" class="headerlink" title="座右铭"></a>座右铭</h3><p>　　进步远非由变化组成，而是取决于好记性。不能记住过去的人，被判重复过去。</p>
-<h3 id="时间轴"><a href="#时间轴" class="headerlink" title="时间轴"></a>时间轴</h3><ul>
-<li><code>2020</code><ul>
-<li><code>2020-01</code> 重庆跨年</li>
-</ul>
-</li>
-<li><code>2019</code><ul>
-<li><code>2019-09</code> 入职科大讯飞</li>
-<li><code>2019-04</code> 入职量化派 <code>2019-08离职</code></li>
-<li><code>2019-01</code> <a href="http://imbotao.top/goodbye-2018.html">2018 年终总结</a></li>
-</ul>
-</li>
-<li><code>2017</code><ul>
-<li><code>2017-11</code> <a href="http://imbotao.top/talk-nonsense.html">北漂一周年</a></li>
-<li><code>2017-08</code> 入职亚信科技 <code>2019-04离职</code></li>
-<li><code>2017-06</code> <a href="http://imbotao.top/graduated-and-quit.html">我离职了也毕业了</a></li>
-<li><code>2017-03</code> <a href="http://imbotao.top/safe-and-sound.html">准备回校论文答辩-实习总结</a></li>
-</ul>
-</li>
-<li><code>2016</code><ul>
-<li><code>2016-12</code> 搭建个人博客,整理知识,记录成长</li>
-<li><code>2016-07</code> 入职北京极宇舟天 <code>实习生</code>  </li>
-</ul>
-</li>
-</ul>
-
+              
+            
+          </h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-03-27 16:14:21 / Modified: 16:52:49" itemprop="dateCreated datePublished" datetime="2020-03-27T16:14:21+08:00">2020-03-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>在前端页面中, 可以通过使用 <code>jQuery.i18n.properties</code> 这个 jQuery 插件灵活读取配置,从而达到可以通过修改配置文件,就可以变更前端文件的资源引用。</p>
+<a id="more"></a>
+<h3 id="插件下载"><a href="#插件下载" class="headerlink" title="插件下载"></a>插件下载</h3><ol>
+<li><a href="https://www.ibm.com/developerworks/cn/web/1305_hezj_jqueryi18n/" target="_blank" rel="noopener">示例代码中获取</a></li>
+<li><a href="https://github.com/jquery-i18n-properties/jquery-i18n-properties" target="_blank" rel="noopener">github 中获取</a></li>
+</ol>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><h4 id="资源引入"><a href="#资源引入" class="headerlink" title="资源引入"></a>资源引入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;js/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;js/jquery.i18n.properties.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p>配置文件 <code>common.properties</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url=http://imbotao.top/</span><br></pre></td></tr></table></figure></p>
+<p>页面 js 使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">			var url = &quot;&quot;;  // 该url 需要从配置中获取</span><br><span class="line">			jQuery.i18n.properties(&#123;</span><br><span class="line">				name : &apos;common&apos;, // 配置文件的名字 (common.properties)</span><br><span class="line">				path : &apos;config/&apos;,  // 配置文件所在的目录路径</span><br><span class="line">				mode : &apos;map&apos;,  // 资源约束模式 (map/both)</span><br><span class="line">				callback : function() &#123;</span><br><span class="line">					url = $.i18n.prop(&apos;url&apos;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">			$.getJSON(url, function(data)&#123;</span><br><span class="line">				// todo</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;);</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+   <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Thank you for your encouragement</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="wave WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
 
 
 
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>wave</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
     
+    <a href="http://imbotao.top/jquery-read-properties.html" title="jQuery 读取 properties 配置">http://imbotao.top/jquery-read-properties.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
     
-    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/front-end/" rel="tag"><i class="fa fa-tag"></i> front-end</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/springboot-start-principle.html" rel="next" title="SpringBoot 启动原理">
+                <i class="fa fa-chevron-left"></i> SpringBoot 启动原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -721,7 +863,7 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于我"><span class="nav-number">1.</span> <span class="nav-text">关于我</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#座右铭"><span class="nav-number">2.</span> <span class="nav-text">座右铭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间轴"><span class="nav-number">3.</span> <span class="nav-text">时间轴</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#插件下载"><span class="nav-number">1.</span> <span class="nav-text">插件下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源引入"><span class="nav-number">2.1.</span> <span class="nav-text">资源引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用示例"><span class="nav-number">2.2.</span> <span class="nav-text">使用示例</span></a></li></ol></li></ol></div>
             
 
           </div>
