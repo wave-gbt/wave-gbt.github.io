@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用泛型封装redis缓存读写数据工具类]]></title>
+    <url>%2Fredis-read-write-util.html</url>
+    <content type="text"><![CDATA[功能描述：先从缓存中获取数据，如果缓存中获取不到，再通过业务接口或者查数据库获取数据，并记录到缓存中，如果数据没查到，针对集合类型的数据类型，缓存一个空集合，防止缓存穿透。 封装目的：把从缓存中读写和json序列化，反序列化的代码进行封装，不用在业务代码中写的到处都是。 工具类12345678910111213141516171819202122232425262728293031323334public &lt;T&gt; T getDataFromRedisOrDataGeter(String cacheKey, Class&lt;T&gt; clazz, Supplier&lt;T&gt; supplier, long time) &#123; // 从缓存中获取数据 String cacheValue = (String)redisUtil.get(cacheKey); T dto = null; if (StringUtils.isNotBlank(cacheValue)) &#123; try &#123; dto = objectMapper.readValue(cacheValue, clazz); &#125; catch (JsonProcessingException e) &#123; log.error("JsonProcessingException:&#123;&#125;", e.getMessage()); &#125; &#125; if (Objects.nonNull(dto)) &#123; return dto; &#125; // 如果从缓存中没有获取到,通过java8 内置的一个函数式接口获取数据 // 如果传入的泛型是集合类型，supplier.get() 如果获取不到数据时，会返回空集合。 // 缓存空集合，避免了缓存穿透，导致频繁查业务接口或数据库的问题。 dto = supplier.get(); try &#123; if (Objects.nonNull(dto)) &#123; String jsonString = objectMapper.writeValueAsString(dto); // 写缓存 redisUtil.set(cacheKey, jsonString, time); &#125; return dto; &#125; catch (JsonProcessingException e) &#123; log.error("JsonProcessingException:&#123;&#125;", e.getMessage()); &#125; return null;&#125; 使用方式123456789// 查询用户信息，cacheKey 为redis 缓存的key，缓存时间为 5minUser user = getDataFromRedisOrDataGeter(cacheKey, User.class, new Supplier&lt;User&gt;() &#123; // 只需在此处实现 Supplier 的接口方法即可 @Override public User get() &#123; return getUser(params); &#125;&#125;, 5*60); 这样在业务代码中，就实现了对某个业务方法加缓存的操作，从缓存读写，序列化，反序列化的代码就不会污染到业务接口内部。]]></content>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[jQuery 读取 properties 配置]]></title>
     <url>%2Fjquery-read-properties.html</url>
     <content type="text"><![CDATA[在前端页面中, 可以通过使用 jQuery.i18n.properties 这个 jQuery 插件灵活读取配置,从而达到可以通过修改配置文件,就可以变更前端文件的资源引用。 插件下载 示例代码中获取 github 中获取 使用方式资源引入12&lt;script src=&quot;js/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;js/jquery.i18n.properties.js&quot;&gt;&lt;/script&gt; 使用示例配置文件 common.properties1url=http://imbotao.top/ 页面 js 使用1234567891011121314$(document).ready(function()&#123; var url = &quot;&quot;; // 该url 需要从配置中获取 jQuery.i18n.properties(&#123; name : &apos;common&apos;, // 配置文件的名字 (common.properties) path : &apos;config/&apos;, // 配置文件所在的目录路径 mode : &apos;map&apos;, // 资源约束模式 (map/both) callback : function() &#123; url = $.i18n.prop(&apos;url&apos;); &#125; &#125;); $.getJSON(url, function(data)&#123; // todo &#125;) &#125;);]]></content>
@@ -415,7 +423,7 @@
   <entry>
     <title><![CDATA[当然我在扯淡]]></title>
     <url>%2Ftalk-nonsense.html</url>
-    <content type="text"><![CDATA[你没法对别人解释北京。 2013年，那是我第一次离开西北。在去哈尔滨求学的途中路过北京，那时生活正在跃出一段崭新的弧线。我以为我知道我将要面对的所有可能性，并无丝毫畏惧。就像汪峰在《北京北京》中唱的那样： 在这儿我能感觉到我的存在在这儿有太多让我眷恋的东西我在这里欢笑我在这里哭泣我在这里活着也在这儿死去 “在这儿我能感觉到我的存在”。 17年顺利拿到学位证书后回到北京，在接下来的日子里，理想、情怀开始澎湃地展现在我眼前，高速公路上红色和黄色的车灯奔涌入海，驰掣的地跌裹挟这风尘带着些许机车的腥气，北京的灯火如星辰一般铺在脚下。这是梦和幻觉构筑的城市。 《北京北京》似乎是写给这座城市的情书。不论你有多洒脱，但你只要北漂过的话，就知道这里面的那些细节有多么微妙和真切。 这是我曾经昂首阔步走过的地方，这是我一直心心念念要来的地方，我不知道终将会发生什么事，而生活终将改弦更张，现实经历的任何生活转折，和我当时以为我要为之奋斗的那个未来和真实的未来近乎南辕北辙。 但生活并不止步于此，你知道没有什么 good ending 或者 bad ending，有的只是一个又一个选择，和伴随着每个选择而来的那个无可避免的 what if。那不是抽象的可能性，而是一段又一段具体而微的生活轨迹，是真实的家庭细节和职业道路，是餐厅里的烛光和欢声笑语，是无数个清晨的问候和午夜的叹息，是同样沦肌浃髓的血汗和泪水。它们永远消失在了命运的岔口里。 你永远都不知道这是否值得。 时常自己跟自己较劲，为什么要来北漂，风尘仆仆的上下班，我似乎又找不到存在的意义，也常常问change: 我的选择错误了吗？ 兜兜转转这么久了，我还是一无所有 change回复道： emm… 不会啊，你还有我啊 很暖心，很想哭，所以越发无力感，时间已经过去了很久，但又像是只在转瞬之间。兜兜转转的千百种人生汇聚于此刻，如梦幻泡影。每个选择都可能是种错误，每种未来都隐约活色生香。要搞砸那么多次，失望那么多次，才换来这进退失据的当下片刻。 就像宋冬野在《空港曲》中唱的： 脏水洗身 浊杯赴宴如来的饭碗 荒诞世间你我登船 送命或寻欢可信仰不过是忘记真相 但至少，你在那些岔口面前沉吟过，你曾经放手一搏地尝试过，致那些破碎了的心，和跌跌撞撞的生活。]]></content>
+    <content type="text"><![CDATA[你没法对别人解释北京。 2013年，那是我第一次离开西北。在去哈尔滨求学的途中路过北京，那时生活正在跃出一段崭新的弧线。我以为我知道我将要面对的所有可能性，并无丝毫畏惧。就像汪峰在《北京北京》中唱的那样： 在这儿我能感觉到我的存在在这儿有太多让我眷恋的东西我在这里欢笑我在这里哭泣我在这里活着也在这儿死去 “在这儿我能感觉到我的存在”。 17年顺利拿到学位证书后回到北京，在接下来的日子里，理想、情怀开始澎湃地展现在我眼前，高速公路上红色和黄色的车灯奔涌入海，驰掣的地跌裹挟这风尘带着些许机车的腥气，北京的灯火如星辰一般铺在脚下。这是梦和幻觉构筑的城市。 《北京北京》似乎是写给这座城市的情书。不论你有多洒脱，但你只要北漂过的话，就知道这里面的那些细节有多么微妙和真切。 这是我曾经昂首阔步走过的地方，这是我一直心心念念要来的地方，我不知道终将会发生什么事，而生活终将改弦更张，现实经历的任何生活转折，和我当时以为我要为之奋斗的那个未来和真实的未来近乎南辕北辙。 但生活并不止步于此，你知道没有什么 good ending 或者 bad ending，有的只是一个又一个选择，和伴随着每个选择而来的那个无可避免的 what if。那不是抽象的可能性，而是一段又一段具体而微的生活轨迹，是真实的家庭细节和职业道路，是餐厅里的烛光和欢声笑语，是无数个清晨的问候和午夜的叹息，是同样沦肌浃髓的血汗和泪水。它们永远消失在了命运的岔口里。 你永远都不知道这是否值得。 时常自己跟自己较劲，为什么要来北漂，风尘仆仆的上下班，我似乎又找不到存在的意义，时间已经过去了很久，但又像是只在转瞬之间。兜兜转转的千百种人生汇聚于此刻，如梦幻泡影。每个选择都可能是种错误，每种未来都隐约活色生香。要搞砸那么多次，失望那么多次，才换来这进退失据的当下片刻。 就像宋冬野在《空港曲》中唱的： 脏水洗身 浊杯赴宴如来的饭碗 荒诞世间你我登船 送命或寻欢可信仰不过是忘记真相 但至少，你在那些岔口面前沉吟过，你曾经放手一搏地尝试过，致那些破碎了的心，和跌跌撞撞的生活。]]></content>
       <tags>
         <tag>Life-Talk</tag>
       </tags>

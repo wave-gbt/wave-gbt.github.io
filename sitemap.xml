@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://imbotao.top/books/index.html</loc>
+    <loc>http://imbotao.top/redis-read-write-util.html</loc>
     
-    <lastmod>2020-07-11T08:15:05.319Z</lastmod>
+    <lastmod>2020-09-14T07:31:13.830Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://imbotao.top/about/index.html</loc>
     
-    <lastmod>2020-07-07T05:32:05.606Z</lastmod>
+    <lastmod>2020-09-14T07:30:20.974Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://imbotao.top/talk-nonsense.html</loc>
+    
+    <lastmod>2020-09-14T07:27:53.945Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://imbotao.top/books/index.html</loc>
+    
+    <lastmod>2020-07-11T08:15:05.319Z</lastmod>
     
   </url>
   
@@ -240,14 +254,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/questions-share-1.html</loc>
+    <loc>http://imbotao.top/the-pragmatic-programmer.html</loc>
     
     <lastmod>2019-05-10T03:32:28.597Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/the-pragmatic-programmer.html</loc>
+    <loc>http://imbotao.top/questions-share-1.html</loc>
     
     <lastmod>2019-05-10T03:32:28.597Z</lastmod>
     
@@ -303,13 +317,6 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/reset-imei-code.html</loc>
-    
-    <lastmod>2019-05-10T03:32:28.595Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://imbotao.top/graduated-and-quit.html</loc>
     
     <lastmod>2019-05-10T03:32:28.595Z</lastmod>
@@ -317,7 +324,7 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/build-first-springBoot-project.html</loc>
+    <loc>http://imbotao.top/reset-imei-code.html</loc>
     
     <lastmod>2019-05-10T03:32:28.595Z</lastmod>
     
@@ -345,6 +352,13 @@
   </url>
   
   <url>
+    <loc>http://imbotao.top/build-first-springBoot-project.html</loc>
+    
+    <lastmod>2019-05-10T03:32:28.595Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://imbotao.top/how-to-start-multiple-spring-boot-instances-with-idea.html</loc>
     
     <lastmod>2019-05-10T03:32:28.594Z</lastmod>
@@ -360,13 +374,6 @@
   
   <url>
     <loc>http://imbotao.top/share-some-good-tools.html</loc>
-    
-    <lastmod>2019-05-10T03:32:28.594Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://imbotao.top/talk-nonsense.html</loc>
     
     <lastmod>2019-05-10T03:32:28.594Z</lastmod>
     
@@ -394,14 +401,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/top-8-diagrams-for-understanding-java.html</loc>
+    <loc>http://imbotao.top/improve-service-availability.html</loc>
     
     <lastmod>2019-05-10T03:32:28.593Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/improve-service-availability.html</loc>
+    <loc>http://imbotao.top/top-8-diagrams-for-understanding-java.html</loc>
     
     <lastmod>2019-05-10T03:32:28.593Z</lastmod>
     
@@ -436,6 +443,13 @@
   </url>
   
   <url>
+    <loc>http://imbotao.top/spring-transaction.html</loc>
+    
+    <lastmod>2019-05-10T03:32:28.591Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://imbotao.top/SpringBoot-hot-deployment-idea.html</loc>
     
     <lastmod>2019-05-10T03:32:28.591Z</lastmod>
@@ -450,13 +464,6 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/spring-transaction.html</loc>
-    
-    <lastmod>2019-05-10T03:32:28.591Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://imbotao.top/SpringBoot-redis.html</loc>
     
     <lastmod>2019-05-10T03:32:28.591Z</lastmod>
@@ -464,14 +471,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/springboot-JdbcTemplate-mysql.html</loc>
+    <loc>http://imbotao.top/SpringBoot-eql-or-mybatis.html</loc>
     
     <lastmod>2019-05-10T03:32:28.591Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/SpringBoot-eql-or-mybatis.html</loc>
+    <loc>http://imbotao.top/springboot-JdbcTemplate-mysql.html</loc>
     
     <lastmod>2019-05-10T03:32:28.591Z</lastmod>
     
@@ -534,14 +541,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/nginx-learn.html</loc>
+    <loc>http://imbotao.top/mysql-summary.html</loc>
     
     <lastmod>2019-05-10T03:32:28.589Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/mysql-summary.html</loc>
+    <loc>http://imbotao.top/nginx-learn.html</loc>
     
     <lastmod>2019-05-10T03:32:28.589Z</lastmod>
     
@@ -576,13 +583,6 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/linux-directory-tree.html</loc>
-    
-    <lastmod>2019-05-10T03:32:28.588Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://imbotao.top/linux-summary.html</loc>
     
     <lastmod>2019-05-10T03:32:28.588Z</lastmod>
@@ -591,6 +591,13 @@
   
   <url>
     <loc>http://imbotao.top/linux-process-manage.html</loc>
+    
+    <lastmod>2019-05-10T03:32:28.588Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://imbotao.top/linux-directory-tree.html</loc>
     
     <lastmod>2019-05-10T03:32:28.588Z</lastmod>
     
@@ -611,14 +618,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/leetcode-290-word-pattern.html</loc>
+    <loc>http://imbotao.top/leetcode-205-isomorphic-strings.html</loc>
     
     <lastmod>2019-05-10T03:32:28.587Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/leetcode-205-isomorphic-strings.html</loc>
+    <loc>http://imbotao.top/leetcode-290-word-pattern.html</loc>
     
     <lastmod>2019-05-10T03:32:28.587Z</lastmod>
     
@@ -660,14 +667,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/java-concurrent-programming-3.html</loc>
+    <loc>http://imbotao.top/java-concurrent-programming.html</loc>
     
     <lastmod>2019-05-10T03:32:28.586Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/java-concurrent-programming.html</loc>
+    <loc>http://imbotao.top/java-concurrent-programming-3.html</loc>
     
     <lastmod>2019-05-10T03:32:28.586Z</lastmod>
     
@@ -723,14 +730,14 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/css-advanced.html</loc>
+    <loc>http://imbotao.top/chrome-plug-collection.html</loc>
     
     <lastmod>2019-05-10T03:32:28.584Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://imbotao.top/chrome-plug-collection.html</loc>
+    <loc>http://imbotao.top/eclipse-maven-spring-springmvc-mybatis-example.html</loc>
     
     <lastmod>2019-05-10T03:32:28.584Z</lastmod>
     
@@ -744,7 +751,7 @@
   </url>
   
   <url>
-    <loc>http://imbotao.top/eclipse-maven-spring-springmvc-mybatis-example.html</loc>
+    <loc>http://imbotao.top/css-advanced.html</loc>
     
     <lastmod>2019-05-10T03:32:28.584Z</lastmod>
     
